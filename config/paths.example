@@ -1,0 +1,7 @@
+# Where the sample library lives on this machine: one source per line, key = path.
+# ./djmono doctor copies this to paths.local (not in git) and fills in sfm if it can find it.
+# Crate lines refer to these keys, e.g.  sfm:JUNOS FROM MARS/* c3.wav
+
+sfm = ~/music production/samples/Samples From Mars
+lib = ~/music production/samples
+rec = ~/music production/recordings

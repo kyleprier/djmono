@@ -1,0 +1,4 @@
+# DRIFT/TONE · pan flute, airy voices, simple melodic one-shots
+sfm:DX100 FROM MARS/*pan*flute* c3.wav       | limit=2
+sfm:VOYETRA FROM MARS/*voice*                | limit=3
+sfm:KAWAII DREAMS FROM MARS/*voice*          | limit=3

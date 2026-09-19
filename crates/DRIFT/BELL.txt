@@ -1,0 +1,7 @@
+# DRIFT/BELL · chimes, bowls, bells with long rings (ring profile: stereo, 15 s)
+sfm:FOUND SOUNDS FROM MARS/*chime*           | limit=4
+sfm:FOUND SOUNDS FROM MARS/*bell*            | limit=4
+
+# gap fill: singing bowls are the core of this folder
+# lib:Singing Bowls/*.wav                    | limit=16 code=bowl
+# lib:Tibetan Singing Bowl/*.wav             | limit=8 code=tsb

@@ -1,0 +1,3 @@
+# DUB/LOOP · breaks for the Slice machine (slice, then random slice locks)
+sfm:VINYL BREAKS FROM MARS/*                 | limit=16 exclude=perc
+sfm:CASSETTE DRUMS FROM MARS/*loop*          | limit=4

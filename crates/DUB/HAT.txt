@@ -1,0 +1,8 @@
+# DUB/HAT · ride-centric, top-down: rides first, then hats
+sfm:VINYL DRUMS FROM MARS/*ride*             | limit=6
+sfm:CASSETTE DRUMS FROM MARS/*ride*          | limit=4
+sfm:VINYL DRUMS FROM MARS/*hat*              | limit=6
+sfm:LM1 FROM MARS/*hat*                      | limit=4
+
+# your cuts
+# rec:vinyl/*_ride_*

@@ -1,0 +1,110 @@
+# Source codes: the prefix on every sample name  (<code>_<fn>_<desc>, e.g. juno_chrd_warm-pad-c3).
+# code   source (Samples From Mars pack title, other pack, or record/artist for your own cuts)
+# Keep codes 2-4 characters. Your own recordings are named by hand with the same scheme.
+
+# --- your own cuts: artist codes -----------------------------------------------------
+trt     Stanley Turrentine
+tjdr    Cal Tjader
+
+# --- Samples From Mars (All The Samples From Mars, 88 packs) -------------------------
+101     101 From Mars
+101d    101 Drums From Mars
+2600    2600 From Mars
+360     360 From Mars
+505     505 From Mars
+606     606 From Mars
+626     626 From Mars
+707     707 From Mars
+727     727 From Mars
+808     808 From Mars
+808l    808 Loops From Mars
+909     909 From Mars
+909l    909 Loops From Mars
+acid    Acid From Mars
+omni    Arp Omni From Mars
+cass    Cassette Drums From Mars
+cr78    CR-78 From Mars
+dbt     Databenders Toolkit
+dtrx    Drumtrax From Mars
+drml    Drumulator From Mars
+dx      DX From Mars
+dmx     DMX From Mars
+bohm    Dr Bohm From Mars
+drs     DR Sample From Mars
+dx1     DX100 From Mars
+ekko    Ekko From Mars
+emu     Emulator From Mars
+ess     Essential WAV From Mars
+fnd     Found Sounds From Mars
+grv     Grooves From Mars
+itap    Indie Tapes From Mars
+juno    Junos From Mars
+jupd    Jupiter Drums From Mars
+kawa    Kawaii Dreams From Mars
+lm1     LM1 From Mars
+lind    Lindrum From Mars
+ln60    Linn60 From Mars
+linl    Lin Loops From Mars
+lofi    Lo-Fi Drum Machines From Mars
+micr    Micro From Mars
+mini    Mini From Mars
+mpop    Minipops Snacks From Mars
+mirg    Mirage From Mars
+modd    Modern Oddities From Mars
+modc    Modular Creations From Mars
+modc    Modular Creations
+modr    Modular Drums From Mars
+mdl     Modular Drum Loops From Mars
+mpc1    MPC1 From Mars
+m2k     MPC2000 Snacks From Mars
+m3k     MPC3000 From Mars
+mp60    MPC60 From Mars
+mr10    MR10 From Mars
+ms10    MS10 From Mars
+ob      OB From Mars
+perk    Perkons From Mars
+pres    Private Reserve From Mars
+puls    Pulsar From Mars
+reco    Recodrum From Mars
+rhy     Rhythm From Mars
+rhyk    Rhythm King From Mars
+s612    S612 From Mars
+s950    S950 Snacks From Mars
+sjrn    Sample Journal From Mars
+s800    SDS800 From Mars
+sdsv    SDSV From Mars
+sh5     SH5 From Mars
+sid     SID From Mars
+sk1     SK1 From Mars
+sov     Soviet Synths From Mars
+sp12    SP1200 From Mars
+sp12    SP 1200 From Mars
+sp9     SP 909 From Mars
+syn     Synare From Mars
+s100    SYS100M From Mars
+tfrg    Tape Fragments From Mars
+tom     TOM From Mars
+trpt    Trumpet Fragments From Mars
+vbrk    Vinyl Breaks From Mars
+vdrm    Vinyl Drums From Mars
+vdm     Vinyl Drum Machines From Mars
+vsp     Vinyl SP From Mars
+vsyn    Vinyl Synths From Mars
+visc    Viscount From Mars
+voy     Voyetra From Mars
+vp33    VP 330 From Mars
+vp33    VP-330 From Mars
+wasp    Wasp From Mars
+wndl    Wendel From Mars
+
+# --- gap-fill packs (docs/SOURCES.md) -------------------------------------------------
+sglu    Super Glue
+eklg    EuroKlang
+aote    Aotearoa
+kali    Kalimba Experiments
+mbra    The Wizard of Mbira
+skin    Skins
+tbla    Total Tabla
+bowl    Singing Bowls
+99n     Nature Sounds
+gdc     Sonniss GDC

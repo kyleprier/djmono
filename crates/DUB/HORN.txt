@@ -1,0 +1,7 @@
+# DUB/HORN · trumpet licks and stabs for delay throws
+sfm:TRUMPET FRAGMENTS FROM MARS/*            | limit=16
+sfm:MIRAGE FROM MARS/*brass*                 | limit=4
+sfm:DR SAMPLE FROM MARS/*horn*               | limit=6
+
+# gap fill: MSXII Vintage Soul Horns
+# lib:Vintage Soul Horns/*.wav               | limit=16 code=vsh

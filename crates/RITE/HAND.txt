@@ -1,0 +1,12 @@
+# RITE/HAND · real hand drums: djembe, udu, conga, bongo, tabla, frame drum
+sfm:PRIVATE RESERVE FROM MARS/*djembe*       | limit=8 stereo
+sfm:PRIVATE RESERVE FROM MARS/*udu*          | limit=8 stereo
+sfm:PRIVATE RESERVE FROM MARS/*conga*        | limit=8 stereo
+sfm:PRIVATE RESERVE FROM MARS/*bongo*        | limit=6 stereo
+sfm:LO-FI DRUM MACHINES FROM MARS/*cuica*    | limit=2
+sfm:VISCOUNT FROM MARS/*bongo*               | limit=3
+sfm:CASSETTE DRUMS FROM MARS/*tom*           | limit=4
+
+# gap fill (docs/SOURCES.md): the SFM catalogue is thin here, these do the heavy lifting
+# lib:Skins/*.wav                            | limit=48 stereo code=skin
+# lib:Total Tabla/*.wav                      | limit=24 code=tbla

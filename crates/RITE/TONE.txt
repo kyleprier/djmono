@@ -1,0 +1,8 @@
+# RITE/TONE · melodic acoustic voices: kalimba, mbira, flute, berimbau, mouth harp
+sfm:DX100 FROM MARS/*flute* c3.wav           | limit=3 exclude=pan
+sfm:VOYETRA FROM MARS/*flute* c3.wav         | limit=3
+sfm:TAPE FRAGMENTS FROM MARS/*flute*         | limit=3
+
+# gap fill: kalimba/mbira/berimbau are the missing heart of this world
+# lib:Kalimba Experiments/*.wav              | limit=12 code=kali
+# lib:The Wizard of Mbira/*.wav              | limit=16 code=mbra exclude=loop

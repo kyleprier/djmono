@@ -1,0 +1,6 @@
+build/
+backups/*
+!backups/README.md
+config/paths.local
+__pycache__/
+.DS_Store

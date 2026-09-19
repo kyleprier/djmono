@@ -1,0 +1,3 @@
+# RITE/KICK · the low drum: surdo, floor tom, felt kick
+sfm:VINYL DRUMS FROM MARS/*floor*            | limit=4
+sfm:LO-FI DRUM MACHINES FROM MARS/*surdo*    | limit=2 exclude=cuica

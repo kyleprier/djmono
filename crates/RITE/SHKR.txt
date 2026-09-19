@@ -1,0 +1,5 @@
+# RITE/SHKR · shakers, rattles, tambourine, guiro
+sfm:PRIVATE RESERVE FROM MARS/*shak*         | limit=8
+sfm:CASSETTE DRUMS FROM MARS/*tamb*          | limit=3
+sfm:LO-FI DRUM MACHINES FROM MARS/*guiro*    | limit=2
+sfm:WENDEL FROM MARS/*guiro*                 | limit=2

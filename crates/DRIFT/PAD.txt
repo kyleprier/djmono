@@ -1,0 +1,5 @@
+# DRIFT/PAD · soft, bright, slow: late-80s Japanese environmental colours
+sfm:KAWAII DREAMS FROM MARS/* c3.wav         | limit=10
+sfm:EMULATOR FROM MARS/*choir*               | limit=4
+sfm:EMULATOR FROM MARS/*string*              | limit=4
+sfm:VP 330 FROM MARS/*string*                | limit=3

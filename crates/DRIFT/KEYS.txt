@@ -1,0 +1,4 @@
+# DRIFT/KEYS · FM bells, glassy keys, soft piano
+sfm:DX100 FROM MARS/*bell* c3.wav            | limit=6
+sfm:KAWAII DREAMS FROM MARS/*bell*           | limit=4
+sfm:KAWAII DREAMS FROM MARS/*piano*          | limit=4

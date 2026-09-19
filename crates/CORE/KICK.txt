@@ -1,0 +1,5 @@
+# CORE/KICK · kicks that sit in any world: round, short, not clicky
+sfm:909 FROM MARS/*kick*                     | limit=6
+sfm:808 FROM MARS/*kick*                     | limit=6
+sfm:CR-78 FROM MARS/*kick*                   | limit=3
+sfm:VINYL DRUM MACHINES FROM MARS/*kick*     | limit=6

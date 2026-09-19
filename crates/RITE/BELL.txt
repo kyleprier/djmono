@@ -1,0 +1,5 @@
+# RITE/BELL · agogo, cowbell, glass and metal hits, gongs
+sfm:VISCOUNT FROM MARS/*agogo*               | limit=3
+sfm:WENDEL FROM MARS/*cowbell*               | limit=3
+sfm:FOUND SOUNDS FROM MARS/*glass*           | limit=4
+sfm:FOUND SOUNDS FROM MARS/*metal*           | limit=4

@@ -1,0 +1,4 @@
+# DUB/BASS · round subs and soft bass one-shots, one note per patch
+sfm:MINI FROM MARS/* c1.wav                  | limit=6
+sfm:101 FROM MARS/* c1.wav                   | limit=4
+sfm:JUNOS FROM MARS/*bass* c1.wav            | limit=4

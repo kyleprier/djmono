@@ -1,0 +1,3 @@
+# CORE/FX · sirens, zaps, oddities for throws in any world
+sfm:SYNARE FROM MARS/*                       | limit=8 exclude=drone
+sfm:MODERN ODDITIES FROM MARS/*              | limit=6
