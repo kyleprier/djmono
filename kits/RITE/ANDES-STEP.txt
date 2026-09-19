@@ -1,0 +1,26 @@
+# ANDES STEP · RITE
+ref    = Nicola Cruz: bombo, wind flutes, charango; his loops run through a Space Echo; loops mixed with one-shots
+tempo  = 108
+feel   = bombo, finger drums, caxixi, flute breath, plucked strings
+play   = Bombo on 1 and the 'and' of 2, delay send locked up on the second hit for the echo. Banjo stands in for the charango: short strums with retrigs.
+delay  = time=24 fb=80 hp=30 lp=50 rev=25
+reverb = pre=15 decay=60 lp=60
+comp   = thr=90 mix=30
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | C:BOMBO
+ 2  | C:TOCA SNARE
+ 3  | C:CAXIXI         | RITE/SHKR/skin_shkr_*caxixi*
+ 4  | C:AGOGO LO
+ 5  | C:BONGOS
+ 6  | C:PEG DRUM       | RITE/HAND/skin_hand_peg-drum*
+ 7  | C:GUIRO
+ 8  | C:SL 100 UDU
+ 9  | G:BOX CELLO
+10  | G:BANJO
+11  | G:NYLON ROOM
+12  | G:PAN FLUTE      | RITE/HORN/*flute*
+13  | G:DRONE DARK
+14  | G:SCAPE MOVING
+15  | E:NOISE HISS
+16  | G:FX SWELL

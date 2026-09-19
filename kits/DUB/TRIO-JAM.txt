@@ -1,0 +1,27 @@
+# TRIO JAM · DUB
+ref    = Moritz von Oswald Trio: ride and hi-hat playing, a dry clap, a reverb-soaked snare, Rhodes chords; recorded from the first note
+tempo  = 112
+feel   = ride-led live jam: dry clap, conga, Rhodes chords, filtered horn drone, reverb snare on fills
+play   = Ride and percussion carry it: trig conditions (50%, 1:2, 3:4) and micro-timing on 4, 5 and 6. Clap dry on 2 and 4; the reverb snare (7) only on fills. Record the jam from the first note.
+delay  = time=16 fb=55 hp=40 lp=65 rev=35
+reverb = pre=25 decay=95 lp=65
+chorus = depth=40 speed=20 mix=50
+comp   = thr=100 mix=25
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | B:KICK VINYL
+ 2  | A:CLAP 808
+ 3  | B:HAT DEGRADED
+ 4  | B:RIDE ROUND     | DUB/HAT/*ride*
+ 5  | A:CONGA 808 HI
+ 6  | B:CONGA DUB
+ 7  | B:SNARE VERB
+ 8  | B:SL CHOP        |                                    | vol=70
+ 9  | F:UPRIGHT
+10  | F:RHODES EBM11   | DUB/STAB/drs_stab_rhodes*
+11  | F:DUB DARK PNO
+12  | F:HORN DRONE
+13  | F:PAD PROPHET
+14  | F:SCAPE CINEMA
+15  | E:NOISE VINYL
+16  | E:FX UFO DRY

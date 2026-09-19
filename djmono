@@ -1,2 +1,6 @@
 #!/bin/sh
-exec python3 "$(dirname "$0")/tools/djmono.py" "$@"
+# Uses .venv (mido for MIDI) when it exists, else the system python3.
+here="$(dirname "$0")"
+py=python3
+[ -x "$here/.venv/bin/python3" ] && py="$here/.venv/bin/python3"
+exec "$py" "$here/tools/djmono.py" "$@"

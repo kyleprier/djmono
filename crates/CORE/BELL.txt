@@ -1,0 +1,7 @@
+# CORE/BELL · metal shared by RITE and DRIFT: finger cymbals, ogene, bells, waterphone (tracks 4, 14)
+lib:SKINS/SKN_PERC_HITS/*fingercymbals*                    | limit=3 strip=2 len=6
+lib:SKINS/SKN_PERC_HITS/*ogene*                            | limit=3 strip=2 len=6
+lib:SKINS/SKN_PERC_HITS/*minitims*                         | limit=2 strip=2 len=6
+lib:SKINS/SKN_PERC_HITS/*garkabebs*                        | limit=2 strip=2 len=6
+lib:SKINS/SKN_PERC_HITS/*bell*                             | limit=3 strip=2 len=6 exclude=shekere,shaker
+lib:SKINS/SKN_PERC_HITS/*waterphone*                       | limit=2 strip=2 len=10

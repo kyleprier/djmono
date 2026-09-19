@@ -1,0 +1,24 @@
+# DAWN WATER · DRIFT
+tempo  = 80
+feel   = gentle pulse: water, celeste, forest
+delay  = time=48 fb=40 hp=30 lp=90 rev=40
+reverb = pre=20 decay=110 lp=110
+chorus = depth=60 speed=10 mix=60
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | D:PULSE SOFT
+ 2  | D:WATER SLAP
+ 3  | D:SHAKER AIR
+ 4  | D:CHIME FM       | DRIFT/BELL/*
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:GARDEN FORK    | DRIFT/WOOD/*
+ 8  | D:LP FOREST
+ 9  | H:BASS DRONE C
+10  | H:CELESTE CHRD
+11  | H:CELESTE
+12  | H:FLUTE FILTER
+13  | H:CAMPFIRE
+14  | H:FOREST
+15  | E:NOISE HISS
+16  | H:CHIRP REV

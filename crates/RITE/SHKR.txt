@@ -5,3 +5,12 @@ sfm:VINYL DRUMS FROM MARS/*percussion/guiro/*              | limit=3
 sfm:PRIVATE RESERVE FROM MARS/*07. shaker/*                | limit=4
 sfm:PRIVATE RESERVE FROM MARS/*08. tambourine/*            | limit=3
 sfm:LM1 FROM MARS/*08. cabasa/*                            | limit=3
+
+# Skins: shakers, shekere, caxixi, rattles
+lib:SKINS/SKN_PERC_HITS/*shaker*                           | limit=10 strip=2 exclude=bellshaker
+lib:SKINS/SKN_PERC_HITS/*shekere*                          | limit=5 strip=2
+lib:SKINS/SKN_PERC_HITS/*caxixi*                           | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*rattle*                           | limit=4 strip=2 exclude=caxixi
+lib:SKINS/SKN_PERC_HITS/*guiro*                            | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*shaqahaq*                         | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*anklungs*                         | limit=2 strip=2

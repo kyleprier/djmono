@@ -113,3 +113,4 @@ bowl    Singing Bowls
 99n     Nature Sounds
 gdc     Sonniss GDC
 dsph    DigiSphere II - Digitakt II Sound Pack by Substan
+skin    SKINS

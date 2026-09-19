@@ -1,0 +1,26 @@
+# RIVER DRONE · BRIDGE
+ref    = Beatless bridges: Acid Pauli's kickless sets, Deepchord's drone layer
+tempo  = 90
+feel   = beatless: water, drone, guitar swell; change tempo here
+play   = No kick. While only 13-15 play, move the tempo to where the next kit wants it.
+delay  = time=48 fb=55 hp=30 lp=80 rev=50
+reverb = pre=30 decay=120 lp=90
+chorus = depth=60 speed=8 mix=60
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | D:PULSE SUB
+ 2  | D:WATER SLAP
+ 3  | D:SHAKER AIR
+ 4  | D:WINE GLASS
+ 5  | C:UDU TONE
+ 6  | D:WATER SPLASH
+ 7  | D:PLASTIC BIN
+ 8  | D:LP FOREST
+ 9  | G:DRONE SUB
+10  | H:GLASS DROPS
+11  | F:RHODES BELL
+12  | F:STEEL STRATO
+13  | H:CHORD DRONE
+14  | H:FOREST
+15  | E:NOISE HISS
+16  | E:FX RISE

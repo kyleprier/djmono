@@ -1,46 +1,94 @@
-# Recipes: how a preset is dialled in. Starting points on the DT2's 0-127 scale; the kit sets delay/reverb character.
-# recipe        | machine          | settings
-# --- percussion ----------------------------------------------------------------------------------------------
-kick-round      | Oneshot          | filter LP4 freq 100 · amp dec 60 · overdrive 8 · reverb 0
-kick-felt       | Oneshot          | tune -3 · filter LP4 freq 70 · amp dec 70 · overdrive 12 · reverb 8
-kick-soft       | Oneshot          | filter LP4 freq 55 · amp atk 2 dec 45 · reverb 15
-snap-rim        | Oneshot          | filter HP 20 · amp dec 30 · delay 20 (p-lock up for throws) · reverb 20
-snap-slap       | Oneshot          | amp dec 40 · overdrive 10 · reverb 25
-snap-found      | Oneshot          | amp dec 50 · reverb 45 · delay 15
-hat-dusty       | Oneshot          | filter HP 50 then LP4 100 · amp dec 20 · SRR 3 · reverb 10
-ride-wash       | Oneshot          | filter LP4 95 · amp dec 90 · reverb 25 · LFO1 random slow to volume, depth 6
-metal-bell      | Oneshot          | amp dec 60 · reverb 35 · delay 15
-hand-dry        | Oneshot          | amp dec 50 · overdrive 6 · reverb 18
-hand-room       | Oneshot          | amp dec 70 · reverb 35 · LFO1 random to sample start, depth 3 (no two hits alike)
-wood-click      | Oneshot          | amp dec 25 · reverb 20
-shake-soft      | Oneshot          | filter HP 40 · amp dec 30 · reverb 15 · LFO1 random to volume, depth 10
-loop-slice      | Slice            | create slice grid 16 with transient detect · amp dec 127 · SRR 2 · reverb 10 · try CREATE RANDOM LOCKS
-loop-werp       | Werp             | play loop · filter LP4 80 · reverb 40 · LFO1 random slow to segment
-# --- bass ----------------------------------------------------------------------------------------------------
-bass-sub        | Oneshot          | filter LP4 50 · amp hold 30 dec 70 · overdrive 15 · reverb 0
-bass-upright    | Oneshot          | filter LP4 80 · amp dec 60 · overdrive 5 · reverb 5
-bass-drone      | Oneshot          | play loop · filter LP4 60 · amp atk 40 rel 60 · reverb 30 · LFO1 random very slow to filter, depth 8
-# --- stabs ---------------------------------------------------------------------------------------------------
-stab-dub        | Oneshot          | filter LP4 40 reso 25 env +25 dec 35 · amp hold 10 dec 40 · delay 75 · reverb 30 · LFO1 sine slow to filter, depth 8 · LFO2 random slewed to tune, depth 2 (wow)
-stab-rhodes     | Oneshot          | filter LP4 70 · amp dec 70 · delay 40 · reverb 25 · SRR 2 · LFO2 random slewed to tune, depth 2
-stab-pluck      | Oneshot          | amp dec 55 · reverb 30 · delay 25 · key tracking on filter
-stab-bell       | Oneshot          | amp dec 100 · reverb 60 · delay 30 · key tracking on filter
-# --- keys ----------------------------------------------------------------------------------------------------
-keys-rhodes     | Oneshot          | filter LP4 85 · amp dec 100 · chorus 30 · reverb 25 · SRR 2 · LFO2 random slewed to tune, depth 2
-keys-organ      | Oneshot          | play loop · filter LP4 90 · amp sustain full · overdrive 12 · chorus 40 · reverb 20
-keys-glass      | Oneshot          | amp dec 110 · reverb 60 · delay 30 · key tracking on filter
-# --- lead: horns, strings, guitar, pedal steel ---------------------------------------------------------------
-horn-throw      | Oneshot          | filter LP4 85 · amp dec 70 · delay 60 (throws) · reverb 30 · SRR 2
-strings-swell   | Oneshot          | play loop · amp atk 60 rel 70 · filter LP4 70 · chorus 30 · reverb 50
-flute-breath    | Oneshot          | amp atk 15 dec 80 · reverb 45 · LFO1 triangle slow to tune, depth 3 (vibrato)
-gtr-verb        | Oneshot          | filter LP4 95 · amp dec 100 · chorus 45 · delay 50 · reverb 70 · LFO1 triangle slow to volume, depth 8 (tremolo)
-steel-swell     | Oneshot          | play loop · amp atk 70 hold 60 rel 90 (volume-pedal swell) · chorus 30 · delay 40 · reverb 80 · LFO1 sine slow to tune, depth 4 (steel vibrato) · LFO2 sine slow to pan
-# --- pads, scapes, noise, fx ---------------------------------------------------------------------------------
-pad-fog         | Oneshot          | play loop · filter LP4 55 · amp atk 60 rel 80 · reverb 50 · SRR 2 · LFO1 sine very slow to filter, depth 10
-pad-glass       | Oneshot          | play loop · amp atk 50 rel 100 · chorus 40 · reverb 90 · key tracking on filter
-pad-drone       | Oneshot          | play loop · filter LP4 50 · amp atk 80 rel 100 · reverb 60 · LFO1 random slewed slow to filter
-scape-werp      | Werp             | reverse-loop segments · filter LP4 80 · amp atk 40 rel 90 · reverb 70 · LFO1 random slow to sample start
-scape-stretch   | Stretch          | play loop · filter HP 20 · reverb 50 · LFO1 random slow to volume, depth 10
-noise-bed       | Oneshot          | play loop · filter HP 40 then LP4 80 · volume 50 · SRR 3 · LFO1 random slewed to volume, depth 12
-fx-throw        | Oneshot          | amp dec 80 · delay 110 · reverb 60
-fx-reverse      | Oneshot          | play reverse · amp atk 30 · reverb 90
+# Recipes: how a preset is dialled in. Values read the way the DT2 shows them; anything not set stays at init.
+# The loader sends these over MIDI. Set by hand: the machine (if not Oneshot) and LFO destinations (after >).
+#   lfoN = wave/speed/mult/depth>destination   waves tri sine sqr saw exp ramp rnd · speed x mult = 128 is one cycle a bar
+# recipe          | machine | parameters
+
+# --- low ------------------------------------------------------------------------------------------------------
+kick-round        | Oneshot | freq=100 dec=60 od=8
+kick-dub          | Oneshot | freq=80 dec=50 od=12 srr=2
+kick-felt         | Oneshot | tune=-2 freq=72 dec=70 od=12 reverb=8
+kick-soft         | Oneshot | freq=55 atk=2 dec=45 reverb=15
+low-skin          | Oneshot | freq=95 dec=80 od=6 reverb=12
+low-bombo         | Oneshot | tune=-1 freq=85 dec=90 delay=18 reverb=20
+
+# --- snap -----------------------------------------------------------------------------------------------------
+snap-rim          | Oneshot | type=hp freq=20 dec=30 delay=20 reverb=20
+snap-slap         | Oneshot | dec=40 od=10 reverb=25
+snap-clap         | Oneshot | freq=110 dec=45 reverb=30
+snap-verb         | Oneshot | dec=90 delay=10 reverb=90
+snap-found        | Oneshot | dec=50 delay=15 reverb=45
+
+# --- hat & shake ----------------------------------------------------------------------------------------------
+hat-dusty         | Oneshot | type=hp freq=45 dec=20 srr=3 reverb=10
+hat-open          | Oneshot | type=hp freq=40 dec=45 reverb=15
+shake-soft        | Oneshot | type=hp freq=40 dec=30 reverb=15 lfo1=rnd/32/x32/+10>vol
+shake-16th        | Oneshot | type=hp freq=35 dec=25 reverb=10
+
+# --- metal ----------------------------------------------------------------------------------------------------
+ride-wash         | Oneshot | freq=95 dec=90 reverb=25 lfo1=rnd/32/x4/+6>vol
+metal-bell        | Oneshot | dec=60 delay=15 reverb=35
+metal-ring        | Oneshot | dec=110 delay=20 reverb=60
+
+# --- hand -----------------------------------------------------------------------------------------------------
+hand-dry          | Oneshot | dec=50 od=6 reverb=18
+hand-room         | Oneshot | dec=70 reverb=35 lfo1=rnd/32/x32/+3>start
+hand-dub          | Oneshot | dec=60 delay=35 reverb=30
+hand-deep         | Oneshot | tune=-5 freq=90 dec=80 reverb=45
+
+# --- wood & found ---------------------------------------------------------------------------------------------
+wood-click        | Oneshot | dec=25 reverb=20
+wood-found        | Oneshot | dec=60 delay=20 reverb=45 lfo1=rnd/32/x32/+4>tune
+
+# --- loops: SL = Grid, 16 slices a bar; LP = the whole loop, stretched to tempo --------------------------------
+slice-grid        | Grid    | grid=auto reverb=10
+slice-dub         | Grid    | grid=auto freq=90 srr=3 delay=25 reverb=20
+loop-stretch      | Stretch | freq=115 reverb=15
+loop-field        | Werp    | freq=80 reverb=40 lfo1=rnd/8/x2/+20>start
+
+# --- bass -----------------------------------------------------------------------------------------------------
+bass-sub          | Oneshot | freq=50 hold=30 dec=70 od=15
+bass-dub          | Oneshot | freq=45 reso=15 dec=80 od=20
+bass-upright      | Oneshot | freq=80 dec=60 od=5 reverb=5
+bass-drone        | Oneshot | play=loop looppos=0 freq=60 atk=40 dec=90 reverb=30 lfo1=rnd/4/x1/+8>freq
+
+# --- stab -----------------------------------------------------------------------------------------------------
+stab-dub          | Oneshot | freq=40 reso=25 env=+25 fdec=35 hold=10 dec=40 delay=75 reverb=30 lfo1=sine/8/x2/+8>freq lfo2=rnd/16/x4/+2>tune
+stab-bp           | Oneshot | type=bp freq=58 reso=20 bits=20 srr=8 hold=12 dec=45 delay=70 reverb=20 lfo1=sine/4/x2/+14>freq
+stab-rhodes       | Oneshot | freq=70 dec=70 srr=2 delay=40 reverb=25 lfo2=rnd/16/x4/+2>tune
+stab-pluck        | Oneshot | keytrk=64 dec=55 delay=25 reverb=30
+stab-bell         | Oneshot | keytrk=64 dec=100 delay=30 reverb=60
+
+# --- keys -----------------------------------------------------------------------------------------------------
+keys-rhodes       | Oneshot | freq=85 dec=100 srr=2 chorus=30 reverb=25 lfo2=rnd/16/x4/+2>tune
+keys-dub          | Oneshot | freq=75 dec=80 srr=3 delay=60 reverb=35
+keys-organ        | Oneshot | play=loop looppos=0 freq=90 od=12 chorus=40 reverb=20
+keys-glass        | Oneshot | keytrk=64 dec=110 delay=30 reverb=60
+
+# --- lead: horns, strings, guitar, pedal steel, voice ---------------------------------------------------------
+horn-throw        | Oneshot | freq=85 dec=70 srr=2 delay=60 reverb=30
+horn-drone        | Oneshot | play=loop looppos=0 freq=60 atk=50 dec=110 reverb=60 lfo1=sine/2/x2/+10>freq
+strings-swell     | Oneshot | play=loop looppos=0 freq=70 atk=60 dec=100 chorus=30 reverb=50
+flute-breath      | Oneshot | atk=15 dec=80 reverb=45 lfo1=tri/40/x32/+3>tune
+gtr-verb          | Oneshot | freq=95 dec=100 chorus=45 delay=50 reverb=70 lfo1=tri/32/x32/+8>vol
+steel-swell       | Oneshot | play=loop looppos=0 atk=70 hold=60 dec=110 chorus=30 delay=40 reverb=80 lfo1=sine/24/x32/+4>tune lfo2=sine/4/x2/+20>pan
+vox-throw         | Oneshot | freq=90 dec=80 delay=70 reverb=40
+vox-ghost         | Oneshot | type=bp freq=70 atk=10 dec=100 vol=80 delay=40 reverb=100
+
+# --- pad ------------------------------------------------------------------------------------------------------
+pad-fog           | Oneshot | play=loop looppos=0 freq=55 atk=60 dec=110 srr=2 reverb=50 lfo1=sine/2/x2/+10>freq
+pad-glass         | Oneshot | play=loop looppos=0 keytrk=64 atk=50 dec=120 chorus=40 reverb=90
+pad-drone         | Oneshot | play=loop looppos=0 freq=50 atk=80 dec=127 reverb=60 lfo1=rnd/2/x2/+8>freq
+pad-dub           | Oneshot | play=loop looppos=0 type=bp freq=60 atk=40 dec=110 delay=30 reverb=60 lfo1=sine/4/x2/+12>freq
+
+# --- scape ----------------------------------------------------------------------------------------------------
+scape-bed         | Oneshot | play=loop looppos=0 type=hp freq=15 atk=40 dec=127 reverb=40
+scape-stretch     | Stretch | type=hp freq=20 reverb=50 lfo1=rnd/4/x1/+10>vol
+scape-werp        | Werp    | freq=80 atk=40 dec=120 reverb=70 lfo1=rnd/4/x1/+16>start
+
+# --- noise ----------------------------------------------------------------------------------------------------
+noise-bed         | Oneshot | play=loop looppos=0 type=bp freq=70 vol=70 srr=3 lfo1=rnd/2/x2/+12>vol
+noise-surf        | Oneshot | play=loop looppos=0 type=bp freq=64 atk=60 dec=127 lfo1=sine/1/x2/+30>freq lfo2=sine/1/x2/+40>pan
+
+# --- fx -------------------------------------------------------------------------------------------------------
+fx-throw          | Oneshot | dec=80 delay=110 reverb=60
+fx-reverse        | Oneshot | play=rev atk=30 reverb=90

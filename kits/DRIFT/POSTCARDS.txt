@@ -1,0 +1,26 @@
+# POSTCARDS · DRIFT
+ref    = Hiroshi Yoshimura, Music for Nine Postcards: a keyboard and a Rhodes at home, played at conversation volume; Green added rain and birds
+tempo  = 70
+feel   = a few Rhodes notes and bell chords, rain, birds, room hum
+play   = Sparse trig conditions (1:4, 3:7, 50%) on 10 and 11 so notes come back unevenly. Keep the whole kit quiet.
+delay  = time=48 fb=35 hp=30 lp=80 rev=30
+reverb = pre=20 decay=90 lp=90
+chorus = depth=40 speed=8 mix=50
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | D:PULSE SUB
+ 2  | D:TWIG
+ 3  | D:SHAKER AIR
+ 4  | D:TUBULAR BELL
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:GARDEN FORK
+ 8  | D:LP RAIN
+ 9  | H:AIR BASS
+10  | H:FM BELL CHRD
+11  | H:CELESTE RHD
+12  | H:BREATH V
+13  | H:ENSEMBLE FEM
+14  | H:RAIN THUNDER
+15  | E:NOISE HISS
+16  | H:CHIRP REV

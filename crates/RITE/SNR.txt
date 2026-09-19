@@ -1,0 +1,5 @@
+# RITE/SNR · claps, snaps and box snares from real players (track 2)
+lib:SKINS/SKN_PERC_HITS/*clap*                             | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*tocatomsnare*                     | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*snaretama*                        | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*timpbox*                          | limit=2 strip=2

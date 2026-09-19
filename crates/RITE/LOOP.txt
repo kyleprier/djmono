@@ -4,3 +4,12 @@ sfm:EKKO FROM MARS/*loops/04. tops/*                       | limit=4
 sfm:808 LOOPS FROM MARS/*tom & conga combos/*              | limit=4
 sfm:VISCOUNT FROM MARS/*loops/repaired/02. tops/*          | limit=4
 sfm:MINIPOPS SNACKS FROM MARS/*loops/*                     | limit=6
+
+# Skins loops, one drum per loop, for the grid (SL presets) and whole (LP presets). Mono to save RAM.
+lib:SKINS/SKN_WAV_LOOPS/skn 100 */*                        | limit=4 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/skn 110 */*                        | limit=4 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/skn 120 */*                        | limit=4 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/skn 125 */*                        | limit=2 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/skn 80 */*                         | limit=2 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/skn 140 */*                        | limit=2 mono strip=1 drop=perc exclude=full
+lib:SKINS/SKN_WAV_LOOPS/*fullperc*                         | limit=4 mono strip=1 drop=perc

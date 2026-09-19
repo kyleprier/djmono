@@ -1,0 +1,27 @@
+# FOURTH WORLD · BRIDGE
+ref    = Jon Hassell, Fourth World Vol. 1: Possible Musics: congas and ghatam, a tape-looped trumpet, harmonizer fifths, a night-creatures recording
+tempo  = 100
+feel   = hand drums, a trumpet with a fifth above, sine drone, night creatures
+play   = 7 and 8 are the same loop, 7 a fifth down. Trumpet on 12, its +7 shadow on 10.
+delay  = time=32 fb=50 hp=35 lp=70 rev=40
+reverb = pre=20 decay=90 lp=75
+chorus = depth=50 speed=10 mix=50
+comp   = thr=95 mix=20
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | C:LOW EKKO
+ 2  | C:CLAP SKIN
+ 3  | C:SHAKER SOFT
+ 4  | C:BELL KNOCK
+ 5  | C:UDU TONE
+ 6  | C:CONGA HI
+ 7  | C:SL CONGA       |                                    | tune=-7
+ 8  | C:SL CONGA
+ 9  | G:DRONE SUB
+10  | F:TPT STAB       |                                    | tune=7
+11  | G:MARIMBA ROOM
+12  | F:TPT GHOST
+13  | H:CHORD DRONE
+14  | H:FROGS
+15  | E:NOISE HISS
+16  | H:CHIRP REV

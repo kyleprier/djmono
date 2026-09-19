@@ -1,0 +1,218 @@
+# Preset bank C: RITE drums
+# 001-024 low · 025-048 snap · 049-072 hat · 073-096 metal · 097-160 hand · 161-192 wood · 193-224 slice · 225-256 loop
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | LOW FLOOR    | kick-felt     | Tom, Acoustic          | RITE/KICK/vdrm_kick_tom-clean-flr-01
+002 | LOW FLR HARD | kick-felt     | Tom, Hard              | RITE/KICK/vdrm_kick_tom-flr-hard-02
+003 | LOW HALL TOM | kick-felt     | Tom, Acoustic          | RITE/KICK/pres_kick_tom-hall-mid-01
+004 | LOW EKKO     | kick-felt     | Kick, Vintage          | RITE/KICK/ekko_kick_bass-drum-color-v1
+005 | LOW ROLLING  | kick-felt     | Tom, Vintage           | RITE/KICK/ekko_kick_rolling-drum-color-v1
+006 | LOW TOM SUB  | kick-felt     | Tom, Dark              | RITE/KICK/vdrm_kick_tom-sub-02
+007 | BOMBO        | low-bombo     | Kick, Acoustic         | RITE/KICK/skin_kick_zambumba-long
+008 | SURDO        | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_surdo
+009 | DAVUL        | low-skin      | Kick, Acoustic         | RITE/KICK/skin_kick_davul
+010 | RAW TOM      | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_raw-tom-soft
+011 | BASS DRUM V1 | low-skin      | Tom, Acoustic          | RITE/KICK/ekko_kick_bass-drum-color-v1
+012 | CHANA TOM    | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_chana-tom
+013 | RAW TOM CHK  | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_raw-tom-choke
+014 | ROLLING DR   | low-skin      | Tom, Acoustic          | RITE/KICK/ekko_kick_rolling-drum-color-v1
+015 | SURDO CHOKE  | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_surdo-choke
+016 | TOM AC CRUSH | low-skin      | Tom, Acoustic          | RITE/KICK/pres_kick_tom-acoustic-crush-hi
+017 | ZAMBUMBA     | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_zambumba
+018 | BASS DR      | low-skin      | Tom, Acoustic          | RITE/KICK/ekko_kick_bass-drum-knock-v3
+019 | CHANA TOM 2  | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_chana-tom-ghost2
+020 | RAW TOM ROLL | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_raw-tom-roll
+021 | ROLLING DR 2 | low-skin      | Tom, Acoustic          | RITE/KICK/ekko_kick_rolling-drum-smash-v1
+022 | SURDO SIDE   | low-skin      | Tom, Acoustic          | RITE/KICK/skin_kick_surdo-side
+025 | DJEMBE SLAP  | snap-slap     | Percussion, Acoustic   | RITE/HAND/pres_hand_djembe-hi-flam
+026 | DJEMBE HAND  | snap-slap     | Percussion, Acoustic   | RITE/HAND/pres_hand_djembe-01
+027 | CONGA SLAP   | snap-slap     | Percussion, Acoustic   | RITE/HAND/pres_hand_conga-slap-01
+028 | CLAP SKIN    | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap1
+029 | TOCA SNARE   | snap-slap     | Snare, Acoustic        | RITE/SNR/skin_snr_toca-tom-snare
+030 | AGU TIMP     | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_agu-timp-boxlong
+031 | CLAP 1B      | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap1-2
+032 | SNARE TAMA   | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_snare-tama
+033 | TIMP BOX     | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_timpbox
+034 | TOCA TOM     | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_toca-tom-snare
+035 | CLAP 2       | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap2
+036 | SNARE TAMA 2 | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_snare-tama-snare
+037 | TOCA TOM 2   | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_toca-tom-snare-ghost
+038 | CLAP 3       | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap3
+039 | TOCA TOM 3   | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_toca-tom-snare-soft
+040 | CLAP 4       | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap4
+041 | CLAP 6       | snap-clap     | Clap, Acoustic         | RITE/SNR/skin_snr_clap6
+049 | SHAKER SOFT  | shake-soft    | Percussion, Soft       | RITE/SHKR/pres_shkr_shaker-soft
+050 | SHAKER VINYL | shake-soft    | Percussion, Vintage    | RITE/SHKR/vdrm_shkr_shaker-clean-attack
+051 | SHAKER TAPE  | shake-soft    | Percussion, Vintage    | RITE/SHKR/vdrm_shkr_shaker-vari-tape-09
+052 | CABASA       | shake-soft    | Percussion             | RITE/SHKR/lm1_shkr_cabasa-color-a-01
+053 | TAMB LITE    | shake-soft    | Percussion, Soft       | RITE/SHKR/pres_shkr_tamb-lite
+054 | GUIRO        | shake-soft    | Percussion, Acoustic   | RITE/SHKR/vdrm_shkr_guiro-clean-01
+055 | SHAKER 16    | shake-16th    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_shaker
+056 | CAXIXI       | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_caxixi-rattle
+057 | SHEKERE      | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_shekere
+058 | ANKLUNGS HI  | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_anklungs-hi
+059 | BELL SHEKR   | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_bell-shekere-hard
+060 | LM1 CABS 25  | shake-soft    | Percussion, Acoustic   | RITE/SHKR/lm1_shkr_cabasa-color-a-25
+061 | GUIRO 2      | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_guiro
+062 | LARGE CAXIXI | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_large-caxixi
+063 | PADEL SHK    | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_padel-shaker-soft
+064 | POCKET SHK   | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_pocket-shaker-soft
+065 | RATTLE       | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_rattle
+066 | SHAKER       | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_shaker
+067 | SHAQAHAQ     | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_shaqahaq
+068 | SHEKR SOFT 2 | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_shekere-soft2
+069 | SGL SHAKER   | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_single-shaker
+070 | SPRING GUIRO | shake-soft    | Percussion, Acoustic   | RITE/SHKR/skin_shkr_spring-guiro-roll
+073 | AGOGO HI     | metal-bell    | Cowbell, Metallic      | RITE/BELL/visc_bell_agogo-hi-01
+074 | AGOGO LO     | metal-bell    | Cowbell, Metallic      | RITE/BELL/visc_bell_agogo-lo-05
+075 | BELL KNOCK   | metal-bell    | Metallic, Acoustic     | RITE/BELL/pres_bell_knock
+076 | BELL LO      | metal-bell    | Metallic               | RITE/BELL/pres_bell_lo
+077 | TRIANGLE     | metal-bell    | Metallic, Bright       | RITE/BELL/vdrm_bell_triangle-clean-01
+078 | COWBELL      | metal-bell    | Cowbell, Vintage       | RITE/BELL/vdrm_bell_cowbell-clean-01
+079 | POT BELL     | metal-bell    | Metallic, Acoustic     | RITE/BELL/fnd_bell_potinnerside-clean
+080 | WATERPHONE   | metal-ring    | Metallic, Atmosphere   | CORE/BELL/skin_bell_waterphone
+081 | OGENE        | metal-bell    | Cowbell, Acoustic      | CORE/BELL/skin_bell_ogene
+082 | AGOGO HI 05  | metal-bell    | Metallic, Acoustic     | RITE/BELL/visc_bell_agogo-hi-05
+083 | COINS DROP   | metal-bell    | Metallic, Acoustic     | RITE/BELL/fnd_bell_coinsdropcarpet-clean
+084 | VNL CBEL     | metal-bell    | Metallic, Acoustic     | RITE/BELL/vdrm_bell_cowbell-fx-verb-05
+085 | BELL DRAG    | metal-bell    | Metallic, Acoustic     | RITE/BELL/pres_bell_drag
+086 | KNOCK ECHO   | metal-bell    | Metallic, Acoustic     | RITE/BELL/pres_bell_knock-echo
+087 | METAL CLICK  | metal-bell    | Metallic, Acoustic     | RITE/BELL/fnd_bell_metalclick-clean
+088 | BELL SNAP    | metal-bell    | Metallic, Acoustic     | RITE/BELL/pres_bell_snap
+089 | TOM OPEN POT | metal-bell    | Metallic, Acoustic     | RITE/BELL/fnd_bell_tom2openpotwood-clean
+090 | TRIANGLE V1  | metal-bell    | Metallic, Acoustic     | RITE/BELL/ekko_bell_triangle-color-v1
+091 | VNL CBEL 2   | metal-bell    | Metallic, Acoustic     | RITE/BELL/vdrm_bell_cowbell-vari-tape-07
+092 | METAL POT    | metal-bell    | Metallic, Acoustic     | RITE/BELL/fnd_bell_metalpotbellcrash-clean
+093 | TRI SMASH V6 | metal-bell    | Metallic, Acoustic     | RITE/BELL/ekko_bell_triangle-smash-v6
+094 | VNL TRI VERB | metal-bell    | Metallic, Acoustic     | RITE/BELL/vdrm_bell_triangle-fx-verb-01
+097 | DJEMBE SLIDE | hand-room     | Percussion, Acoustic   | RITE/HAND/pres_hand_djembe-slide
+098 | UDU TONE     | hand-room     | Percussion, Acoustic   | RITE/HAND/pres_hand_udu-tone-01
+099 | UDU COLOR    | hand-room     | Percussion, Vintage    | RITE/HAND/pres_hand_udu-color-02
+100 | UDU FUZZ     | hand-room     | Percussion, Noisy      | RITE/HAND/pres_hand_udu-fuzz-01
+101 | CONGA HI     | hand-dry      | Percussion, Acoustic   | RITE/HAND/pres_hand_conga-hi-01
+102 | CONGA LO     | hand-dry      | Percussion, Acoustic   | RITE/HAND/pres_hand_conga-lo-01
+103 | CONGA BEND   | hand-room     | Percussion             | RITE/HAND/pres_hand_conga-bend
+104 | BONGO        | hand-dry      | Percussion, Vintage    | RITE/HAND/visc_hand_bongo-04
+105 | BONGO MUTED  | hand-dry      | Percussion, Soft       | RITE/HAND/visc_hand_bongo-muted-01
+106 | CONGA SP1200 | hand-dry      | Percussion, Vintage    | RITE/HAND/sp12_hand_conga-1-01
+107 | FIRE DRUM    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_fire-drum
+108 | SKIN CONGA   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_conga
+109 | BONGOS       | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_bongos
+110 | SABAR        | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_sabar
+111 | SABAR LO     | hand-room     | Percussion, Acoustic   | RITE/HAND/skin_hand_sabar-lo
+112 | TAMA         | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_tama
+113 | TAMA DEEP    | hand-deep     | Percussion, Dark       | RITE/HAND/skin_hand_tama
+114 | TAMA ROOM    | hand-room     | Percussion, Atmosphere | RITE/HAND/skin_hand_tama
+115 | PEG DRUM     | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_peg-drum
+116 | DJEMBE SKIN  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_djembe
+117 | BONGO 2      | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_bongo
+118 | BONGOS ROLL  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_bongos-roll
+119 | CONGA BIG    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_conga-big
+120 | DJEMBE CHOKE | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_djembe-choke
+121 | DUMBEK       | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_dumbek
+122 | FIRE DR GST  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_fire-drum-ghost
+123 | GNAWA DRUM   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_gnawa-drum
+124 | GOURD BONGO  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_gourd-bongo-soft
+125 | HAIR DRUM    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_hair-drum
+126 | MINI AGUUDU  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_mini-aguudu
+127 | MONKEY DRUM  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_monkey-drum
+128 | PNDRO CHOKE  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_pandiero-choke
+129 | PEG DRUM CHK | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_peg-drum-choke
+130 | QUINTO       | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_quinto
+131 | REPENIQUE    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_repenique
+132 | RIQ          | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_riq
+133 | SABAR CHK LO | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_sabar-choke-lo
+134 | TAMA LO      | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_tama-lo
+135 | TIMBAU       | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_timbau-bottom
+136 | TUBANO LOW   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_tubano-low
+137 | UDU IGBO LOW | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_uduigbo-low
+138 | BONGO CHK 2  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_bongo-choke2
+139 | CONGA CHOKE  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_conga-choke
+140 | DJMB CHOKED  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_djembe-choked
+141 | DUMBEK CHOKE | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_dumbek-choke
+142 | FIRE DRUM HI | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_fire-drum-hi
+143 | GNAWA DR MED | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_gnawa-drum-med
+144 | HAIR DRUM 2  | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_hair-drum-2
+145 | MINI AGUUD 2 | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_mini-aguudu-choke2
+146 | MONKEY DR HI | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_monkey-drumhigh
+147 | PNDRO HARD   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_pandiero-hard
+148 | PEG DR CHK   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_peg-drum-choke-lo
+149 | QUINTO GHOST | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_quinto-ghost
+150 | REPQ SIDE    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_repenique-side
+151 | RIQ 2        | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_riq2
+152 | SABAR LO 2   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_sabar-lo
+153 | TAMA ROLL    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_tama-roll
+154 | TIMBAU TOP   | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_timbau-top
+155 | TUBANO LOW 2 | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_tubano-low-hit2
+156 | UDU IGBO SFT | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_uduigbo-soft-choke
+157 | BONGO LOW    | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_bongo-low
+158 | CONGA CHK LO | hand-dry      | Percussion, Acoustic   | RITE/HAND/skin_hand_conga-choke-lo
+161 | CLAVE        | wood-click    | Percussion, Acoustic   | RITE/WOOD/pres_wood_clave-basic
+162 | CLAVE SOFT   | wood-click    | Percussion, Soft       | RITE/WOOD/pres_wood_clave-soft
+163 | WOODBLOCK    | wood-click    | Percussion, Acoustic   | RITE/WOOD/pres_wood_woodblock-soft
+164 | STICKS       | wood-click    | Percussion             | RITE/WOOD/vdrm_wood_sticks-clean-01
+165 | BLOCK EKKO   | wood-click    | Percussion, Vintage    | RITE/WOOD/ekko_wood_block-1-color-v1
+166 | WOOD TOM     | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_woodtomfloor-clean
+167 | KLIKKLAK     | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_klikklak
+168 | BOTTLECAPS   | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_bottlecaps
+169 | SLIT DRUM    | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_bamboo-slit-drum-hard
+170 | BELL SKIN    | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_woodbell-clean
+171 | BLK SMASH V3 | wood-click    | Percussion, Acoustic   | RITE/WOOD/ekko_wood_block-1-smash-v3
+172 | BOTTLE CAPS  | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_bottlecaps-2
+173 | BREATH       | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_breathsplash-clean
+174 | CHINA BLOCK  | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_china-block
+175 | CHOPPING     | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_choppingboardskick-clea
+176 | CLAVE FLAM   | wood-click    | Percussion, Acoustic   | RITE/WOOD/pres_wood_clave-flam-glitch
+177 | GULP         | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_gulp-clean
+178 | WOOD HAT     | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_woodhat-clean
+179 | KEYS DROP    | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_keysdropcarpet-clean
+180 | KLIKKLAK RL  | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_klikklak-roll
+181 | SNARE 2      | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_woodsnare2-clean
+182 | SQUELCH      | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_squelchmelon-clean
+183 | VNL STICKS   | wood-click    | Percussion, Acoustic   | RITE/WOOD/vdrm_wood_sticks-clean-03
+184 | TURTLE SHELL | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_turtle-shell
+185 | UGH          | wood-click    | Percussion, Acoustic   | RITE/WOOD/fnd_wood_ugh-clean
+186 | BLOCK 2 V4   | wood-click    | Percussion, Acoustic   | RITE/WOOD/ekko_wood_block-2-color-v4
+187 | CHINA BLOC 2 | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_china-block-long
+188 | CLAVE HARD   | wood-click    | Percussion, Acoustic   | RITE/WOOD/pres_wood_clave-hard
+189 | VNL STICKS 2 | wood-click    | Percussion, Acoustic   | RITE/WOOD/vdrm_wood_sticks-clean-06
+190 | TURTLE SHE 2 | wood-click    | Percussion, Acoustic   | RITE/WOOD/skin_wood_turtle-shell-hi
+193 | SL 6-8 EKKO  | slice-grid    | Loop, Vintage          | RITE/LOOP/ekko_loop_12-step-full-a-6-8-100
+194 | SL WARRIOR   | slice-grid    | Loop, Percussion       | RITE/LOOP/808l_loop_tom-combo-warrior-128
+195 | SL CONGA     | slice-grid    | Loop, Percussion       | RITE/LOOP/808l_loop_conga-combo-define-120
+196 | SL CLAVE     | slice-grid    | Loop, Vintage          | RITE/LOOP/ekko_loop_clave-boss-color-120
+197 | SL SAMBA TOP | slice-grid    | Loop, Percussion       | RITE/LOOP/visc_loop_samba-3-top-sd-perc-hi
+198 | SL 110 SABAR | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_110-ana-brushed-sabar
+199 | SL 110 SURDO | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_110-ana-surdo
+200 | SL 100 UDU   | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_100-iko-agu-udu
+201 | SL 140 UDIN  | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_140-underground-udin
+202 | SL 120 MONKY | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_120-dragon-monkey-drum
+203 | SL 80 BOTTLE | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_80-at-the-mic-bottle-c
+204 | SL 100 IKO   | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_100-iko-full
+205 | SL 110 BOX   | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_110-march-agu-timp-box
+206 | SL 120 RINGS | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_120-buzz-brass-rings
+207 | SL 125 SNARE | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_125-pata-duval-snare
+208 | SL 140 ANKL  | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_140-fine-anklungs
+209 | SL 160 ROLL  | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_160-roll-full
+210 | SL 80 AT HA  | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_80-at-the-mic-small-ha
+211 | SL 95 SQRPG  | slice-grid    | Loop, Acoustic         | RITE/LOOP/skin_loop_95-squarepeg-full
+212 | SL BN WNS    | slice-grid    | Loop, Acoustic         | RITE/LOOP/mpop_loop_beanie-weenies-148
+213 | SL BEEPER 1  | slice-grid    | Loop, Acoustic         | RITE/LOOP/ekko_loop_sd-perc-beeper-color-1
+214 | SL BLDR STRT | slice-grid    | Loop, Acoustic         | RITE/LOOP/mpop_loop_boulder-strut-89
+215 | SL CARD 3 13 | slice-grid    | Loop, Acoustic         | RITE/LOOP/ekko_loop_card-3-full-b-color-13
+216 | SL CHA CYM   | slice-grid    | Loop, Acoustic         | RITE/LOOP/visc_loop_cha-cha-1-top-perc-cym
+217 | SL DISCO 130 | slice-grid    | Loop, Acoustic         | RITE/LOOP/ekko_loop_disco-full-c-color-130
+218 | SL HYPER 140 | slice-grid    | Loop, Acoustic         | RITE/LOOP/ekko_loop_perc-hyper-color-140
+219 | SL INTR TIME | slice-grid    | Loop, Acoustic         | RITE/LOOP/mpop_loop_interstellar-half-time
+220 | SL KNOCK 140 | slice-grid    | Loop, Acoustic         | RITE/LOOP/ekko_loop_knock-full-b-140
+221 | SL MS RCCR   | slice-grid    | Loop, Acoustic         | RITE/LOOP/mpop_loop_mouse-racecar-122
+222 | SL PLNT SPLT | slice-grid    | Loop, Acoustic         | RITE/LOOP/mpop_loop_plantain-splat-123
+225 | LP 125 PATA  | loop-stretch  | Loop, Acoustic         | RITE/LOOP/skin_loop_125-pata-full
+226 | LP 100 IKO   | loop-stretch  | Loop, Acoustic         | RITE/LOOP/skin_loop_100-iko-full
+227 | LP 6-8 EKKO  | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_12-step-full-a-6-8-100
+228 | LP 160 ROLL  | loop-stretch  | Loop, Acoustic         | RITE/LOOP/skin_loop_160-roll-full
+229 | LP 95 SQRPG  | loop-stretch  | Loop, Acoustic         | RITE/LOOP/skin_loop_95-squarepeg-full
+230 | LP CARD 3 13 | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_card-3-full-b-color-13
+231 | LP DISCO 130 | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_disco-full-c-color-130
+232 | LP KNOCK 140 | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_knock-full-b-140
+233 | LP SLIDER 14 | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_slider-full-d-color-14
+234 | LP ZORRO 120 | loop-stretch  | Loop, Acoustic         | RITE/LOOP/ekko_loop_zorro-full-b-120

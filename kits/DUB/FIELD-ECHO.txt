@@ -1,0 +1,27 @@
+# FIELD ECHO · DUB
+ref    = Deepchord / Echospace: tracks start with field recordings and drones; beats and bass come last; dirty tape echo
+tempo  = 120
+feel   = field recording and drone first, then a stab; muffled kick, hiss, a spring-verb snap
+play   = Start 13, 14 and 15 on long trigs, then the stab. Drums last and quiet. SRR and bit reduction are fair game everywhere.
+delay  = time=24 fb=75 hp=30 lp=50 rev=50
+reverb = pre=0 decay=100 hp=40 lp=55
+chorus = depth=60 speed=8 mix=70
+comp   = thr=90 mix=40
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | B:KICK DGR       |                                    | freq=60
+ 2  | B:RIM TUBE
+ 3  | B:HAT DEGRADED
+ 4  | B:RIDE LOFI
+ 5  | A:CONGA VINYL
+ 6  | B:BONGO DUB
+ 7  | A:SHAKER TOM
+ 8  | B:SL BOOGIE      |                                    | vol=70 freq=70
+ 9  | F:SUB SYNARE
+10  | F:CM9 BELL
+11  | F:RHODES BELL
+12  | F:TPT DREAM
+13  | F:PAD NEW DAWN
+14  | F:SCAPE CINEMA   | DUB/SCAPE/*
+15  | E:NOISE HISS
+16  | E:FX TAKEOFF

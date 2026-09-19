@@ -4,3 +4,4 @@ backups/*
 config/paths.local
 __pycache__/
 .DS_Store
+.venv/

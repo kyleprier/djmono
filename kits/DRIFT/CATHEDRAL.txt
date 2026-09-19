@@ -1,10 +1,11 @@
 # CATHEDRAL · DRIFT
-patterns = F
-tempo    = 66
-feel     = reverb-soaked guitar swells in a huge room
-fx       = delay TIME 48, FDBK 60, into reverb 60 · reverb huge, DEC 127 · chorus 50 · comp off
+tempo  = 66
+feel   = reverb-soaked guitar swells in a huge room
+delay  = time=48 fb=60 hp=30 lp=90 rev=60
+reverb = pre=40 decay=127 lp=100
+chorus = depth=80 speed=8 mix=70
 
-# trk | BANK:PRESET      | sample locks (options this track can step through)
+# trk | preset          | sample locks                       | tweaks
  1  | D:PULSE SUB
  2  | D:TWIG
  3  | D:SHAKER DUST
@@ -12,12 +13,12 @@ fx       = delay TIME 48, FDBK 60, into reverb 60 · reverb huge, DEC 127 · cho
  5  | D:WINE GLASS
  6  | D:CONGA SOFT
  7  | D:GARDEN FORK
- 8  | D:LOOP FOREST
- 9  | D:BASS DRONE E
-10  | D:GLASS DROPS
-11  | D:WARBLE CELESTE
-12  | D:GTR WARP         | DRIFT/GTR/*
-13  | D:WHITE SIREN
-14  | D:RAIN THUNDER     | DRIFT/SCAPE/dsph_*
-15  | A:NOISE HISS
-16  | D:CHIRP REVERSE
+ 8  | D:LP FOREST
+ 9  | H:BASS DRONE E
+10  | H:GLASS DROPS
+11  | H:WARBLE CLST
+12  | H:GTR WARP       | DRIFT/GTR/*
+13  | H:WHITE SIREN
+14  | H:RAIN THUNDER   | DRIFT/SCAPE/dsph_*
+15  | E:NOISE HISS
+16  | H:CHIRP REV

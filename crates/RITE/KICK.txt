@@ -3,3 +3,10 @@ sfm:VINYL DRUMS FROM MARS/*tom/floor/*                     | limit=5
 sfm:PRIVATE RESERVE FROM MARS/*10. tom/*                   | limit=4
 sfm:EKKO FROM MARS/*individual hits/*bass drum/*           | limit=3
 sfm:EKKO FROM MARS/*individual hits/*rolling drum/*        | limit=3
+
+# Skins: bombo-style low drums
+lib:SKINS/SKN_PERC_HITS/*surdo*                            | limit=4 strip=2
+lib:SKINS/SKN_PERC_HITS/*davul*                            | limit=1 strip=2
+lib:SKINS/SKN_PERC_HITS/*zambumba*                         | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*rawtom*                           | limit=4 strip=2
+lib:SKINS/SKN_PERC_HITS/*chanatom*                         | limit=3 strip=2

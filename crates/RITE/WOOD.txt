@@ -6,3 +6,10 @@ sfm:VINYL DRUMS FROM MARS/*percussion/sticks/*             | limit=3
 sfm:EKKO FROM MARS/*individual hits/*block*                | limit=4
 sfm:FOUND SOUNDS FROM MARS/*wood/clean/*                   | limit=6
 sfm:FOUND SOUNDS FROM MARS/*body misc/clean/*              | limit=4
+
+# Skins: blocks, shells, caps
+lib:SKINS/SKN_PERC_HITS/*chinablock*                       | limit=5 strip=2
+lib:SKINS/SKN_PERC_HITS/*bottlecaps*                       | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*klikklak*                         | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*turtleshell*                      | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*slitdrum*                         | limit=1 strip=2

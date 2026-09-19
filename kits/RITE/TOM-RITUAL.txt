@@ -1,0 +1,26 @@
+# TOM RITUAL · RITE
+ref    = Shackleton: 140 BPM at half time, the triplet feel of giant toms, single hits chopped across channels with different tone and reverb
+tempo  = 140
+feel   = half-time toms in triplets, one talking drum on three tracks, gong, chant
+play   = 5, 6 and 7 are the same tama hit: dry, pitched down, and in the room. Put toms on triplet micro-timing. Leave the loop (8) a little late. 140 half-time is 70: it sits next to POSTCARDS.
+delay  = time=21 fb=60 hp=40 lp=60 rev=40
+reverb = pre=30 decay=110 lp=55
+comp   = thr=80 mix=40
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | A:KICK 808 RND
+ 2  | C:RAW TOM
+ 3  | C:SHAKER SOFT
+ 4  | C:WATERPHONE
+ 5  | C:TAMA
+ 6  | C:TAMA DEEP
+ 7  | C:TAMA ROOM
+ 8  | C:SL 140 UDIN
+ 9  | G:DRONE SUB
+10  | G:MALLET
+11  | G:MARIMBA ROOM
+12  | G:CHANT
+13  | G:DRONE DARK
+14  | G:SCAPE VORTEX
+15  | G:NOISE BOTTLE
+16  | G:FX SWELL

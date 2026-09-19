@@ -1,0 +1,101 @@
+# Seed rules: ./djmono presets --seed turns matching samples into presets in the free slots of a role range.
+# Existing presets never move. A sample gets at most one preset per recipe per bank. Rerun after adding samples.
+# {d} is the sample's description, fitted to 12 characters. Options: limit=N, prefer=word (picked first).
+# BANK role | samples                    | recipe        | tags                   | name      | options
+
+# --- A: CORE drums (every world can use these) ------------------------------------------------------------------
+A low      | CORE/KICK/*                  | kick-round    | Kick, Electronic       | BD {d}
+A snap     | CORE/SNR/*clap*              | snap-clap     | Clap, Electronic       | CP {d}
+A snap     | CORE/SNR/*rim*               | snap-rim      | Rimshot, Electronic    | RIM {d}
+A snap     | CORE/SNR/*_sd-*              | snap-rim      | Snare, Electronic      | SD {d}
+A hat      | CORE/HAT/*                   | hat-dusty     | Hi-Hat, Electronic     | HH {d}
+A hat      | CORE/SHKR/*                  | shake-soft    | Percussion, Soft       | {d}
+A metal    | CORE/BELL/*                  | metal-bell    | Metallic, Acoustic     | {d}
+A hand     | CORE/HAND/*                  | hand-dry      | Percussion, Electronic | {d}
+
+# --- B: DUB drums -------------------------------------------------------------------------------------------------
+B low      | DUB/KICK/*                   | kick-dub      | Kick, Vintage          | BD {d}
+B snap     | DUB/SNR/*_sd-*               | snap-verb     | Snare, Atmosphere      | VERB {d}      | limit=4
+B snap     | DUB/SNR/*rim*                | snap-rim      | Rimshot, Vintage       | RIM {d}
+B snap     | DUB/SNR/*_sd-*               | snap-rim      | Snare, Vintage         | SD {d}
+B hat      | DUB/HAT/*_ch-*               | hat-dusty     | Hi-Hat, Vintage        | HH {d}
+B hat      | DUB/HAT/*_oh-*               | hat-open      | Hi-Hat, Vintage        | OH {d}
+B metal    | DUB/HAT/*ride*               | ride-wash     | Cymbal, Vintage        | RD {d}
+B hand     | CORE/HAND/*                  | hand-dub      | Percussion, Vintage    | {d} DUB
+B hat      | CORE/SHKR/*                  | shake-16th    | Percussion, Vintage    | {d}
+B slice    | DUB/LOOP/*                   | slice-dub     | Loop, Vintage          | SL {d}
+B loop     | DUB/LOOP/*                   | loop-stretch  | Loop, Vintage          | LP {d}
+
+# --- C: RITE drums ------------------------------------------------------------------------------------------------
+C low      | RITE/KICK/*                  | low-skin      | Tom, Acoustic          | {d}           | prefer=skin
+C snap     | RITE/SNR/*                   | snap-clap     | Clap, Acoustic         | {d}
+C hat      | RITE/SHKR/*                  | shake-soft    | Percussion, Acoustic   | {d}           | prefer=skin
+C metal    | RITE/BELL/*                  | metal-bell    | Metallic, Acoustic     | {d}
+C metal    | CORE/BELL/*                  | metal-ring    | Metallic, Acoustic     | {d}
+C hand     | RITE/HAND/*                  | hand-dry      | Percussion, Acoustic   | {d}           | prefer=skin
+C wood     | RITE/WOOD/*                  | wood-click    | Percussion, Acoustic   | {d}           | prefer=skin
+C slice    | RITE/LOOP/*                  | slice-grid    | Loop, Acoustic         | SL {d}        | prefer=skin
+C loop     | RITE/LOOP/*full*             | loop-stretch  | Loop, Acoustic         | LP {d}
+
+# --- D: DRIFT drums -----------------------------------------------------------------------------------------------
+D low      | CORE/KICK/808*               | kick-soft     | Kick, Soft             | PULSE {d}
+D snap     | DRIFT/WOOD/*                 | snap-found    | Percussion, Soft       | {d}
+D hat      | CORE/SHKR/*                  | shake-soft    | Percussion, Soft       | {d}
+D metal    | DRIFT/BELL/*                 | metal-ring    | Metallic, Atmosphere   | {d}
+D metal    | CORE/BELL/*                  | metal-ring    | Metallic, Soft         | {d}
+D hand     | CORE/HAND/*                  | hand-room     | Percussion, Soft       | {d}
+D wood     | DRIFT/WOOD/*                 | wood-found    | Percussion, Atmosphere | {d}
+D loop     | DRIFT/SCAPE/dsph_*           | loop-field    | Loop, Atmosphere       | LP {d}
+
+# --- E: CORE tones ------------------------------------------------------------------------------------------------
+E noise    | CORE/NOISE/*                 | noise-bed     | Texture, Noisy         | {d}
+E fx       | CORE/FX/*                    | fx-throw      | Sound Fx               | FX {d}
+
+# --- F: DUB tones -------------------------------------------------------------------------------------------------
+F bass     | DUB/BASS/*                   | bass-sub      | Bass, Vintage          | {d}
+F bass     | DUB/BASS/*sub*               | bass-dub      | Bass, Dark             | DUB {d}
+F stab     | DUB/STAB/juno_*              | stab-bp       | Chord, Dark            | BP {d}
+F stab     | DUB/STAB/*                   | stab-dub      | Chord, Vintage         | {d}
+F keys     | DUB/KEYS/*                   | keys-rhodes   | Vintage, Soft          | {d}
+F keys     | DUB/KEYS/*piano*             | keys-dub      | Vintage, Dark          | DUB {d}
+F lead     | DUB/GTR/*                    | gtr-verb      | Lead, Atmosphere       | GTR {d}
+F lead     | DUB/GTR/*                    | steel-swell   | Lead, Atmosphere       | STEEL {d}
+F lead     | DUB/VOX/*                    | vox-throw     | Lead, Vintage          | VOX {d}       | limit=4
+F lead     | DUB/HORN/*                   | horn-throw    | Lead, Vintage          | {d}
+F pad      | DUB/PAD/*                    | pad-fog       | Pad, Vintage           | PAD {d}
+F pad      | DUB/STAB/drs_stab_universe*  | pad-dub       | Pad, Atmosphere        | {d} PAD
+F scape    | DUB/SCAPE/*                  | scape-werp    | Texture, Atmosphere    | {d}
+F scape    | DUB/VOX/*                    | vox-ghost     | Texture, Vintage       | GHOST {d}
+F scape    | DUB/HORN/*                   | horn-drone    | Texture, Dark          | DRONE {d}     | limit=6
+
+# --- G: RITE tones ------------------------------------------------------------------------------------------------
+G bass     | RITE/BASS/*                  | bass-drone    | Bass, Dark             | {d}
+G stab     | RITE/STAB/*                  | stab-pluck    | Acoustic, Soft         | {d}
+G keys     | RITE/STAB/*                  | keys-glass    | Acoustic, Atmosphere   | {d} ROOM
+G lead     | RITE/HORN/*                  | flute-breath  | Lead, Acoustic         | {d}
+G lead     | RITE/VOX/*                   | vox-throw     | Lead, Vintage          | {d}
+G pad      | RITE/SCAPE/*drone*           | pad-drone     | Pad, Dark              | DRONE {d}
+G scape    | RITE/SCAPE/*                 | scape-werp    | Texture, Atmosphere    | {d}
+G scape    | RITE/VOX/*chant*             | vox-ghost     | Texture, Vintage       | GHOST {d}
+G noise    | RITE/SCAPE/fnd_*             | noise-bed     | Texture, Noisy         | {d}
+G fx       | RITE/SCAPE/*wet*             | fx-reverse    | Sound Fx, Atmosphere   | REV {d}
+
+# --- H: DRIFT tones -----------------------------------------------------------------------------------------------
+H bass     | DRIFT/BASS/*                 | bass-drone    | Bass, Soft             | {d}
+H stab     | DRIFT/BELL/*                 | stab-bell     | Metallic, Bright       | {d}
+H stab     | DRIFT/KEYS/*                 | stab-bell     | Chord, Bright          | {d}
+H keys     | DRIFT/KEYS/*                 | keys-glass    | Bright, Soft           | {d}
+H keys     | DRIFT/KEYS/*                 | keys-rhodes   | Vintage, Soft          | {d} RHD       | limit=4
+H lead     | DRIFT/HORN/*string*          | strings-swell | Pad, Soft              | {d}
+H lead     | DRIFT/HORN/*                 | flute-breath  | Lead, Soft             | {d}
+H lead     | DRIFT/GTR/*                  | gtr-verb      | Lead, Atmosphere       | GTR {d}
+H lead     | DRIFT/GTR/*                  | steel-swell   | Lead, Atmosphere       | STEEL {d}
+H lead     | DRIFT/VOX/*                  | flute-breath  | Lead, Soft             | VOX {d}
+H pad      | DRIFT/PAD/dsph_pad_[0c][0-9]*  | pad-glass     | Pad, Atmosphere        | DIGI PAD {d}
+H pad      | DRIFT/PAD/*                  | pad-glass     | Pad, Atmosphere        | {d}
+H pad      | DRIFT/PAD/101_*              | pad-fog       | Pad, Vintage           | {d} FOG
+H scape    | DRIFT/SCAPE/*                | scape-stretch | Texture, Atmosphere    | {d}
+H scape    | DRIFT/SCAPE/modc_*           | scape-werp    | Texture, Atmosphere    | {d} WERP
+H noise    | CORE/NOISE/*                 | noise-surf    | Texture, Soft          | SURF {d}      | limit=6
+H fx       | DRIFT/SCAPE/dx1_*            | fx-reverse    | Sound Fx, Atmosphere   | REV {d}
+H fx       | DRIFT/BELL/*                 | fx-reverse    | Sound Fx, Metallic     | REV {d}

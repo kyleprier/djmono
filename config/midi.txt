@@ -1,0 +1,10 @@
+# How djmono talks to the Digitakt II over USB MIDI. ./djmono load --test checks these on your unit.
+# On the DT2: SETTINGS > MIDI CONFIG > PORT CONFIG: INPUT FROM USB (or MIDI+USB), RECEIVE CC/NRPN on.
+#             SETTINGS > MIDI CONFIG > CHANNELS: TRACK 1-16 on channels 1-16, FX CONTROL CH OFF.
+port       = Digitakt   # part of the MIDI port name
+bank_base  = 0          # CC 24 value for RAM bank A
+slot_base  = 0          # CC 19 value for slot 1 of a bank
+sort       = ascii      # how the +Drive browser orders names: ascii or natural (the test tells you)
+gap_ms     = 3          # pause between MIDI messages
+sample_ms  = 100        # pause after changing a track's sample
+fx_channel = 16         # used only by load --fx

@@ -1,0 +1,131 @@
+# Preset bank H: DRIFT tones
+# 001-032 bass · 033-080 stab · 081-112 keys · 113-160 lead · 161-192 pad · 193-224 scape · 225-240 noise · 241-256 fx
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | BASS DRONE C | bass-drone    | Bass, Soft             | DRIFT/BASS/dsph_bass_bassdrone-c18
+002 | BASS DRONE E | bass-drone    | Bass, Dark             | DRIFT/BASS/dsph_bass_bassdrone-e06
+003 | AIR BASS     | bass-sub      | Bass, Soft             | DRIFT/BASS/kawa_bass_air-c1
+004 | AIR          | bass-drone    | Bass, Soft             | DRIFT/BASS/kawa_bass_air-c1
+005 | DRONE E11    | bass-drone    | Bass, Soft             | DRIFT/BASS/dsph_bass_bassdrone-e11
+006 | DRONE E17    | bass-drone    | Bass, Soft             | DRIFT/BASS/dsph_bass_bassdrone-e17
+033 | CELESTE CHRD | stab-bell     | Chord, Bright          | DRIFT/KEYS/dx1_keys_pristineceleste-c3
+034 | FM BELL CHRD | stab-bell     | Chord, Metallic        | DRIFT/BELL/dx1_bell_tbells-c3
+035 | GLASS DROPS  | stab-bell     | Chord, Bright          | DRIFT/KEYS/kawa_keys_drops-c3
+036 | HOLOGRAM     | stab-bell     | Chord, Atmosphere      | DRIFT/KEYS/kawa_keys_hologram-c3
+037 | AIR 2        | stab-bell     | Metallic, Bright       | DRIFT/BELL/kawa_bell_air-c3
+038 | DX FM        | stab-bell     | Metallic, Bright       | DRIFT/BELL/dx1_bell_fmbellfx-ds6
+039 | MLLT MULTI   | stab-bell     | Metallic, Bright       | DRIFT/BELL/360_bell_mallet-multi-filter-c3
+040 | DX FM 2      | stab-bell     | Metallic, Bright       | DRIFT/BELL/dx1_bell_fmbellfx-e3
+041 | DX FM 3      | stab-bell     | Metallic, Bright       | DRIFT/BELL/dx1_bell_fmbellfx-e6
+042 | CELESTE 2    | stab-bell     | Chord, Bright          | DRIFT/KEYS/mirg_keys_celeste-c3
+043 | DX DREAM     | stab-bell     | Chord, Bright          | DRIFT/KEYS/dx1_keys_dreamlike-c3
+044 | DX GVIBES    | stab-bell     | Chord, Bright          | DRIFT/KEYS/dx1_keys_gvibes-c3
+045 | DX STAR PNO  | stab-bell     | Chord, Bright          | DRIFT/KEYS/dx1_keys_starpiano-c3
+046 | VIBES 2      | stab-bell     | Chord, Bright          | DRIFT/KEYS/360_keys_vibes-c3
+047 | SH5 VIBES    | stab-bell     | Chord, Bright          | DRIFT/KEYS/sh5_keys_vibraphone-c3
+048 | DX WARBLE    | stab-bell     | Chord, Bright          | DRIFT/KEYS/dx1_keys_warbleceleste-c3
+081 | CELESTE      | keys-glass    | Bright, Soft           | DRIFT/KEYS/mirg_keys_celeste-c3
+082 | WARBLE CLST  | keys-glass    | Vintage, Soft          | DRIFT/KEYS/dx1_keys_warbleceleste-c3
+083 | STAR PIANO   | keys-glass    | Bright                 | DRIFT/KEYS/dx1_keys_starpiano-c3
+084 | VIBES        | keys-glass    | Metallic, Soft         | DRIFT/KEYS/360_keys_vibes-c3
+085 | VIBES SH5    | keys-glass    | Synth, Soft            | DRIFT/KEYS/sh5_keys_vibraphone-c3
+086 | DREAMLIKE    | keys-glass    | Atmosphere             | DRIFT/KEYS/dx1_keys_dreamlike-c3
+087 | DROPS        | keys-glass    | Bright, Soft           | DRIFT/KEYS/kawa_keys_drops-c3
+088 | DX GVIBES 2  | keys-glass    | Bright, Soft           | DRIFT/KEYS/dx1_keys_gvibes-c3
+089 | HOLOGRAM 2   | keys-glass    | Bright, Soft           | DRIFT/KEYS/kawa_keys_hologram-c3
+090 | DX PRISTINE  | keys-glass    | Bright, Soft           | DRIFT/KEYS/dx1_keys_pristineceleste-c3
+091 | CELESTE RHD  | keys-rhodes   | Vintage, Soft          | DRIFT/KEYS/mirg_keys_celeste-c3
+092 | DX DREAM RHD | keys-rhodes   | Vintage, Soft          | DRIFT/KEYS/dx1_keys_dreamlike-c3
+093 | DROPS RHD    | keys-rhodes   | Vintage, Soft          | DRIFT/KEYS/kawa_keys_drops-c3
+094 | DX RHD       | keys-rhodes   | Vintage, Soft          | DRIFT/KEYS/dx1_keys_gvibes-c3
+113 | CLARINET     | flute-breath  | Lead, Acoustic         | DRIFT/HORN/mirg_horn_clarinet-c3
+114 | FLUTE FILTER | flute-breath  | Lead, Soft             | DRIFT/HORN/360_horn_flute-filter-c3
+115 | STRINGS WARM | strings-swell | Pad, Soft              | DRIFT/HORN/kawa_horn_warm-strings-c3
+116 | STR ANALOG   | strings-swell | Pad, Vintage           | DRIFT/HORN/kawa_horn_analog-strings-c3
+117 | STR CHORUS   | strings-swell | Pad, Atmosphere        | DRIFT/HORN/360_horn_strings-chorus-c3
+118 | VOICES       | strings-swell | Lead, Atmosphere       | DRIFT/VOX/kawa_vox_voices-c3
+119 | HELLO VOICE  | flute-breath  | Lead, Soft             | DRIFT/VOX/kawa_vox_hello-c3
+120 | BREATH V     | flute-breath  | Lead, Soft             | DRIFT/VOX/dx1_vox_breathv-c3
+121 | GTR WARP     | gtr-verb      | Lead, Atmosphere       | DRIFT/GTR/mirg_gtr_warp-guitar-c3
+122 | GTR CHORUS   | gtr-verb      | Lead, Soft             | DRIFT/GTR/mirg_gtr_acoustic-guitar-chor-c3
+123 | GTR TREMOLO  | gtr-verb      | Lead, Atmosphere       | DRIFT/GTR/drs_gtr_acoustic-tremolo-13-c3
+124 | GTR NYLON    | gtr-verb      | Lead, Soft             | DRIFT/GTR/360_gtr_nylon-guitar-vibrato-c3
+125 | STEEL SWELL  | steel-swell   | Lead, Atmosphere       | DRIFT/GTR/mirg_gtr_warp-guitar-c3
+126 | ANALOG STR   | flute-breath  | Lead, Soft             | DRIFT/HORN/kawa_horn_analog-strings-c3
+127 | STR CHORUS 2 | flute-breath  | Lead, Soft             | DRIFT/HORN/360_horn_strings-chorus-c3
+128 | WARM STRINGS | flute-breath  | Lead, Soft             | DRIFT/HORN/kawa_horn_warm-strings-c3
+129 | STEEL AC     | steel-swell   | Lead, Atmosphere       | DRIFT/GTR/drs_gtr_acoustic-tremolo-13-c3
+130 | STEEL NYLON  | steel-swell   | Lead, Atmosphere       | DRIFT/GTR/360_gtr_nylon-guitar-vibrato-c3
+131 | STEEL AC 2   | steel-swell   | Lead, Atmosphere       | DRIFT/GTR/mirg_gtr_acoustic-guitar-chor-c3
+132 | VOX VOICES   | flute-breath  | Lead, Soft             | DRIFT/VOX/kawa_vox_voices-c3
+161 | GLASS HOWL   | pad-glass     | Pad, Bright            | DRIFT/PAD/kawa_pad_glass-howl-c3
+162 | WHITE SIREN  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/kawa_pad_white-siren-l-c3
+163 | CAMPFIRE     | pad-fog       | Pad, Soft              | DRIFT/PAD/101_pad_campfire-c3
+164 | HAZE 101     | pad-fog       | Pad, Vintage           | DRIFT/PAD/101_pad_hze-c3
+165 | ENSEMBLE FEM | pad-glass     | Pad, Soft              | DRIFT/PAD/vp33_pad_ensemblefemale-c3
+166 | CHORD DRONE  | pad-drone     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-06-c
+167 | DIGI PAD C   | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_c01
+168 | DIGI PAD 05  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_05-c
+169 | DIGI PAD 06  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_06-c
+170 | DIGI PAD 07  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_07-c
+171 | DIGI PAD C02 | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_c02
+172 | DIGI PAD C04 | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_c04
+173 | 101 CAMPFIRE | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/101_pad_campfire-c3
+174 | CH DRONE 01  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-01-d
+175 | VP330 ENS    | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/vp33_pad_ensemblefemalevibe2-c3
+176 | 101 HZE      | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/101_pad_hze-c3
+177 | JAZZMOINE    | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/101_pad_jazzmoine-c3
+178 | 101 OSCAR L  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/101_pad_oscar-l-as1
+179 | 101 TINYRAVE | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/101_pad_tinyrave-c3
+180 | WHITE SIRE 2 | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/kawa_pad_white-siren-r-c3
+181 | CH DRONE     | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-03-c-solo
+182 | VP330 ENS 2  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/vp33_pad_ensemblemalevibe2-c3
+183 | CH DRONE 06  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-06-c
+184 | CH DRONE V3  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-08-c-v3
+185 | CH DRONE 12  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-12-c
+186 | CH DRONE 16  | pad-glass     | Pad, Atmosphere        | DRIFT/PAD/dsph_pad_ch-drone-16-c
+187 | JZZMN FOG    | pad-fog       | Pad, Vintage           | DRIFT/PAD/101_pad_jazzmoine-c3
+188 | OSCAR FOG    | pad-fog       | Pad, Vintage           | DRIFT/PAD/101_pad_oscar-l-as1
+189 | TINYRAVE FOG | pad-fog       | Pad, Vintage           | DRIFT/PAD/101_pad_tinyrave-c3
+193 | FOREST       | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dsph_scape_forest
+194 | RAIN THUNDER | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dsph_scape_rain-thunder-car
+195 | WIND WINDOW  | scape-stretch | Texture, Soft          | DRIFT/SCAPE/dsph_scape_wind-window
+196 | SAND         | scape-stretch | Texture, Soft          | DRIFT/SCAPE/dsph_scape_sand
+197 | ELEMENTS     | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-05
+198 | TELAHARMONIC | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-1
+199 | BIRDS FM     | scape-werp    | Texture, Bright        | DRIFT/SCAPE/dx1_scape_chirpfx-e4
+200 | FROGS        | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dsph_scape_frog-concert
+201 | DX CHIRP     | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dx1_scape_chirpfx-a2
+202 | ELEM DRONES  | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-01
+203 | TELAH DRONES | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-0
+204 | TRAFIC       | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dsph_scape_trafic
+205 | DX CHIRP 2   | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dx1_scape_chirpfx-c6
+206 | ELEM DRONE 2 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-05
+207 | TELAH DRON 2 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-1
+208 | DX CHIRP 3   | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dx1_scape_chirpfx-cs1
+209 | ELEM DRONE 3 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-10
+210 | TELAH DRON 3 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-2
+211 | DX CHIRP 4   | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/dx1_scape_chirpfx-e4
+212 | ELEM DRONE 4 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-14
+213 | TELAH DRON 4 | scape-stretch | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-3
+214 | ELEM WERP    | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-01
+215 | TELAH WERP   | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-0
+216 | ELEM WERP 2  | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-10
+217 | TELAH WERP 2 | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-2
+218 | ELEM WERP 3  | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_elements-drones-14
+219 | TELAH WERP 3 | scape-werp    | Texture, Atmosphere    | DRIFT/SCAPE/modc_scape_telaharmonic-drones-3
+225 | SURF DOWN 08 | noise-surf    | Texture, Soft          | CORE/NOISE/syn_noise_down-f-08
+226 | SURF SH5     | noise-surf    | Texture, Soft          | CORE/NOISE/sh5_noise_hissmachine-c3
+227 | SURF VNL     | noise-surf    | Texture, Soft          | CORE/NOISE/vdrm_noise_fx-loop-01
+228 | SURF RES SWP | noise-surf    | Texture, Soft          | CORE/NOISE/syn_noise_res-00-sweep-00-a-01
+229 | SURF VNL 2   | noise-surf    | Texture, Soft          | CORE/NOISE/vdrm_noise_fx-static-long-01
+230 | SURF VNL 3   | noise-surf    | Texture, Soft          | CORE/NOISE/vdrm_noise_fx-loop-02
+241 | CHIRP REV    | fx-reverse    | Sound Fx, Atmosphere   | DRIFT/SCAPE/dx1_scape_chirpfx-c6
+242 | BELL REVERSE | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/dx1_bell_fmbellfx-ds6
+243 | REV DX CHIRP | fx-reverse    | Sound Fx, Atmosphere   | DRIFT/SCAPE/dx1_scape_chirpfx-a2
+244 | REV DX CHI 2 | fx-reverse    | Sound Fx, Atmosphere   | DRIFT/SCAPE/dx1_scape_chirpfx-cs1
+245 | REV DX CHI 3 | fx-reverse    | Sound Fx, Atmosphere   | DRIFT/SCAPE/dx1_scape_chirpfx-e4
+246 | REV AIR      | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/kawa_bell_air-c3
+247 | REV DX FM    | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/dx1_bell_fmbellfx-e3
+248 | REV MLLT     | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/360_bell_mallet-multi-filter-c3
+249 | REV DX       | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/dx1_bell_tbells-c3
+250 | REV DX FM 2  | fx-reverse    | Sound Fx, Metallic     | DRIFT/BELL/dx1_bell_fmbellfx-e6

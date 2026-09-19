@@ -1,0 +1,92 @@
+# Preset bank A: CORE drums
+# 001-024 low · 025-048 snap · 049-072 hat · 073-096 metal · 097-160 hand · 161-192 wood · 193-224 slice · 225-256 loop
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | KICK 909 SHT | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-01-short-a-01
+002 | KICK 909 MED | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-03-medium-d-01
+003 | KICK 808 RND | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-mid-color-b-01
+004 | KICK CR78    | kick-round    | Kick, Vintage          | CORE/KICK/cr78_kick_11
+005 | KICK 606     | kick-round    | Kick, Vintage          | CORE/KICK/vdm_kick_bd-606-amp
+006 | KICK SUB SFT | kick-soft     | Kick, Soft             | CORE/KICK/vdm_kick_bd-perkons-sub-color
+007 | BD 909 MED   | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-01-medium-a-01
+008 | BD 909 SHT   | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-02-short-e-01
+009 | BD 909 SHT 2 | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-04-short-b-06
+010 | BD 909 MED 2 | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-05-medium-f-06
+011 | BD CR78 22   | kick-round    | Kick, Electronic       | CORE/KICK/cr78_kick_22
+012 | BD CLICK     | kick-round    | Kick, Electronic       | CORE/KICK/808_kick_bd-sat-click-decay-a-01
+013 | BD LINN HI   | kick-round    | Kick, Electronic       | CORE/KICK/vdm_kick_bd-lindrum-hi
+014 | BD 808 MID   | kick-round    | Kick, Electronic       | CORE/KICK/808_kick_bd-mid-color-b-01
+015 | BD 808 NOISE | kick-round    | Kick, Electronic       | CORE/KICK/808_kick_bd-noise-05
+016 | BD PRKNS SUB | kick-round    | Kick, Electronic       | CORE/KICK/vdm_kick_bd-perkons-sub-color
+017 | BD 808 SHORT | kick-round    | Kick, Electronic       | CORE/KICK/vdm_kick_bd-808-standard-short
+018 | BD 808 TUBE  | kick-round    | Kick, Electronic       | CORE/KICK/808_kick_bd-tube-09
+019 | BD XB TONE   | kick-round    | Kick, Electronic       | CORE/KICK/vdm_kick_bd-xbase-tone
+020 | BD CR78 01   | kick-round    | Kick, Electronic       | CORE/KICK/cr78_kick_01
+021 | BD 909 SHT 3 | kick-round    | Kick, Electronic       | CORE/KICK/909_kick_bd-color-05-short-f-06
+022 | BD MID DECAY | kick-round    | Kick, Electronic       | CORE/KICK/808_kick_bd-sat-mid-decay-a-03
+025 | RIM 909      | snap-rim      | Rimshot, Electronic    | CORE/SNR/909_snr_rim-clean
+026 | RIM 808 DARK | snap-rim      | Rimshot, Dark          | CORE/SNR/808_snr_rim-shot-dark-01
+027 | CLAP 909     | snap-clap     | Clap, Electronic       | CORE/SNR/909_snr_clap-color-03
+028 | CLAP 808     | snap-clap     | Clap, Vintage          | CORE/SNR/808_snr_clap-color-01
+029 | SNARE 909    | snap-rim      | Snare, Electronic      | CORE/SNR/909_snr_sd-color-a-01
+030 | CP 808 12    | snap-clap     | Clap, Electronic       | CORE/SNR/808_snr_clap-color-12
+031 | CP 808 01    | snap-clap     | Clap, Electronic       | CORE/SNR/808_snr_clap-sat-a-01
+032 | CP 909 01    | snap-clap     | Clap, Electronic       | CORE/SNR/909_snr_clap-color-01
+033 | CP 909 05    | snap-clap     | Clap, Electronic       | CORE/SNR/909_snr_clap-color-05
+034 | RIM 808 LITE | snap-rim      | Rimshot, Electronic    | CORE/SNR/808_snr_rim-shot-lite
+035 | RIM 808 03   | snap-rim      | Rimshot, Electronic    | CORE/SNR/808_snr_rim-shot-sat-03
+036 | RIM 909 11   | snap-rim      | Rimshot, Electronic    | CORE/SNR/909_snr_rim-various-11
+037 | RIM 909 22   | snap-rim      | Rimshot, Electronic    | CORE/SNR/909_snr_rim-various-22
+038 | RIM 505 01   | snap-rim      | Rimshot, Electronic    | CORE/SNR/vdm_snr_rim-505-standard-01
+039 | RIM DRMLTR   | snap-rim      | Rimshot, Electronic    | CORE/SNR/vdm_snr_rim-drumulator-slap-pitc
+040 | RIM MACHINE  | snap-rim      | Rimshot, Electronic    | CORE/SNR/vdm_snr_rim-machinedrum-standard
+041 | RIM XBASE 02 | snap-rim      | Rimshot, Electronic    | CORE/SNR/vdm_snr_rim-xbase-standard-02
+042 | SD 909 11    | snap-rim      | Snare, Electronic      | CORE/SNR/909_snr_sd-color-c-11
+043 | SD 909 11 2  | snap-rim      | Snare, Electronic      | CORE/SNR/909_snr_sd-color-f-11
+049 | HAT 909 CL   | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/909_hat_ch-color-01
+050 | HAT 909 OP   | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/909_hat_oh-color-01
+051 | HAT 808 CL   | hat-dusty     | Hi-Hat, Vintage        | CORE/HAT/808_hat_ch-color-a-01
+052 | HAT LM1 DARK | hat-dusty     | Hi-Hat, Dark           | CORE/HAT/vdm_hat_hh-lm1-dark-ch
+053 | HAT MPC DUST | hat-dusty     | Hi-Hat, Vintage        | CORE/HAT/vdm_hat_hh-mpc1-dust-ch
+054 | MARACA 808   | shake-soft    | Percussion, Soft       | CORE/SHKR/808_shkr_maracas-color-04
+055 | CABASA LM1   | shake-soft    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_cabasa-lm1-standard-01
+056 | TAMB 626     | shake-soft    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_tamb-626-standard
+057 | SHAKER TOM   | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_shaker-tom-standard-02
+058 | HH 808 CH 04 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_ch-color-a-04
+059 | HH DARK OH   | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/vdm_hat_hh-909-dark-oh
+060 | HH HEAVY CH  | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/vdm_hat_hh-505-heavy-ch
+061 | HH 808 OH 01 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_oh-color-a-01
+062 | HH SKT CH AC | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/vdm_hat_hh-sakata-standard-ch-ac
+063 | HH XB LO OH  | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/vdm_hat_hh-xbase-vari-lo-oh
+064 | HH 808 CH 01 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_ch-color-b-01
+065 | HH 808 OH 03 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_oh-color-b-03
+066 | HH 808 CH 2  | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_ch-color-b-04
+067 | HH 808 OH 06 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/808_hat_oh-sat-06
+068 | HH 909 CH 02 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/909_hat_ch-color-02
+069 | HH 909 OH 02 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/909_hat_oh-color-02
+070 | HH 909 CH 03 | hat-dusty     | Hi-Hat, Electronic     | CORE/HAT/909_hat_ch-color-03
+073 | BELL SKIN    | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_bell
+074 | FINGER CYM   | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_finger-cymbals
+075 | GARKABEBS    | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_garkabebs
+076 | BELL LO      | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_lo
+077 | MINI TIMS    | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_mini-tims
+078 | OGENE        | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_ogene
+079 | TOCA TOM     | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_toca-tom-bells
+080 | WATERPHONE   | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_waterphone
+081 | FINGER OPEN  | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_finger-cymbals-open
+082 | GARKABEBS RL | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_garkabebs-roll
+083 | MINI TIMS 2  | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_mini-tims-soft
+084 | OGENE HEAVY  | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_ogene-heavy
+085 | WTRPH ROLL   | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_waterphone-roll
+086 | FINGER CYM 3 | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_finger-cymbals3
+087 | OGENE LIGHT  | metal-bell    | Metallic, Acoustic     | CORE/BELL/skin_bell_ogene-light
+097 | CONGA 808    | hand-dry      | Percussion, Electronic | CORE/HAND/808_hand_conga-mid-color-11
+098 | CONGA 808 HI | hand-dry      | Percussion, Electronic | CORE/HAND/808_hand_conga-hi-color-11
+099 | BONGO CR78   | hand-dry      | Percussion, Vintage    | CORE/HAND/vdm_hand_bongo-cr78-pop-02
+100 | CONGA VINYL  | hand-dry      | Percussion, Vintage    | CORE/HAND/vdm_hand_conga-505-standard-01
+101 | BONGO DIRT   | hand-dry      | Percussion, Electronic | CORE/HAND/vdm_hand_bongo-727-dirt-01
+102 | 808 CONGA LO | hand-dry      | Percussion, Electronic | CORE/HAND/808_hand_conga-low-sat-a-01
+103 | BONGO RHYTHM | hand-dry      | Percussion, Electronic | CORE/HAND/vdm_hand_bongo-rhythm-standard-0
+104 | CONGA MID    | hand-dry      | Percussion, Electronic | CORE/HAND/808_hand_conga-mid-sat-a-01
+105 | CONGA DRIVE  | hand-dry      | Percussion, Electronic | CORE/HAND/vdm_hand_conga-808-drive-02
+106 | CONGA DDD 1  | hand-dry      | Percussion, Electronic | CORE/HAND/vdm_hand_conga-ddd1-standard-02
+107 | CONGA MR16   | hand-dry      | Percussion, Electronic | CORE/HAND/vdm_hand_conga-mr16-standard-02

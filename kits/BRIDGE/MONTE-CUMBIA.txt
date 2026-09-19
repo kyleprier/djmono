@@ -1,0 +1,27 @@
+# MONTE CUMBIA · BRIDGE
+ref    = El Buho and Chancha Via Circuito: cumbia at 80-95 with birdsong, guiro, charango, flute; stones knocked together for percussion
+tempo  = 88
+feel   = slow cumbia: bombo, güiro, stone clacks, rain, birds, strings, flute
+play   = Guiro on every 8th, accents on the 'and'. On 14, p-lock the sample slot per step so each step picks a different bird.
+delay  = time=24 fb=45 hp=40 lp=70 rev=25
+reverb = pre=15 decay=65 lp=80
+chorus = depth=30 speed=8 mix=30
+comp   = thr=90 mix=30
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | C:BOMBO
+ 2  | C:KLIKKLAK
+ 3  | C:GUIRO          | RITE/SHKR/*guiro*
+ 4  | C:COWBELL
+ 5  | C:SKIN CONGA
+ 6  | C:BONGOS
+ 7  | C:BOTTLECAPS
+ 8  | D:LP RAIN
+ 9  | G:BOX CELLO
+10  | G:BANJO
+11  | G:NYLON ROOM
+12  | G:PAN FLUTE
+13  | G:DRONE MOVING
+14  | H:BIRDS FM       | DRIFT/SCAPE/dx1_scape_chirpfx*
+15  | E:NOISE HISS
+16  | H:CHIRP REV

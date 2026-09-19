@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
-"""djmono: curate crates on the Mac, render them for the Digitakt II, sync.
+"""djmono: curate crates on the Mac, render them for the Digitakt II, sync, and dial kits in over MIDI.
 
   crates/<WORLD>/<FN>.txt   ->  +Drive /<WORLD>/<FN>/          (the repo mirrors the device)
+  presets/, kits/, projects/->  the rig: sounds, kits and the TRIAD project as plain text
   config/paths.local        ->  where the sample library lives on this machine (never in git)
+  config/midi.txt           ->  how the loader talks to the DT2
   build/drive/              ->  rendered 16-bit / 48 kHz WAVs, ready to send
   state/drive.lock          ->  what was built, from what, and when it reached the device
+  state/slots.txt           ->  which RAM slot holds which sample in TRIAD
 
-Stdlib only (Python 3.9+). Needs `sox`. Uses `elektroid-cli` for sync if installed,
-otherwise stages a folder for Elektron Transfer.
+Python 3.9+ and `sox`. `elektroid-cli` for sync if installed, otherwise Elektron Transfer.
+MIDI (load, browse) uses mido + python-rtmidi from .venv (see ./djmono doctor).
 """
 import argparse
 import concurrent.futures as cf
 import datetime as dt
 import fnmatch
+import functools
 import hashlib
 import json
 import os
@@ -29,6 +33,7 @@ BUILD = ROOT / "build"
 DRIVE = BUILD / "drive"
 CACHE = BUILD / ".cache.json"
 LOCK = ROOT / "state" / "drive.lock"
+SLOTS = ROOT / "state" / "slots.txt"
 INDEX = ROOT / "index"
 CONFIG = ROOT / "config"
 BACKUPS = ROOT / "backups"
@@ -36,8 +41,8 @@ BACKUPS = ROOT / "backups"
 # --- Device facts (Digitakt II, OS 1.16) ------------------------------------------------
 MB = 1_000_000
 PROJECT_RAM, PROJECT_SLOTS = 400 * MB, 1016          # per project
-# TRIAD holds every world in one project: 380 MB / 1000 slots, 20 MB left for resampling
-BUDGET = {"CORE": (30 * MB, 120), "DUB": (110 * MB, 300), "RITE": (90 * MB, 280), "DRIFT": (150 * MB, 300)}
+# TRIAD holds every world in one project: 390 MB, 7 of the 8 RAM banks (127 slots each); H stays free
+BUDGET = {"CORE": (30 * MB, 127), "DUB": (110 * MB, 254), "RITE": (110 * MB, 381), "DRIFT": (140 * MB, 127)}
 TRANSFER_MIB_S = 0.5                                 # measured over USB-MIDI (Transfer and Elektroid)
 MAX_TRANSFER_BYTES = 59 * MB                         # community-tested per-file ceiling
 MAX_NAME = 32
@@ -65,7 +70,7 @@ FORMAT_WORDS = ("ableton", "kontakt", "exs", "exs24", "logic", "reason", "nn xt"
                 "maschine", "battery", "mpc", "fl studio", "flstudio", "apple loops", "__macosx")
 KITS_DIR = re.compile(r"^(\d+\.? )?kits$")  # SFM "Kits" folders repeat the individual hits
 DEFAULT_PREFER = "color"  # SFM ships clean + color (tape/tube) takes; keep color unless a rule says prefer=clean or prefer=any
-OPTION_KEYS = {"limit", "pick", "prefer", "exclude", "code", "name", "keepname", "raw",
+OPTION_KEYS = {"limit", "pick", "prefer", "exclude", "code", "name", "keepname", "raw", "strip", "drop",
                "mono", "stereo", "len", "fade", "norm", "trim", "notrim"}
 
 
@@ -153,6 +158,7 @@ class SrcFile:
         return f"{self.key}:{self.rel}"
 
 
+@functools.lru_cache(maxsize=None)
 def _skip_dir(name):
     if name[:1] in ".@#":  # hidden, Synology @eaDir / #recycle / #snapshot
         return True
@@ -168,7 +174,7 @@ def _skip_dir(name):
 def keep_file(relpath):
     parts = relpath.split("/")
     name = parts[-1]
-    if name.startswith(".") or Path(name).suffix.lower() not in AUDIO_EXT:
+    if name.startswith(".") or os.path.splitext(name)[1].lower() not in AUDIO_EXT:
         return False
     return not any(_skip_dir(d) for d in parts[:-1])
 
@@ -194,8 +200,13 @@ def walk_source(root, label=""):
     return out
 
 
+_INDEX_CACHE = {}
+
+
 def read_index(path):
-    items = []
+    if str(path) in _INDEX_CACHE:
+        return _INDEX_CACHE[str(path)]
+    items = _INDEX_CACHE[str(path)] = []
     with open(path, encoding="utf-8", errors="surrogateescape") as fh:
         for line in fh:
             line = line.rstrip("\n")
@@ -221,7 +232,15 @@ class Library:
     (sfm inside lib) reads the parent's index. Walks the disk only when there is no index."""
 
     def __init__(self, roots):
-        self.roots, self._files, self.missing = roots, {}, set()
+        self.roots, self._files, self._tops, self.missing = roots, {}, {}, set()
+
+    def by_top(self, key):
+        """Files grouped by their pack folder, so an anchored rule only looks inside its pack."""
+        if key not in self._tops:
+            self._tops[key] = {}
+            for f in self.files(key):
+                self._tops[key].setdefault(f.norm.split("/", 1)[0], []).append(f)
+        return self._tops[key]
 
     def _from_index(self, key):
         idx = INDEX / f"{key}.tsv"
@@ -276,7 +295,7 @@ def parse_opts(s, where):
         if k not in OPTION_KEYS:
             die(f"{where}: unknown option '{k}'. Known: {', '.join(sorted(OPTION_KEYS))}")
         opts[k] = v if eq else True
-    for k in ("limit", "len", "fade"):
+    for k in ("limit", "len", "fade", "strip"):
         if k in opts:
             try:
                 opts[k] = int(opts[k])
@@ -326,8 +345,11 @@ def resolve(rule, lib, ignore_limit=False):
         g = norm_path(rule.pattern)
         # anchored at the source root first; anywhere below only if that finds nothing
         # (keeps "Essential WAV From Mars/.../Junos From Mars" copies out of a JUNOS rule)
-        hits = [f for f in files if fnmatch.fnmatchcase(f.norm, g)] or \
-               [f for f in files if fnmatch.fnmatchcase(f.norm, "*/" + g)]
+        top = g.split("/", 1)[0]
+        pool = lib.by_top(rule.src).get(top, []) if "/" in g and not is_glob(top) else files
+        anchored = re.compile(fnmatch.translate(g)).match
+        anywhere = re.compile(fnmatch.translate("*/" + g)).match
+        hits = [f for f in pool if anchored(f.norm)] or [f for f in files if anywhere(f.norm)]
     else:
         hits = [f for f in files if f.rel == rule.pattern] or \
                [f for f in files if f.norm == norm_path(rule.pattern)]
@@ -413,7 +435,14 @@ def make_name(rule, f, fn, codes):
     code, pack_seg = rule.opts.get("code"), None
     if not code:
         code, pack_seg = source_code(f, codes)
-    desc = "-".join(describe(stem, code, fn, pack_seg))
+    stem = re.sub(r"(?<=[a-z0-9])(?=[A-Z][a-z])", " ", stem)  # FireDrumGhost -> Fire Drum Ghost
+    if rule.opts.get("strip"):  # pack prefixes like "SKN_BO_"
+        stem = " ".join(re.split(r"[_\s-]+", stem)[int(rule.opts["strip"]):])
+    parts = describe(stem, code, fn, pack_seg)
+    if "drop" in rule.opts:
+        gone = {norm(w) for w in str(rule.opts["drop"]).split(",")}
+        parts = [p for p in parts if p not in gone] or parts
+    desc = "-".join(parts)
     return fit(f"{code}_{fn.lower()}_{desc or 'x'}")
 
 
@@ -804,11 +833,29 @@ def cmd_sync(args):
 def cmd_scan(args):
     roots = load_paths()
     keys = [args.source] if args.source else sorted(roots)
+    if args.only and not args.source:
+        keys = ["lib"]
     INDEX.mkdir(exist_ok=True)
     for k in keys:
         root = roots.get(k)
         if not root or not root.is_dir():
             print(f"  skip {k}: {root} not found")
+            continue
+        if args.only:  # rescan one pack folder and merge it into the existing index
+            sub = root / args.only
+            if not sub.is_dir():
+                print(f"  skip {k}: {sub} not found")
+                continue
+            idx = INDEX / f"{k}.tsv"
+            prefix = args.only.strip("/") + "/"
+            old = [(r, s) for r, s in (read_index(idx) if idx.exists() else []) if not r.startswith(prefix)]
+            new = [(prefix + r, s) for r, s in walk_source(sub, args.only)]
+            items = sorted(old + new)
+            with open(idx, "w", encoding="utf-8", errors="surrogateescape") as fh:
+                fh.write(f"# {k}: {len(items)} audio files, scanned {dt.date.today().isoformat()} (relative path, bytes)\n")
+                for r, s in items:
+                    fh.write(f"{r}\t{s}\n")
+            print(f"  {k}/{args.only}: {len(new):,} files merged -> index/{k}.tsv")
             continue
         parent = next((pk for pk, pr in roots.items() if pk != k and pr.is_dir() and nested_in(root, pr)), None)
         if parent and not args.source:
@@ -841,25 +888,37 @@ def load_rig():
     return rig
 
 
-def cmd_check(args):
+def checked_rig():
+    """The rig, checked against every sample the crates produce."""
     rig = load_rig()
     samples, missing = planned_samples()
+    r = rig.Rig(ROOT).load().check(samples)
+    return rig, r, samples, missing
+
+
+def slot_map():
+    import loader
+    cfg = loader.read_midi_config(CONFIG / "midi.txt")
+    return loader, cfg, loader.SlotMap(SLOTS, cfg["sort"])
+
+
+def cmd_check(args):
+    rig, r, samples, missing = checked_rig()
     if missing:
         print(f"  warn  no index or files for: {', '.join(sorted(missing))}")
-    r = rig.Rig(ROOT).load().check(samples)
     print(f"  {len(r.recipes)} recipes · {len(r.presets)} presets · {len(r.kits)} kits · {len(r.projects)} projects "
-          f"· {len(samples)} samples")
+          f"· {len(samples)} samples\n")
     cov = r.coverage()
-    print(f"\n  {'role':<7}" + "".join(f"{b + ' ' + rig.BANKS[b]:>10}" for b in "ABCD"))
-    for role, *_ in rig.ROLES:
-        cells = [n for b, rl, n in cov if rl == role]
-        print(f"  {role:<7}" + "".join(f"{(n or '-'):>10}" for n in cells))
-    print()
-    for name, k in sorted(r.kits.items(), key=lambda kv: (kv[1]["patterns"] or "", kv[0])):
-        print(f"  kit {k['patterns']} {name:<15} {k['world']:<6} {k['tempo'] or '?':>5} BPM  {len(k['tracks'])}/16 tracks")
+    for kind, roles in (("DRUMS", rig.DRUM_ROLES), ("TONES", rig.TONE_ROLES)):
+        print(f"  {kind.lower():<12}" + "".join(f"{role:>9}" for role, *_ in roles))
+        for bank in (b for b in rig.BANKS if rig.BANKS[b][1] == kind):
+            print(f"  {bank} {rig.BANKS[bank][0]:<10}" + "".join(f"{f'{n}/{cap}':>9}" for _, n, cap in cov[bank]))
+        print()
     for pname, proj in r.projects.items():
-        print(f"\n  project {pname}: {proj.get('slots', 0)} samples, {fmt_mb(proj.get('ram', 0))} "
-              f"of 400 MB, {proj.get('slots', 0)}/{PROJECT_SLOTS} slots")
+        for bank, kits in sorted(proj["banks"].items()):
+            print(f"  {pname} {bank}: " + ", ".join(f"{kn} {r.kits[kn]['tempo']}" for kn in kits if kn in r.kits))
+        print(f"  {pname}: {proj.get('slots', 0)} samples, {fmt_mb(proj.get('ram', 0))} of 400 MB, "
+              f"{proj.get('slots', 0)}/{PROJECT_SLOTS} slots")
         if proj.get("ram", 0) > PROJECT_RAM or proj.get("slots", 0) > PROJECT_SLOTS:
             r.err(f"project {pname} doesn't fit one project")
     for w in r.warnings:
@@ -872,34 +931,371 @@ def cmd_check(args):
 
 
 def cmd_sheet(args):
-    rig = load_rig()
-    samples, _ = planned_samples()
-    r = rig.Rig(ROOT).load().check(samples)
+    rig, r, samples, _ = checked_rig()
+    loader, cfg, sm = slot_map()
+    slots = sm.of
     out = BUILD / "sheets"
     shutil.rmtree(out, ignore_errors=True)
     (out / "kits").mkdir(parents=True)
     written = []
-    for bank in sorted({p["bank"] for p in r.presets.values()}):
-        f = out / f"presets-{bank}-{rig.BANKS[bank]}.md"
-        f.write_text(r.sheet_bank(bank))
-        written.append(f)
-    for name, k in sorted(r.kits.items()):
-        f = out / "kits" / f"{k['patterns']}-{name.replace(' ', '-')}.md"
-        f.write_text(r.sheet_kit(name, samples))
-        written.append(f)
     for pname in r.projects:
-        f = out / f"project-{pname}.md"
-        f.write_text(r.sheet_project(pname))
+        f = out / f"1-project-{pname}.md"
+        f.write_text(r.sheet_project(pname, sm.runs()))
         written.append(f)
-    order = ["# Build order", "", "1. `project-*.md`: create the project and load the sample folders.",
-             "2. `presets-*.md`: build and save presets, bank by bank.",
-             "3. `kits/*.md`: assemble each kit from its presets, set the kit FX, save it.", ""]
+    for name, k in sorted(r.kits.items(), key=lambda kv: (kv[1].get("pattern", "Z"), kv[0])):
+        f = out / "kits" / f"{k.get('pattern', 'draft')}-{name.replace(' ', '-')}.md"
+        f.write_text(r.sheet_kit(name, samples, slots))
+        written.append(f)
+    for bank in rig.BANKS:
+        world, kind = rig.BANKS[bank]
+        f = out / f"presets-{bank}-{world}-{kind}.md"
+        f.write_text(r.sheet_bank(bank, slots))
+        written.append(f)
+    order = ["# Sheets", "",
+             "1. `1-project-TRIAD.md`: new project, load the samples into RAM in the order given.",
+             "2. `kits/`: one sheet per kit, named by pattern. Set the machines, `./djmono load \"KIT\"`, save the kit.",
+             "3. `presets-*.md`: the preset library, bank by bank. Dial any of them onto a track with "
+             "`./djmono load --preset \"B:NAME\" --track N`, or step through with `./djmono browse`.", ""]
+    if not slots:
+        order += ["RAM slots are blank until you run `./djmono slots`.", ""]
     (out / "README.md").write_text("\n".join(order + [f"- {rel(f)}" for f in written]) + "\n")
     print(f"{len(written)} sheets in {rel(out)}/  (start with README.md)")
     if r.errors:
         print(f"  {len(r.errors)} problem(s) found; run ./djmono check")
-    if sys.platform == "darwin":
+    if sys.platform == "darwin" and not getattr(args, "no_open", False):
         subprocess.run(["open", str(out)])
+
+
+def cmd_slots(args):
+    loader, cfg, sm = slot_map()
+    lock = read_lock()
+    # everything on the +Drive in djmono's folders, retired or not: "select all" loads what's there
+    on_device = [p for p, row in lock.items() if row["synced"] != "-" and (row["status"] == "active" or not args.prune)]
+    retired = [p for p in on_device if lock[p]["status"] == "retired"]
+    pending = [p for p, row in lock.items() if row["status"] == "active" and row["synced"] == "-"]
+    if not on_device:
+        die("nothing is on the device yet (state/drive.lock). ./djmono build, then ./djmono sync")
+    fresh = args.reset or not sm.slots
+    if args.reset:
+        sm.slots = {}
+    try:
+        added, dropped = sm.update(on_device)
+    except ValueError as e:
+        die(f"{e}. Trim that world's crates (./djmono status shows the budgets)")
+    sm.save()
+    if fresh:
+        print(f"{len(sm.slots)} samples in the RAM plan ({rel(SLOTS)}). New project TRIAD, then load in this order:\n")
+        for bank, world, runs in sm.runs():
+            for folder, n, lo, hi in runs:
+                print(f"  RAM {bank}  {bank}{lo:03d}-{bank}{hi:03d}  {n:>4}  /{folder}")
+        print("\nIn SAMPLES > +DRIVE: open the folder, select all, FUNC + YES to pick the RAM bank, LOAD TO PROJECT.\n"
+              "The project sheet (./djmono sheet) has the same list. Then ./djmono load --test.")
+    else:
+        if dropped:
+            print("unloaded from the plan (unload these in PROJECT RAM if they're still there):")
+            for slot, sample in dropped:
+                print(f"  {slot}  {sample}")
+        if added:
+            print("load these, in this order, each into its RAM bank (select just these files):")
+            for bank, world, runs in sm.runs(added):
+                for folder, n, lo, hi in runs:
+                    print(f"  RAM {bank}  {bank}{lo:03d}-{bank}{hi:03d}  {n:>4}  /{folder}")
+        if not added and not dropped:
+            print(f"RAM plan unchanged: {len(sm.slots)} samples.")
+    if retired:
+        print(f"\n{len(retired)} retired samples are still on the device and in the plan. To free their slots: delete "
+              "them from the +Drive and unload them from PROJECT RAM, then ./djmono slots --prune")
+    unbuilt = len(set(planned_samples()[0]) - set(lock))
+    if pending or unbuilt:
+        print(f"\n{len(pending) + unbuilt} samples in the crates aren't on the device yet: ./djmono build, "
+              "./djmono sync, then ./djmono slots again")
+    print(f"\nCommit {rel(SLOTS)} with state/drive.lock.")
+
+
+def resolve_kit(r, name):
+    kit = r.kits.get(name.upper().replace("-", " "))
+    if not kit:
+        close = [k for k in r.kits if name.upper() in k]
+        die(f"no kit '{name}'" + (f"; did you mean {', '.join(close)}?" if close else f". Kits: {', '.join(sorted(r.kits))}"))
+    return kit
+
+
+def track_jobs(r, kit):
+    """[(track, preset, machine, params)] for a kit."""
+    jobs = []
+    for trk in range(1, 17):
+        t = kit["tracks"].get(trk)
+        p = r.find(t["preset"]) if t else None
+        if p:
+            machine, params = r.sound(p, t.get("tweaks"))
+            jobs.append((trk, p, machine, params))
+    return jobs
+
+
+def cmd_load(args):
+    rig, r, samples, _ = checked_rig()
+    loader, cfg, sm = slot_map()
+    if args.test:
+        return load_test(loader, cfg, sm, args)
+    if args.preset:
+        p = r.find(args.preset)
+        if not p:
+            close = [k for k in r.presets if args.preset.upper().split(":")[-1] in k]
+            die(f"no preset '{args.preset}'" + (f"; close: {', '.join(close[:8])}" if close else ""))
+        if not 1 <= args.track <= 16:
+            die("--track 1-16")
+        jobs = [(args.track, p, *r.sound(p))]
+        kit = None
+    elif args.kit:
+        kit = resolve_kit(r, args.kit)
+        bad = [e for e in r.errors if kit["where"] in e]
+        if bad:
+            die("this kit has problems:\n  " + "\n  ".join(bad))
+        if args.fx:
+            return load_fx(loader, cfg, kit, args)
+        jobs = track_jobs(r, kit)
+    else:
+        die("say what to load: a kit name, --preset B:NAME --track N, or --test")
+    slots = sm.of
+    missing = sorted({p["sample"] for _, p, _, _ in jobs if p["sample"] not in slots})
+    if missing:
+        die(f"{len(missing)} samples have no RAM slot yet (e.g. {missing[0]}). ./djmono sync, then ./djmono slots, "
+            "and load them into the project")
+    if kit:
+        print(f"{kit['name']} ({kit['world']}) · pattern {kit.get('pattern', '-')} · {kit['tempo']} BPM"
+              + (f" · swing {kit['swing']}%" if kit["swing"] else ""))
+    todo = [(t, m) for t, _, m, _ in jobs if m != "Oneshot"]
+    print("\nOn the DT2 first: pick the pattern" + (f" {kit.get('pattern')}" if kit else "") +
+          (", then set these machines (SRC page, FUNC + SRC):" if todo else "."))
+    for t, m in todo:
+        print(f"  track {t:>2}: {m.upper()}")
+    if not args.yes and not args.dry_run:
+        input("\nPress Enter to send... ")
+    port = loader.Port(cfg, dry=args.dry_run)
+    for trk, p, machine, params in jobs:
+        slot = slots[p["sample"]]
+        secs = loader.wav_seconds(DRIVE / f"{p['sample']}.wav")
+        vals = loader.dial(port, trk, slot, machine, params, cfg, secs, p["sample"])
+        grid = f" · grid {vals['grid']}" if "grid" in vals else ""
+        print(f"  {trk:>2}  {p['bank']}{p['slot']:03d} {p['name']:<12}  {slot}  {p['sample'].split('/', 1)[1]}{grid}")
+    port.close()
+    print(f"\n{len(port.sent)} messages" + (" (dry run, nothing sent)" if args.dry_run else " sent."))
+    hand = [(t, rig.Rig.manual(m, pr)) for t, _, m, pr in jobs]
+    hand = [(t, [x for x in h if not x.startswith("machine")]) for t, h in hand]
+    if any(h for _, h in hand):
+        print("\nBy hand:")
+        for t, h in hand:
+            if h:
+                print(f"  track {t:>2}: {'; '.join(h)}")
+    if kit:
+        print(f"\nTempo {kit['tempo']}" + (f", swing {kit['swing']}%" if kit["swing"] else "") + ". Kit FX:")
+        print("\n".join(loader.fx_lines(kit["fx"])) or "  init")
+        print(f"  (or ./djmono load \"{kit['name']}\" --fx to send them)")
+        print(f"\nThen PRESET/KIT > SAVE (KIT) as {kit['name']}.")
+        if kit["play"]:
+            print(f"\nPlay it: {kit['play']}")
+
+
+def load_fx(loader, cfg, kit, args):
+    ch = int(cfg["fx_channel"])
+    if not kit["fx"]:
+        die("this kit has no FX settings")
+    print(f"SETTINGS > MIDI CONFIG > CHANNELS: set TRACK {ch} to OFF and FX CONTROL CH to {ch} "
+          f"(AUTO CHANNEL must not be {ch}).")
+    if not args.yes and not args.dry_run:
+        input("Press Enter when done... ")
+    port = loader.Port(cfg, dry=args.dry_run)
+    loader.send_fx(port, ch, kit["fx"])
+    port.close()
+    print("\n".join(loader.fx_lines(kit["fx"])))
+    print(f"\n{len(port.sent)} messages" + (" (dry run, nothing sent)." if args.dry_run else
+          f" sent. Now set TRACK {ch} back to {ch} and FX CONTROL CH back to OFF."))
+
+
+def load_test(loader, cfg, sm, args):
+    if not sm.slots:
+        die("no RAM plan yet: ./djmono slots, and load the samples into TRIAD first")
+    first = sorted(sm.slots.items())[0]
+    second = next((kv for kv in sorted(sm.slots.items()) if kv[0][0] != first[0][0]), None)
+    print("On the DT2: SETTINGS > MIDI CONFIG. PORT CONFIG: INPUT FROM = USB (or MIDI+USB), RECEIVE CC/NRPN on.\n"
+          "CHANNELS: TRACK 1-16 on channels 1-16, FX CONTROL CH OFF. Use an empty pattern; track 1 on ONESHOT.")
+    if not args.yes and not args.dry_run:
+        input("Press Enter to send the test sound to track 1... ")
+    port = loader.Port(cfg, dry=args.dry_run)
+    loader.dial(port, 1, first[0], "Oneshot", loader.TEST_PARAMS, cfg)
+    if second:
+        loader.dial(port, 2, second[0], "Oneshot", {}, cfg)
+    port.close()
+    report = []
+
+    def ask(page, expect):
+        print(f"\n{page}: {expect}")
+        if args.dry_run or args.yes:
+            return
+        ans = input("  matches? [Y/n, or type what you see] ").strip()
+        if ans and ans.lower() not in ("y", "yes"):
+            report.append(f"{page}: expected {expect}; saw {ans}")
+
+    for page, expect in loader.TEST_SCREEN:
+        ask(f"Track 1 {page}", expect.format(sample=f"{first[1].rsplit('/', 1)[1]} (slot {first[0]})"))
+    if second:
+        ask("Track 2 SRC", f"SMP shows {second[1].rsplit('/', 1)[1]} (slot {second[0]})")
+    probes = sort_probes(sm)
+    if probes:
+        print("\nIn SAMPLES > +DRIVE the loaded samples show their slot. Check these (they sort differently "
+              "depending on how the DT2 orders names):")
+        for slot, sample in probes:
+            ask("Browser", f"/{sample} shows slot {slot}")
+    out = BUILD / "load-test.txt"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    if args.dry_run or args.yes:
+        print("\n(nothing asked: dry run)")
+        return
+    out.write_text("\n".join(report) + "\n" if report else "all matched\n")
+    print(f"\n{'All matched.' if not report else f'{len(report)} mismatch(es) saved to {rel(out)}: send them to Claude.'}")
+
+
+def sort_probes(sm):
+    """Samples whose slot would differ under natural sort or with the .wav extension."""
+    import loader
+    out = []
+    by_folder = {}
+    for slot, sample in sorted(sm.slots.items()):
+        by_folder.setdefault(sample.rsplit("/", 1)[0], []).append((slot, sample))
+    for folder, items in by_folder.items():
+        names = [s.rsplit("/", 1)[1] for _, s in items]
+        alt = sorted(names, key=loader.natural)
+        ext = sorted(names, key=lambda n: n + ".wav")
+        for other in (alt, ext):
+            for (slot, sample), a in zip(items, other):
+                if sample.rsplit("/", 1)[1] != a:
+                    out.append((slot, sample))
+                    break
+        if len(out) >= 3:
+            break
+    return list(dict.fromkeys(out))[:3]
+
+
+def match_presets(r, words):
+    """Every word must match: a bank letter (C), a world (rite), a role (hand, sl, lp), or part of the
+    name, sample, recipe or tags."""
+    rig = load_rig()
+    roles = {role for role, *_ in rig.DRUM_ROLES + rig.TONE_ROLES} | {"sl", "lp"}
+    out = []
+    for key, p in sorted(r.presets.items(), key=lambda kv: (kv[1]["bank"], kv[1]["slot"])):
+        world = rig.BANKS[p["bank"]][0].lower()
+        hay = " ".join([p["name"], p["recipe"], p["sample"], " ".join(p["tags"])]).lower()
+        ok = True
+        for w in (w.lower() for w in words):
+            if len(w) == 1 and w.upper() in rig.BANKS:
+                ok = p["bank"] == w.upper()
+            elif w in roles:
+                ok = p["role"] == {"sl": "slice", "lp": "loop"}.get(w, w)
+            elif w in ("core", "dub", "rite", "drift"):
+                ok = world == w
+            else:
+                ok = w in hay
+            if not ok:
+                break
+        if ok:
+            out.append(p)
+    return out
+
+
+def cmd_presets(args):
+    rig, r, samples, _ = checked_rig()
+    if args.seed:
+        import seed
+        added, notes = seed.plan(r, samples, seed.parse_rules(ROOT / "presets" / "seed.txt"))
+        for n in notes:
+            print(f"  note  {n}")
+        n = sum(len(v) for v in added.values())
+        for bank, rows in sorted(added.items()):
+            for slot, name, recipe, tags, sample in rows:
+                print(f"  {bank}{slot:03d}  {name:<12}  {recipe:<13}  {sample}")
+        if not n:
+            print("nothing new to seed.")
+        elif args.dry_run:
+            print(f"\n{n} presets would be added (dry run).")
+        else:
+            seed.write(ROOT, added)
+            print(f"\n{n} presets added. ./djmono check, then commit presets/.")
+        return
+    found = match_presets(r, args.query)
+    for p in found:
+        kits = ", ".join(r.used.get(f"{p['bank']}:{p['name']}", []))
+        print(f"  {p['bank']}{p['slot']:03d}  {p['name']:<12}  {p['role']:<6} {p['recipe']:<13} "
+              f"{p['sample'].split('/', 1)[1]:<44} {kits}")
+    print(f"\n{len(found)} of {len(r.presets)} presets" + (f" matching {' '.join(args.query)}" if args.query else ""))
+
+
+def cmd_browse(args):
+    rig, r, samples, _ = checked_rig()
+    loader, cfg, sm = slot_map()
+    slots = sm.of
+    found = [p for p in match_presets(r, args.query) if p["sample"] in slots]
+    if not found:
+        die("nothing matches with a RAM slot (./djmono presets QUERY to search; ./djmono slots for RAM)")
+    kitfile = None
+    if args.kit:
+        world, _, name = args.kit.upper().partition("/")
+        if world not in rig.WORLD_BANKS or not name:
+            die(f"--kit WORLD/NAME, WORLD one of {', '.join(rig.WORLD_BANKS)}")
+        kitfile = ROOT / "kits" / world / f"{name.replace(' ', '-')}.txt"
+    port = loader.Port(cfg, dry=args.dry_run)
+    print(f"{len(found)} presets onto track {args.track}. Keep the pattern playing.\n"
+          "  n/space next · p back · r resend · k keep" + (f" (into {rel(kitfile)})" if kitfile else "") + " · q quit\n")
+    i, machine = 0, "Oneshot"
+    try:
+        while 0 <= i < len(found):
+            p = found[i]
+            m, params = r.sound(p)
+            loader.dial(port, args.track, slots[p["sample"]], m, params, cfg,
+                        loader.wav_seconds(DRIVE / f"{p['sample']}.wav"), p["sample"])
+            warn = f"  << set machine {m.upper()}" if m != machine else ""
+            machine = m
+            print(f"[{i + 1}/{len(found)}] {p['bank']}:{p['name']:<12} {p['recipe']:<13} "
+                  f"{p['sample'].split('/', 1)[1]}{warn}  ", end="", flush=True)
+            k = "n" if args.dry_run else (read_key().lower() or "n")
+            print()
+            if k == "q":
+                break
+            if k == "r":
+                continue
+            if k in ("p", "b"):
+                i = max(0, i - 1)
+                continue
+            if k == "k":
+                if kitfile:
+                    keep_in_kit(kitfile, args.track, f"{p['bank']}:{p['name']}")
+                    print(f"  kept: track {args.track} = {p['bank']}:{p['name']} in {rel(kitfile)}")
+                else:
+                    print(f"  {p['bank']}:{p['name']}  (add --kit WORLD/NAME to write it into a kit)")
+            i += 1
+    finally:
+        port.close()
+
+
+def keep_in_kit(path, track, ref):
+    """Set one track line in a kit file, creating a draft kit if needed."""
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        name = path.stem.replace("-", " ")
+        path.write_text(f"# {name} · {path.parent.name}\ntempo  = 120\nstatus = draft\n\n"
+                        "# trk | preset          | sample locks                       | tweaks\n")
+    lines = path.read_text().splitlines()
+    row = f"{track:>2}  | {ref}"
+    for i, line in enumerate(lines):
+        m = re.match(r"^\s*(\d+)\s*\|", line)
+        if m and int(m.group(1)) == track:
+            rest = line.split("|")[2:]
+            lines[i] = row if not rest else f"{row:<22}|" + "|".join(rest)
+            break
+    else:
+        pos = next((i for i, line in enumerate(lines) if re.match(r"^\s*(\d+)\s*\|", line)
+                    and int(line.split("|")[0]) > track), len(lines))
+        lines.insert(pos, row)
+    path.write_text("\n".join(lines) + "\n")
 
 
 def cmd_backup(args):
@@ -1115,6 +1511,20 @@ def cmd_doctor(args):
 
     print("crates")
     print(f"  ok  {len(files)} crates, {len(rules)} active rules")
+
+    print("midi (load, browse)")
+    try:
+        import mido
+        names = mido.get_output_names()
+        cfg = slot_map()[1]
+        hit = [n for n in names if cfg["port"].lower() in n.lower()]
+        print(f"  {'ok ' if hit else '.. '} " + (f"port {hit[0]}" if hit else
+              f"no port matching '{cfg['port']}' (DT2 unplugged? found: {', '.join(names) or 'none'})"))
+    except ImportError:
+        print("  ..  mido not installed (only needed for load and browse):\n"
+              "       -> python3 -m venv .venv && .venv/bin/pip install mido python-rtmidi")
+    except Exception as e:  # rtmidi missing or no MIDI backend
+        print(f"  ..  MIDI backend: {e}\n       -> .venv/bin/pip install python-rtmidi")
     print("\nready." if ok else "\nfix the items marked -- and rerun.")
 
 
@@ -1124,6 +1534,7 @@ def main():
     sub.add_parser("doctor", help="check tools and paths; create config/paths.local").set_defaults(fn=cmd_doctor)
     p = sub.add_parser("scan", help="index a sample source into index/<source>.tsv")
     p.add_argument("source", nargs="?")
+    p.add_argument("--only", metavar="FOLDER", help="rescan one pack folder, e.g. --only SKINS (fast)")
     p.set_defaults(fn=cmd_scan)
     p = sub.add_parser("ls", help="show what each crate rule matches")
     p.add_argument("crate", nargs="?", help="WORLD or WORLD/FN")
@@ -1144,7 +1555,33 @@ def main():
     p.set_defaults(fn=cmd_sync)
     sub.add_parser("status", help="budgets, pending sync, retired samples").set_defaults(fn=cmd_status)
     sub.add_parser("check", help="presets, kits and projects: complete, consistent, within RAM").set_defaults(fn=cmd_check)
-    sub.add_parser("sheet", help="write the build sheets for presets, kits and projects").set_defaults(fn=cmd_sheet)
+    p = sub.add_parser("sheet", help="write the sheets: project load order, kits, preset banks")
+    p.add_argument("--no-open", action="store_true")
+    p.set_defaults(fn=cmd_sheet)
+    p = sub.add_parser("slots", help="plan which RAM slot each synced sample takes in TRIAD")
+    p.add_argument("--reset", action="store_true", help="plan from scratch (for a new, empty project)")
+    p.add_argument("--prune", action="store_true", help="forget retired samples you've deleted from the device")
+    p.set_defaults(fn=cmd_slots)
+    p = sub.add_parser("load", help="dial a kit (or one preset) into the DT2 over USB MIDI")
+    p.add_argument("kit", nargs="?", help="kit name, e.g. \"DEEP ECHO\"")
+    p.add_argument("--preset", metavar="B:NAME", help="one preset instead of a kit")
+    p.add_argument("--track", type=int, default=1, help="track for --preset (1-16)")
+    p.add_argument("--fx", action="store_true", help="send the kit's FX settings instead of its tracks")
+    p.add_argument("--test", action="store_true", help="check the MIDI setup and RAM slots with a test sound")
+    p.add_argument("--dry-run", action="store_true", help="show what would be sent")
+    p.add_argument("-y", "--yes", action="store_true", help="don't stop to ask")
+    p.set_defaults(fn=cmd_load)
+    p = sub.add_parser("browse", help="step through presets on one track while the pattern plays")
+    p.add_argument("query", nargs="*", help="words to match: name, bank letter, role, recipe, tag, sample")
+    p.add_argument("--track", type=int, default=1)
+    p.add_argument("--kit", metavar="WORLD/NAME", help="k writes the preset into this kit's track")
+    p.add_argument("--dry-run", action="store_true")
+    p.set_defaults(fn=cmd_browse)
+    p = sub.add_parser("presets", help="search the preset library, or --seed it from new samples")
+    p.add_argument("query", nargs="*")
+    p.add_argument("--seed", action="store_true", help="add presets for new samples (presets/seed.txt)")
+    p.add_argument("--dry-run", action="store_true")
+    p.set_defaults(fn=cmd_presets)
     p = sub.add_parser("backup", help="save a Transfer backup into backups/ and copy it to the NAS")
     p.add_argument("-y", "--yes", action="store_true", help="don't wait; copy what's already there")
     p.set_defaults(fn=cmd_backup)

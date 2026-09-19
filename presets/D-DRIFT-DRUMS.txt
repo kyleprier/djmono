@@ -1,0 +1,85 @@
+# Preset bank D: DRIFT drums
+# 001-024 low · 025-048 snap · 049-072 hat · 073-096 metal · 097-160 hand · 161-192 wood · 193-224 slice · 225-256 loop
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | PULSE SOFT   | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-mid-color-b-01
+002 | PULSE SUB    | kick-soft     | Kick, Soft             | CORE/KICK/vdm_kick_bd-perkons-sub-color
+003 | PULSE BALL   | kick-soft     | Percussion, Soft       | DRIFT/WOOD/fnd_wood_ballkickbounce-clean
+004 | PULSE CLICK  | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-sat-click-decay-a-01
+005 | PULSE MID    | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-sat-mid-decay-a-03
+006 | PULSE NOISE  | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-noise-05
+007 | PULSE TUBE   | kick-soft     | Kick, Soft             | CORE/KICK/808_kick_bd-tube-09
+025 | TWIG         | snap-found    | Percussion, Acoustic   | DRIFT/WOOD/fnd_wood_twigsnap2-clean
+026 | WATER SLAP   | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_waterslap1-clean
+027 | GLASS SNAP   | snap-found    | Percussion, Bright     | DRIFT/WOOD/fnd_wood_dampglasssmashch-clean
+028 | BOTTLE CLAP  | snap-found    | Clap, Acoustic         | DRIFT/WOOD/fnd_wood_bottlecrinkleclap-clean
+029 | BALL KICK    | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_ballkickbounce-clean
+030 | BIG PLASTIC  | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_bigplasticbin4-clean
+031 | GARDEN FOR 2 | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_gardenforksnare3-clean
+032 | METAL GATE   | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_metalgatenoattack-clean
+033 | PLASTIC      | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_plasticimpactsnare-clea
+034 | SKIP CRASH   | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_skipcrashnoattack-clean
+035 | WATER SPLA 2 | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_watersplash2-clean
+036 | WINE GLASS 2 | snap-found    | Percussion, Soft       | DRIFT/WOOD/fnd_wood_wineglassmetal-clean
+049 | SHAKER AIR   | shake-soft    | Percussion, Soft       | CORE/SHKR/808_shkr_maracas-color-18
+050 | SHAKER DUST  | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_maraca-808-standard-03
+051 | CABS HARD    | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_cabasa-727-hard-01
+052 | 808 MARACA   | shake-soft    | Percussion, Soft       | CORE/SHKR/808_shkr_maracas-color-04
+053 | SHK TOM 02   | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_shaker-tom-standard-02
+054 | TAMB 626     | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_tamb-626-standard
+055 | CABS LM1 01  | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_cabasa-lm1-standard-01
+056 | MARACA       | shake-soft    | Percussion, Soft       | CORE/SHKR/808_shkr_maracas-pitched-01
+057 | TAMB TOM     | shake-soft    | Percussion, Soft       | CORE/SHKR/vdm_shkr_tamb-tom-standard
+073 | CHIME FM     | metal-bell    | Metallic, Bright       | DRIFT/BELL/dx1_bell_fmbellfx-e6
+074 | CHIME FM LOW | metal-bell    | Metallic, Soft         | DRIFT/BELL/dx1_bell_fmbellfx-e3
+075 | TUBULAR BELL | metal-bell    | Metallic, Bright       | DRIFT/BELL/dx1_bell_tbells-c3
+076 | BELL AIR     | metal-bell    | Metallic, Atmosphere   | DRIFT/BELL/kawa_bell_air-c3
+077 | MALLET       | metal-bell    | Metallic, Soft         | DRIFT/BELL/360_bell_mallet-multi-filter-c3
+078 | WINE GLASS   | metal-bell    | Metallic, Bright       | DRIFT/WOOD/fnd_wood_wineglassmetal-clean
+079 | AIR          | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/kawa_bell_air-c3
+080 | DX FM        | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/dx1_bell_fmbellfx-ds6
+081 | MLLT MULTI   | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/360_bell_mallet-multi-filter-c3
+082 | DX TBELLS    | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/dx1_bell_tbells-c3
+083 | DX FM 2      | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/dx1_bell_fmbellfx-e3
+084 | DX FM 3      | metal-ring    | Metallic, Atmosphere   | DRIFT/BELL/dx1_bell_fmbellfx-e6
+085 | BELL SKIN    | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_bell
+086 | FINGER CYM   | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_finger-cymbals
+087 | GARKABEBS    | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_garkabebs
+088 | BELL LO      | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_lo
+089 | MINI TIMS    | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_mini-tims
+090 | OGENE        | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_ogene
+091 | TOCA TOM     | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_toca-tom-bells
+092 | WATERPHONE   | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_waterphone
+093 | FINGER OPEN  | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_finger-cymbals-open
+094 | GARKABEBS RL | metal-ring    | Metallic, Soft         | CORE/BELL/skin_bell_garkabebs-roll
+097 | WATER SPLASH | hand-room     | Percussion, Soft       | DRIFT/WOOD/fnd_wood_watersplash2-clean
+098 | CONGA SOFT   | hand-room     | Percussion, Soft       | CORE/HAND/808_hand_conga-low-sat-a-01
+099 | BONGO DIRT   | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_bongo-727-dirt-01
+100 | 808 CONGA HI | hand-room     | Percussion, Soft       | CORE/HAND/808_hand_conga-hi-color-11
+101 | BONGO CR78   | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_bongo-cr78-pop-02
+102 | CONGA MID    | hand-room     | Percussion, Soft       | CORE/HAND/808_hand_conga-mid-color-11
+103 | BONGO RHYTHM | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_bongo-rhythm-standard-0
+104 | CONGA MID 2  | hand-room     | Percussion, Soft       | CORE/HAND/808_hand_conga-mid-sat-a-01
+105 | CONGA 505 01 | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_conga-505-standard-01
+106 | CONGA DRIVE  | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_conga-808-drive-02
+107 | CONGA DDD 1  | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_conga-ddd1-standard-02
+108 | CONGA MR16   | hand-room     | Percussion, Soft       | CORE/HAND/vdm_hand_conga-mr16-standard-02
+161 | GARDEN FORK  | wood-click    | Percussion             | DRIFT/WOOD/fnd_wood_gardenforksnare3-clean
+162 | PLASTIC BIN  | wood-click    | Percussion             | DRIFT/WOOD/fnd_wood_bigplasticbin4-clean
+163 | BALL KICK 2  | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_ballkickbounce-clean
+164 | BIG PLASTI 2 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_bigplasticbin4-clean
+165 | BOTTLE       | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_bottlecrinkleclap-clean
+166 | DAMP GLASS   | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_dampglasssmashch-clean
+167 | GARDEN FOR 3 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_gardenforksnare3-clean
+168 | METAL GATE 2 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_metalgatenoattack-clean
+169 | PLASTIC 2    | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_plasticimpactsnare-clea
+170 | SKIP CRASH 2 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_skipcrashnoattack-clean
+171 | TWIG SNAP 2  | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_twigsnap2-clean
+172 | WATER SLAP 1 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_waterslap1-clean
+173 | WINE GLASS 3 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_wineglassmetal-clean
+174 | WATER SPLA 3 | wood-found    | Percussion, Atmosphere | DRIFT/WOOD/fnd_wood_watersplash2-clean
+225 | LP FOREST    | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_forest
+226 | LP FROGS     | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_frog-concert
+227 | LP RAIN      | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_rain-thunder-car
+228 | LP SAND      | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_sand
+229 | LP TRAFIC    | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_trafic
+230 | LP WIND WNDW | loop-field    | Loop, Atmosphere       | DRIFT/SCAPE/dsph_scape_wind-window

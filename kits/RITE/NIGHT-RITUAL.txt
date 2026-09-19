@@ -1,10 +1,11 @@
 # NIGHT RITUAL · RITE
-patterns = D
-tempo    = 90
-feel     = sparse and drone-heavy: cello, udu, clave
-fx       = delay TIME 32 (1/4), FDBK 45 · reverb cave, DEC 90 · chorus off · comp light
+tempo  = 90
+feel   = sparse and drone-heavy: cello, udu, clave
+delay  = time=32 fb=45 hp=40 lp=70
+reverb = pre=20 decay=90 lp=60
+comp   = thr=95 mix=25
 
-# trk | BANK:PRESET      | sample locks (options this track can step through)
+# trk | preset          | sample locks                       | tweaks
  1  | C:LOW TOM SUB
  2  | C:DJEMBE SLIDE
  3  | C:CABASA
@@ -12,12 +13,12 @@ fx       = delay TIME 32 (1/4), FDBK 45 · reverb cave, DEC 90 · chorus off · 
  5  | C:UDU FUZZ
  6  | C:CONGA BEND
  7  | C:CLAVE SOFT
- 8  | C:LOOP CLAVE
- 9  | C:BASS DRONE SUB
-10  | C:MALLET
-11  | C:MARIMBA ROOM
-12  | C:CELLO LOW        | RITE/HORN/*
-13  | C:DRONE MOVING
-14  | C:SCAPE METAL
-15  | C:NOISE BOTTLE
-16  | A:FX TAKEOFF
+ 8  | C:SL CLAVE
+ 9  | G:DRONE SUB
+10  | G:MALLET
+11  | G:MARIMBA ROOM
+12  | G:CELLO LOW      | RITE/HORN/*
+13  | G:DRONE MOVING
+14  | G:SCAPE METAL
+15  | G:NOISE BOTTLE
+16  | E:FX TAKEOFF

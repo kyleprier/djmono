@@ -1,0 +1,28 @@
+# ORGANIC 123 · RITE
+ref    = Organic house, after Attack Magazine's beat breakdown: 122-125 BPM, 60-65% swing, 16th shaker with varied velocity, clap pushed early
+tempo  = 123
+swing  = 62
+feel   = acoustic and 909 kick together, early clap, velocity-played 16th shaker, conga, harp
+play   = 909 kick (1) and davul (7) together on the fours. P-lock velocity on every shaker step (4). Clap on 2 and 4, micro-timed a few ticks early. Open hat off-beats with ghost notes.
+delay  = time=24 fb=35 hp=45 lp=80 rev=20
+reverb = pre=10 decay=45 lp=90
+chorus = depth=30 speed=10 mix=30
+comp   = thr=80 mix=45
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | A:KICK 909 MED   |                                    | freq=90
+ 2  | C:CLAP SKIN      | RITE/SNR/*clap*
+ 3  | A:HAT 909 OP
+ 4  | C:SHAKER 16
+ 5  | C:SKIN CONGA     | RITE/HAND/skin_hand_conga*
+ 6  | C:BONGOS         | RITE/HAND/skin_hand_bongo*
+ 7  | C:DAVUL
+ 8  | C:LP 125 PATA
+ 9  | G:BASS PLANET
+10  | G:MARIMBA
+11  | G:HARP ROOM
+12  | G:FLUTE 360
+13  | G:DRONE MOVING
+14  | G:SCAPE MOVING
+15  | E:NOISE HISS
+16  | E:FX RISE

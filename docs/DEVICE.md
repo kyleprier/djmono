@@ -23,7 +23,7 @@ Checked September 2026 against OS 1.16. Sources are at the bottom; ⚠ means com
 - **Loading a preset or kit makes a copy** inside the pattern. Editing the loaded copy leaves the saved one untouched.
 - **Only presets in a project's pool can be preset-locked.** PURGE ALL and SELECT UNUSED clear out unused presets and samples.
 - **The sample browser can:** create folders, rename, move, multi-select, LOAD TO PROJECT, LOAD TO TRK, and preview about 10 s. Samples have no tags and no search; presets and kits do.
-- **Naming characters** on the device are A–Z, 0–9, space and `~ ! @ # $ % ^ & ( ) _ + - =`. djmono names stay inside that set and under 32 characters.
+- **Naming characters** on the device are A–Z, 0–9, space and `~ ! @ # $ % ^ & ( ) _ + - =`. Sample names stay inside that set and under 32 characters; preset and kit names under 12 (the preset file's name field is 12 bytes). Keep names upper case: OS 1.10 dropped names with lower case.
 - **Preset tags** are fixed: Kick, Snare, Rimshot, Clap, Tom, Percussion, Hi-Hat, Cymbal, Cowbell, Synth, Bass, Lead, Pad, Texture, Chord, Sound Fx, Electronic, Metallic, Acoustic, Atmosphere, Noisy, Glitch, Hard, Soft, Dark, Bright, Vintage, Epic, Fail, Loop, Mine, Favourite.
 - **There is no USB disk mode.** Everything goes through Transfer, Elektroid or Overbridge.
 
@@ -36,7 +36,17 @@ Checked September 2026 against OS 1.16. Sources are at the bottom; ⚠ means com
 | Stretch | Tempo-follows long material (grains) |
 | Repitch | Classic pitched sampler playback |
 | Slice (1.15+) | Slice editor with transient detection. SLICE=NOTE plays slices chromatically; CREATE RANDOM LOCKS gives instant variations. Slice points are saved in the preset, not the WAV. |
-| Grid | Equal slices |
+| Grid | Equal slices (4, 8, 16, 32 or 64). The SL presets use it: 16 slices a bar, played on the grid |
+
+## MIDI (what `./djmono load` relies on)
+
+- **Every sound parameter has a CC or NRPN.** Tracks listen on their own channel (TRACK 1–16 in MIDI CONFIG > CHANNELS). The numbers come from the MIDI implementation on midi.guide; the OS 1.01 manual's appendix has a few wrong entries (it gives sample slot as CC 9, which is portamento).
+- **Sample select:** CC 24 picks the RAM bank, CC 19 the slot, then the DT2 needs about 100 ms before the next message. The NRPN versions scale oddly; the CCs work.
+- **Tune** goes as NRPN 1:0, 128 steps a semitone around 8192. That's the one 14-bit parameter the loader sends that way.
+- **Not reachable over MIDI:** the machine, the filter machine, LFO destinations, Werp/Stretch BARS. Set them by hand; the loader and sheets list them.
+- **Kit FX** (delay, reverb, chorus, compressor) listen on the FX CONTROL channel, and their CCs overlap the track CCs. With all 16 tracks on channels 1–16 there's no free channel, so `load --fx` asks you to swap track 16 off for a moment.
+- **LOAD TO PROJECT** puts samples into the first empty slots, or into a chosen RAM bank with FUNC + YES. The +Drive browser shows the slot of every loaded sample, which is how `./djmono load --test` checks the plan.
+- **Preset files (.dt2pst)** are a zip: manifest, the WAV, and a compressed binary. The binary looks like an LZ4 block with the header as its dictionary. chirashi writes slice points straight into that compressed stream, so its presets are unlikely to load. Writing real preset files would take a round of exported presets to map parameter offsets; the MIDI loader does the same job today.
 
 ## OS timeline
 
@@ -65,6 +75,8 @@ Checked September 2026 against OS 1.16. Sources are at the bottom; ⚠ means com
 ## Sources
 
 - Digitakt II manual, OS 1.16: https://www.elektron.se/wp-content/uploads/2026/09/Digitakt-2-User-Manual_ENG_OS1.16_260909.pdf
+- MIDI CC and NRPN map: https://midi.guide/d/elektron/digitakt-ii/ · https://github.com/pencilresearch/midi
+- Sample select over MIDI: https://www.elektronauts.com/t/controlling-sample-slot-on-digitakt-2-via-midi/222058
 - OS release notes: https://www.elektron.se/release-notes/digitakt-ii-os-release-notes
 - Transfer manual: https://www.elektron.se/wp-content/uploads/2026/03/Transfer-User-Manual_ENG_OS1.10_260304.pdf
 - Overbridge manual: https://www.elektron.se/wp-content/uploads/2026/08/Overbridge-User-Manual_260826.pdf

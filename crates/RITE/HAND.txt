@@ -11,3 +11,24 @@ sfm:505 FROM MARS/*conga hi/*                              | limit=2
 # gap fill (docs/SOURCES.md): SFM is thin on real hand drums; these do the heavy lifting
 # lib:Skins/*.wav                                          | limit=48 stereo code=skin
 # lib:Total Tabla/*.wav                                    | limit=24 code=tbla
+
+# Skins (Bashiri Johnson): real hand drums, several strokes per drum
+lib:SKINS/SKN_PERC_HITS/*hairdrum*                         | limit=8 strip=2
+lib:SKINS/SKN_PERC_HITS/*sabar*                            | limit=8 strip=2 exclude=peg
+lib:SKINS/SKN_PERC_HITS/*conga*                            | limit=8 strip=2 exclude=brushed
+lib:SKINS/SKN_PERC_HITS/*pegdrum*                          | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*dumbek*                           | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*djembe*                           | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*firedrum*                         | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*bongo*                            | limit=6 strip=2
+lib:SKINS/SKN_PERC_HITS/*tama*                             | limit=4 strip=2 exclude=snare
+lib:SKINS/SKN_PERC_HITS/*quinto*                           | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*repenique*                        | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*pandiero*                         | limit=4 strip=2
+lib:SKINS/SKN_PERC_HITS/*riq*                              | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*darabuka*                         | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*gnawa*                            | limit=3 strip=2
+lib:SKINS/SKN_PERC_HITS/*udu*                              | limit=4 strip=2
+lib:SKINS/SKN_PERC_HITS/*monkeydrum*                       | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*timbau*                           | limit=2 strip=2
+lib:SKINS/SKN_PERC_HITS/*tubano*                           | limit=2 strip=2

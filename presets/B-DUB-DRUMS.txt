@@ -1,0 +1,123 @@
+# Preset bank B: DUB drums
+# 001-024 low · 025-048 snap · 049-072 hat · 073-096 metal · 097-160 hand · 161-192 wood · 193-224 slice · 225-256 loop
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | KICK LM1 A   | kick-round    | Kick, Vintage          | DUB/KICK/lm1_kick_bd-trim-color-a-01
+002 | KICK LM1 B   | kick-round    | Kick, Vintage          | DUB/KICK/lm1_kick_bd-trim-color-b-15
+003 | KICK VINYL   | kick-round    | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-clean-01
+004 | KICK SOFT    | kick-soft     | Kick, Soft             | DUB/KICK/vdrm_kick_bd-rock-soft-01
+005 | KICK FATBOI  | kick-round    | Kick, Acoustic         | DUB/KICK/pres_kick_bd-70s-fatboi
+006 | KICK DGR     | kick-round    | Kick, Dark             | DUB/KICK/vdrm_kick_bd-degraded-05
+007 | BD LM1 01    | kick-dub      | Kick, Vintage          | DUB/KICK/lm1_kick_bd-trim-color-a-01
+008 | BD VINYL 02  | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-vari-02
+009 | BD LM1 15    | kick-dub      | Kick, Vintage          | DUB/KICK/lm1_kick_bd-trim-color-b-15
+010 | BD 606       | kick-dub      | Kick, Vintage          | DUB/KICK/drs_kick_bd-606
+011 | BD 70S       | kick-dub      | Kick, Vintage          | DUB/KICK/pres_kick_bd-70s-fatboi
+012 | BD CLUB DEAD | kick-dub      | Kick, Vintage          | DUB/KICK/pres_kick_bd-club-dead
+013 | BD VNL DGR   | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-degraded-05
+014 | BD LM1       | kick-dub      | Kick, Vintage          | DUB/KICK/lm1_kick_bd-no-filt-trim-color-a
+015 | BD VNL M44   | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-m44-crunch-04
+016 | BD MUNICH 01 | kick-dub      | Kick, Vintage          | DUB/KICK/drs_kick_bd-munich-01
+017 | BD VNL PLATE | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-fx-plate-gate-03
+018 | BD VNL ROCK  | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-rock-soft-01
+019 | BD VINYL SIM | kick-dub      | Kick, Vintage          | DUB/KICK/drs_kick_bd-vinyl-sim
+020 | BD TRIANGLE  | kick-dub      | Kick, Vintage          | DUB/KICK/pres_kick_bd-triangle
+021 | BD VINYL 01  | kick-dub      | Kick, Vintage          | DUB/KICK/vdrm_kick_bd-clean-01
+022 | BD LM1 2     | kick-dub      | Kick, Vintage          | DUB/KICK/lm1_kick_bd-no-filt-trim-color-b
+025 | RIM VINYL    | snap-rim      | Rimshot, Vintage       | DUB/SNR/vdrm_snr_rim-clean-01
+026 | RIM TUBE     | snap-rim      | Rimshot, Dark          | DUB/SNR/vdrm_snr_rim-tube-02
+027 | RIM LM1      | snap-rim      | Rimshot, Vintage       | DUB/SNR/lm1_snr_rimshot-color-a-01
+028 | RIM SMACK    | snap-rim      | Rimshot, Acoustic      | DUB/SNR/pres_snr_rim-acoustic-smack-02
+029 | SNARE VINYL  | snap-rim      | Snare, Vintage         | DUB/SNR/vdrm_snr_sd-clean-01
+030 | SNARE M44    | snap-rim      | Snare, Dark            | DUB/SNR/vdrm_snr_sd-m44-dark-01
+031 | SNARE LM1    | snap-rim      | Snare, Vintage         | DUB/SNR/lm1_snr_sd-trim-color-a-01
+032 | SNARE VERB   | snap-verb     | Snare, Atmosphere      | DUB/SNR/lm1_snr_sd-trim-color-a-01
+033 | VERB VNL 01  | snap-verb     | Snare, Atmosphere      | DUB/SNR/vdrm_snr_sd-clean-01
+034 | VERB LM1 13  | snap-verb     | Snare, Atmosphere      | DUB/SNR/lm1_snr_sd-trim-color-b-13
+035 | VERB VNL 14  | snap-verb     | Snare, Atmosphere      | DUB/SNR/vdrm_snr_sd-vari-14
+036 | VERB LM1 24  | snap-verb     | Snare, Atmosphere      | DUB/SNR/lm1_snr_sd-trim-color-c-24
+037 | RIM LM1 13   | snap-rim      | Rimshot, Vintage       | DUB/SNR/lm1_snr_sd-trim-color-b-13
+038 | RIM LM1 24   | snap-rim      | Rimshot, Vintage       | DUB/SNR/lm1_snr_sd-trim-color-c-24
+039 | RIM 808 VNL  | snap-rim      | Rimshot, Vintage       | DUB/SNR/pres_snr_rim-808-vinyl
+040 | RIM LM1 01   | snap-rim      | Rimshot, Vintage       | DUB/SNR/lm1_snr_rimshot-color-b-01
+041 | RIM          | snap-rim      | Rimshot, Vintage       | DUB/SNR/pres_snr_rim-standard
+042 | RIM LM1 24 2 | snap-rim      | Rimshot, Vintage       | DUB/SNR/lm1_snr_rimshot-color-b-24
+043 | RIM VNL DGR  | snap-rim      | Rimshot, Vintage       | DUB/SNR/vdrm_snr_rim-degraded-06
+044 | RIM VNL M44  | snap-rim      | Rimshot, Vintage       | DUB/SNR/vdrm_snr_rim-m44-03
+045 | RIM VINYL 07 | snap-rim      | Rimshot, Vintage       | DUB/SNR/vdrm_snr_rim-vari-07
+046 | SD VINYL 14  | snap-rim      | Snare, Vintage         | DUB/SNR/vdrm_snr_sd-vari-14
+049 | HAT VINYL    | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_ch-clean-10
+050 | HAT DEGRADED | hat-dusty     | Hi-Hat, Dark           | DUB/HAT/vdrm_hat_ch-degraded-07
+051 | HAT LM1      | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/lm1_hat_ch-v1-color-decay-a-01
+052 | OH VINYL     | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_oh-clean-01
+053 | HH LM1 CH V1 | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/lm1_hat_ch-v1-color-decay-c-01
+054 | HH LM1 CH V3 | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/lm1_hat_ch-v3-color-decay-d-30
+055 | HH VNL CH    | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_ch-clean-lite-01
+056 | HH VNL CH 2  | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_ch-tamb-02
+057 | HH VNL CH 09 | hat-dusty     | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_ch-vari-09
+058 | OH VINYL 01  | hat-open      | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_oh-clean-01
+059 | OH VNL STOMP | hat-open      | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_oh-stomp
+060 | OH VINYL 22  | hat-open      | Hi-Hat, Vintage        | DUB/HAT/vdrm_hat_oh-vari-22
+061 | CABS HARD    | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_cabasa-727-hard-01
+062 | MARACA 808   | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_maraca-808-standard-03
+063 | 808 MARACA   | shake-16th    | Percussion, Vintage    | CORE/SHKR/808_shkr_maracas-color-04
+064 | SHK TOM 02   | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_shaker-tom-standard-02
+065 | TAMB 626     | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_tamb-626-standard
+066 | CABS LM1 01  | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_cabasa-lm1-standard-01
+067 | 808 MARACA 2 | shake-16th    | Percussion, Vintage    | CORE/SHKR/808_shkr_maracas-color-18
+068 | TAMB TOM     | shake-16th    | Percussion, Vintage    | CORE/SHKR/vdm_shkr_tamb-tom-standard
+069 | MARACA       | shake-16th    | Percussion, Vintage    | CORE/SHKR/808_shkr_maracas-pitched-01
+073 | RIDE 1880    | ride-wash     | Cymbal, Acoustic       | DUB/HAT/pres_hat_ride-acoustic-1880-01
+074 | RIDE ROUND   | ride-wash     | Cymbal, Acoustic       | DUB/HAT/pres_hat_ride-acoustic-round-01
+075 | RIDE VINYL   | ride-wash     | Cymbal, Vintage        | DUB/HAT/vdrm_hat_ride-clean-1880-01
+076 | RIDE LOFI    | ride-wash     | Cymbal, Dark           | DUB/HAT/vdrm_hat_ride-lofi
+077 | RIDE VERB    | ride-wash     | Cymbal, Atmosphere     | DUB/HAT/pres_hat_ride-ring-mid-verb
+078 | RD AC DRIVE  | ride-wash     | Cymbal, Vintage        | DUB/HAT/pres_hat_ride-acoustic-drive-02
+079 | RD VNL CRASH | ride-wash     | Cymbal, Vintage        | DUB/HAT/vdrm_hat_ride-crash-02
+080 | RD VNL DGR   | ride-wash     | Cymbal, Vintage        | DUB/HAT/vdrm_hat_ride-degraded-10
+081 | RD VNL VERB  | ride-wash     | Cymbal, Vintage        | DUB/HAT/vdrm_hat_ride-fx-verb-pitch-02
+082 | RD VNL       | ride-wash     | Cymbal, Vintage        | DUB/HAT/vdrm_hat_ride-topper
+097 | CONGA DUB    | hand-dub      | Percussion, Vintage    | CORE/HAND/808_hand_conga-mid-color-11
+098 | BONGO DUB    | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_bongo-cr78-pop-02
+099 | BONGO DUB 2  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_bongo-727-dirt-01
+100 | CONGA HI DUB | hand-dub      | Percussion, Vintage    | CORE/HAND/808_hand_conga-hi-color-11
+101 | BONGO DUB 3  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_bongo-rhythm-standard-0
+102 | CONGA LO DUB | hand-dub      | Percussion, Vintage    | CORE/HAND/808_hand_conga-low-sat-a-01
+103 | CONGA DUB 2  | hand-dub      | Percussion, Vintage    | CORE/HAND/808_hand_conga-mid-sat-a-01
+104 | CONGA DUB 3  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_conga-505-standard-01
+105 | CONGA DUB 4  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_conga-808-drive-02
+106 | CONGA DUB 5  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_conga-ddd1-standard-02
+107 | CONGA DUB 6  | hand-dub      | Percussion, Vintage    | CORE/HAND/vdm_hand_conga-mr16-standard-02
+193 | SL REGGAE    | slice-dub     | Loop, Vintage          | DUB/LOOP/visc_loop_reggae-1-full-sd-break
+194 | SL FUNKY     | slice-dub     | Loop, Vintage          | DUB/LOOP/visc_loop_funky-rock-1-full-sd-c
+195 | SL CHOP      | slice-dub     | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-01
+196 | SL BOOGIE    | slice-dub     | Loop, Vintage          | DUB/LOOP/cr78_loop_boogie-b
+197 | SL 16 BEAT   | slice-dub     | Loop                   | DUB/LOOP/visc_loop_16-beat-full-clap-brea
+198 | SL 140 SGL   | slice-dub     | Loop, Vintage          | DUB/LOOP/skin_loop_140-homewards-single-s
+199 | SL 170 CLAPS | slice-dub     | Loop, Vintage          | DUB/LOOP/skin_loop_170-kimati-claps
+200 | SL CR78 BGN  | slice-dub     | Loop, Vintage          | DUB/LOOP/cr78_loop_beguine-a
+201 | SL BRK CHOP  | slice-dub     | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-06
+202 | SL CHA 2 CYM | slice-dub     | Loop, Vintage          | DUB/LOOP/visc_loop_cha-cha-2-full-cym-rep
+203 | SL CR78 CMB  | slice-dub     | Loop, Vintage          | DUB/LOOP/cr78_loop_combo-17
+204 | SL SMB CLAP  | slice-dub     | Loop, Vintage          | DUB/LOOP/visc_loop_samba-2-full-clap-perc
+205 | SL CR78 WLTZ | slice-dub     | Loop, Vintage          | DUB/LOOP/cr78_loop_waltz-b
+206 | SL WSTRN CYM | slice-dub     | Loop, Vintage          | DUB/LOOP/visc_loop_western-full-clap-cym
+207 | SL 170 SHEL  | slice-dub     | Loop, Vintage          | DUB/LOOP/skin_loop_170-kimati-single-shel
+208 | SL BRK CHO 2 | slice-dub     | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-11
+209 | SL BRK CHO 3 | slice-dub     | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-16
+225 | LP 140 SGL   | loop-stretch  | Loop, Vintage          | DUB/LOOP/skin_loop_140-homewards-single-s
+226 | LP 16 BREA   | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_16-beat-full-clap-brea
+227 | LP 170 CLAPS | loop-stretch  | Loop, Vintage          | DUB/LOOP/skin_loop_170-kimati-claps
+228 | LP CR78 BGN  | loop-stretch  | Loop, Vintage          | DUB/LOOP/cr78_loop_beguine-a
+229 | LP CR78 BG   | loop-stretch  | Loop, Vintage          | DUB/LOOP/cr78_loop_boogie-b
+230 | LP BRK CHOP  | loop-stretch  | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-01
+231 | LP CHA 2 CYM | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_cha-cha-2-full-cym-rep
+232 | LP CR78 CMB  | loop-stretch  | Loop, Vintage          | DUB/LOOP/cr78_loop_combo-17
+233 | LP FNKY ROCK | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_funky-rock-1-full-sd-c
+234 | LP RGG BRK   | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_reggae-1-full-sd-break
+235 | LP SMB CLAP  | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_samba-2-full-clap-perc
+236 | LP CR78 WLTZ | loop-stretch  | Loop, Vintage          | DUB/LOOP/cr78_loop_waltz-b
+237 | LP WSTRN CYM | loop-stretch  | Loop, Vintage          | DUB/LOOP/visc_loop_western-full-clap-cym
+238 | LP 170 SHEL  | loop-stretch  | Loop, Vintage          | DUB/LOOP/skin_loop_170-kimati-single-shel
+239 | LP BRK CHO 2 | loop-stretch  | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-06
+240 | LP BRK CHO 3 | loop-stretch  | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-11
+241 | LP BRK CHO 4 | loop-stretch  | Loop, Vintage          | DUB/LOOP/drs_loop_break-chop-16

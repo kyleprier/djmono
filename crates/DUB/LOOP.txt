@@ -5,3 +5,7 @@ sfm:DR SAMPLE FROM MARS/*textures/01. break/*              | limit=4
 
 # Vinyl Breaks From Mars isn't on the NAS yet; when it is:
 # sfm:VINYL BREAKS FROM MARS/*                             | limit=16
+
+# Skins: hand-played conga and clap loops for the jazz-dub kits
+lib:SKINS/SKN_WAV_LOOPS/*singleshellconga*                 | limit=2 mono strip=1 drop=perc
+lib:SKINS/SKN_WAV_LOOPS/*claps*                            | limit=1 mono strip=1 drop=perc

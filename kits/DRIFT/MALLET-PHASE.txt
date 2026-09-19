@@ -1,0 +1,26 @@
+# MALLET PHASE · DRIFT
+ref    = Midori Takada, Through the Looking Glass: marimba, cowbell, gongs, bells, a reed organ, blown bottles
+tempo  = 96
+feel   = mallets and bells in two phasing figures, cowbell, reed drone
+play   = Play one figure on 10 and the same on 11, with 10 at 12 steps and 11 at 13 (per-track scale) so they phase.
+delay  = time=32 fb=30 hp=30 lp=90 rev=30
+reverb = pre=15 decay=80 lp=100
+chorus = depth=30 speed=8 mix=30
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | D:PULSE SOFT
+ 2  | D:BOTTLE CLAP
+ 3  | D:SHAKER DUST
+ 4  | D:OGENE
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:PLASTIC BIN
+ 8  | D:LP FOREST      |                                    | vol=70
+ 9  | H:BASS DRONE C
+10  | H:MLLT MULTI
+11  | H:VIBES
+12  | H:CLARINET
+13  | H:CHORD DRONE
+14  | H:SAND
+15  | E:NOISE HISS
+16  | H:BELL REVERSE

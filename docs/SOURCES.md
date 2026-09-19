@@ -2,19 +2,19 @@
 
 ## What's on the NAS
 
-`audio/sample packs` holds **samples from mars** (79 packs, about 137k files once format copies are skipped) and **DigiSphere II** (a Digitakt II pack: install its presets through Transfer into preset bank G; its samples feed DRIFT). Most SFM packs split **clean** and **color** takes by folder (color = tape, tube, vinyl); the crates take color unless a rule says otherwise.
+`audio/sample packs` holds **samples from mars** (79 packs, about 137k files once format copies are skipped), **SKINS** (Bashiri Johnson's hand drums: 417 one-shots and 180 loops) and **DigiSphere II** (a Digitakt II pack: its presets can go into bank E, slots 001–224, which CORE doesn't use; its samples feed DRIFT). Most SFM packs split **clean** and **color** takes by folder (color = tape, tube, vinyl); the crates take color unless a rule says otherwise.
 
 | World | Coverage | Packs the crates draw on |
 |-------|----------|--------------------------|
 | DUB | Strong | Vinyl Synths, Junos, Dr Sample (Rhodes, maj/min 7 and Universe chords), OB, Mirage (chords) · Mirage, 360, S612, DX100, Junos, OB, Dr Sample (keys) · Trumpet Fragments, 360, DX100, Mirage, OB (horns) · LM1, Vinyl Drums, Private Reserve, Dr Sample (drums) · Mirage upright, Junos subs, 101, Dr Sample, Synare (bass) · VP330, Junos, Dr Sample, Tape Fragments (pads) · Viscount, CR78 (loops) |
-| RITE | Thin | Private Reserve (djembe, udu, conga, clave, woodblock, bells: the only real hand drums) · Viscount, SP1200, 505 (bongo, conga) · Vinyl Drums, LM1 (shaker, tambourine, guiro, cabasa) · Ekko, 808 Loops, Minipops (loops) · 360, DX100, Mirage, SH5, Kawaii (flute, marimba, steel drum, banjo, harp) |
+| RITE | Strong | Skins (19 hand drums, surdo, davul, shakers, caxixi, bells, slit drum; per-drum loops at 80–160 for the SL and LP presets) · Private Reserve (djembe, udu, conga, clave, woodblock, bells) · Viscount, SP1200, 505 (bongo, conga) · Vinyl Drums, LM1 (shaker, tambourine, guiro, cabasa) · Ekko, 808 Loops, Minipops (loops) · 360, DX100, Mirage, SH5, Kawaii (flute, marimba, steel drum, banjo, harp) |
 | Guitar | Partial | 360 electric and jazz guitar, S612 Stratos, Dr Sample muted Strat and Guitar Noir phrases (DUB) · Mirage Warp and chorus acoustic, Dr Sample tremolo acoustic, 360 nylon vibrato (DRIFT). No pedal steel. |
 | DRIFT | Partial | Kawaii Dreams, VP330, 101, DigiSphere II (pads) · DX100 celeste, bells, vibes (keys, bells) · Modular Creations, DigiSphere II (drones) · Found Sounds outdoors, DX100 chirps (field) |
 | CORE | Strong | 909, 808, CR78, Vinyl Drum Machines · Synare (dub siren, noise) · Vinyl Drums static and FX · SH5 hiss |
 
 **Not on the NAS yet** (in the SFM bundle; DUB/LOOP has a commented line ready for Vinyl Breaks): Vinyl Breaks, Cassette Drums, Indie Tapes, Emulator, Mini, Lo-Fi Drum Machines, Grooves.
 
-**The gaps no SFM pack fills:** pedal steel, real hand drums beyond Private Reserve, kalimba, bowls and gongs, field recordings, and vinyl/tape noise beds.
+**Still missing:** pedal steel, kalimba, bowls and gongs, field recordings, vinyl/tape noise beds, and birdsong for the RITE side (MONTE CUMBIA borrows DRIFT's chirps).
 
 ## Filling the gaps
 
@@ -38,7 +38,6 @@ Prices as of September 2026. Unzip downloads into `audio/sample packs` on the NA
 |------|-------|-----|
 | Loopmasters, **Pedal Steel Guitar**: 218 one-shots plus a chromatic multi, 24-bit, royalty-free | $33 | DUB/GTR, DRIFT/GTR |
 | We Sound Human, **Ambient Guitars**: swells, E-Bow, one-shots and textures, 626 files, royalty-free | $95 | DRIFT/GTR, SCAPE |
-| Loopmasters, **Bashiri Johnson Presents Skins**: 417 hand-drum one-shots | $21 | RITE/HAND |
 | Elektron **Total Tabla**: 123 tabla hits (WAVs load; the Rytm project won't) | $19 | RITE/HAND |
 | Frontline, **The Sound of Mbira**: 162 one-shots | $47 | RITE/STAB |
 | **Luftrum Dub Techno Chords**: 180 stabs, labelled by key | $19 | DUB/STAB |
@@ -49,7 +48,7 @@ Prices as of September 2026. Unzip downloads into `audio/sample packs` on the NA
 
 **Avoid for releases:** BBC Sound Effects. The RemArc licence covers personal and educational use only.
 
-**Ready-made DT2 presets**, worth a look for technique rather than sound: Elektron HexCells and Cassediments, substan DigiSphere II (ambient), James Orvis SUBSTANCE. Park them in preset bank G.
+**Ready-made DT2 presets**, worth a look for technique rather than sound: Elektron HexCells and Cassediments, substan DigiSphere II (ambient), James Orvis SUBSTANCE. Park them in bank E, slots 001–224.
 
 ## Your own
 

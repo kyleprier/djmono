@@ -1,0 +1,27 @@
+# ONE DROP DUB · DUB
+ref    = Rhythm & Sound: deep bass loops, insistent hats, singers shadowed by a recessed ghost of themselves
+tempo  = 126
+feel   = one drop at half time: kick and cross-stick together, straight 16th hats, sub, an echoing voice with its ghost
+play   = Count it at 63: kick and rim together on step 9 only. Hats every 16th with velocity locks. Tracks 12 and 14 play the same voice: 14 is the ghost, quieter, band-passed, all reverb.
+delay  = time=32 fb=65 hp=35 lp=55 rev=30
+reverb = pre=20 decay=85 lp=60
+chorus = depth=30 speed=10 mix=50
+comp   = thr=85 mix=35
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | B:KICK LM1 B
+ 2  | B:RIM SMACK
+ 3  | B:HAT LM1        | DUB/HAT/*_ch-*
+ 4  | B:RIDE VERB
+ 5  | B:BONGO DUB
+ 6  | A:CONGA VINYL
+ 7  | A:CABASA LM1
+ 8  | B:SL REGGAE      |                                    | vol=70
+ 9  | F:DUB SMOOTH
+10  | F:STAB CMIN11
+11  | F:ORGAN JAZZY
+12  | F:VOX THROW      | DUB/VOX/*
+13  | F:PAD MELLOVOX
+14  | F:VOX GHOST
+15  | E:NOISE HISS
+16  | E:FX SCRATCH

@@ -1,23 +1,26 @@
 # BROKEN BEAT · DUB
-patterns = B
-tempo    = 94
-feel     = off-grid, sliced breaks, clav and sax
-fx       = delay TIME 12 (dotted 1/16), FDBK 40, into reverb 20 · reverb warm room, DEC 50 · chorus 25 · comp light
+tempo  = 94
+feel   = off-grid sliced breaks, clav and sax
+play   = Slice the break on the grid, then nudge kick and snare off it with micro-timing.
+delay  = time=12 fb=40 hp=40 lp=80 rev=20
+reverb = pre=10 decay=50 lp=80
+chorus = depth=40 speed=16 mix=40
+comp   = thr=90 mix=25
 
-# trk | BANK:PRESET      | sample locks (options this track can step through)
+# trk | preset          | sample locks                       | tweaks
  1  | B:KICK FATBOI
- 2  | B:SNARE M44 DARK
+ 2  | B:SNARE M44
  3  | B:HAT DEGRADED
  4  | B:RIDE LOFI
  5  | A:CONGA 808 HI
  6  | A:CONGA VINYL
  7  | A:TAMB 626
- 8  | B:BREAK FUNKY      | DUB/LOOP/*
- 9  | B:101 HOVER
-10  | B:STAB POLYSIX 4
-11  | B:CLAV FUNK
-12  | B:SAX 360
-13  | B:PAD CINEMATIC
-14  | B:VOX GIBSON
-15  | A:NOISE CRACKLE
-16  | A:FX SCRATCH
+ 8  | B:SL FUNKY       | DUB/LOOP/*
+ 9  | F:101 HOVER
+10  | F:STAB POLY 4
+11  | F:CLAV FUNK
+12  | F:SAX 360
+13  | F:PAD CINEMA
+14  | F:VOX GIBSON
+15  | E:CRACKLE
+16  | E:FX SCRATCH

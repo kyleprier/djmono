@@ -1,0 +1,26 @@
+# CHORD DUST · DUB
+ref    = Basic Channel, after Attack Magazine's breakdown: bit-crushed stab, band-pass near 450 Hz on a slow LFO, dotted-1/8 delay, short reverb
+tempo  = 124
+feel   = crushed minor stab through a band-pass, off-beat open hat, sine sub, crackle
+play   = Open hat on every off-beat 8th. The stab's LFO1 slowly moves the band-pass; set its destination to FLTR FREQ. Throw the delay on single stab steps.
+delay  = time=24 fb=45 hp=50 lp=60 rev=20
+reverb = pre=5 decay=40 lp=80
+comp   = thr=80 mix=40
+
+# trk | preset          | sample locks                       | tweaks
+ 1  | B:KICK SOFT
+ 2  | B:RIM LM1
+ 3  | B:OH VINYL       | DUB/HAT/*_oh-*
+ 4  | B:RIDE LOFI
+ 5  | A:CONGA 808
+ 6  | B:CONGA DUB
+ 7  | A:MARACA 808
+ 8  | B:SL 16 BEAT     |                                    | vol=80
+ 9  | F:SUB ONLY
+10  | F:BP STAB DM9    | DUB/STAB/juno_stab_*
+11  | F:DUB PNO TREM
+12  | F:TPT GHOST
+13  | F:PAD CINEMA
+14  | F:ISOLATION
+15  | E:CRACKLE
+16  | E:FX RES SWEEP

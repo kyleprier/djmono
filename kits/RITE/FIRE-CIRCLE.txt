@@ -1,23 +1,24 @@
 # FIRE CIRCLE · RITE
-patterns = C
-tempo    = 118
-feel     = driving hand drums around a drone
-fx       = delay TIME 16 (1/8), FDBK 30, low send · reverb short room, DEC 35 · chorus off · comp medium, punchy
+tempo  = 118
+feel   = driving skin drums around a drone
+delay  = time=16 fb=30 hp=40 lp=90
+reverb = pre=5 decay=35 lp=90
+comp   = thr=80 mix=50
 
-# trk | BANK:PRESET      | sample locks (options this track can step through)
- 1  | C:LOW FLOOR TOM
- 2  | C:DJEMBE SLAP      | RITE/HAND/pres_hand_djembe*
- 3  | C:SHAKER SOFT      | RITE/SHKR/*shaker*
- 4  | C:AGOGO HI         | RITE/BELL/visc_*
- 5  | C:UDU TONE         | RITE/HAND/pres_hand_udu*
- 6  | C:CONGA HI         | RITE/HAND/*conga*
- 7  | C:CLAVE            | RITE/WOOD/pres_wood_*
- 8  | C:LOOP WARRIOR
- 9  | C:BASS DRONE SUB
-10  | C:MARIMBA
-11  | C:NYLON GUITAR
-12  | C:FLUTE 360
-13  | C:DRONE DARK
-14  | C:SCAPE VORTEX
-15  | A:NOISE HISS
-16  | C:FX DRONE SWELL
+# trk | preset          | sample locks                       | tweaks
+ 1  | C:SURDO          | RITE/KICK/skin_kick_surdo*
+ 2  | C:DJEMBE SLAP    | RITE/HAND/*djembe*
+ 3  | C:SHAKER SOFT    | RITE/SHKR/*shaker*
+ 4  | C:AGOGO HI       | RITE/BELL/visc_*
+ 5  | C:FIRE DRUM      | RITE/HAND/skin_hand_fire-drum*
+ 6  | C:SKIN CONGA     | RITE/HAND/*conga*
+ 7  | C:CLAVE          | RITE/WOOD/pres_wood_*
+ 8  | C:SL 110 SURDO
+ 9  | G:DRONE SUB
+10  | G:MARIMBA
+11  | G:NYLON GUITAR
+12  | G:FLUTE 360
+13  | G:DRONE DARK
+14  | G:SCAPE VORTEX
+15  | G:NOISE BOTTLE
+16  | G:FX SWELL

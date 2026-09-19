@@ -1,0 +1,28 @@
+# Preset bank E: CORE tones
+# 001-032 bass · 033-080 stab · 081-112 keys · 113-160 lead · 161-192 pad · 193-224 scape · 225-240 noise · 241-256 fx
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+225 | NOISE VINYL  | noise-bed     | Texture, Vintage       | CORE/NOISE/vdrm_noise_fx-static-long-01
+226 | CRACKLE      | noise-bed     | Texture, Noisy         | CORE/NOISE/vdrm_noise_fx-loop-02
+227 | NOISE HISS   | noise-bed     | Texture, Soft          | CORE/NOISE/sh5_noise_hissmachine-c3
+228 | NOISE SYNARE | noise-bed     | Texture, Noisy         | CORE/NOISE/syn_noise_res-00-sweep-00-a-01
+229 | DOWN 08      | noise-bed     | Texture, Noisy         | CORE/NOISE/syn_noise_down-f-08
+230 | VNL LOOP 01  | noise-bed     | Texture, Noisy         | CORE/NOISE/vdrm_noise_fx-loop-01
+231 | RES 00 SWP   | noise-bed     | Texture, Noisy         | CORE/NOISE/syn_noise_res-00-sweep-02-d-02
+232 | VNL STAT 02  | noise-bed     | Texture, Noisy         | CORE/NOISE/vdrm_noise_fx-static-long-02
+233 | VNL LOOP 03  | noise-bed     | Texture, Noisy         | CORE/NOISE/vdrm_noise_fx-loop-03
+234 | RES 01 SWP   | noise-bed     | Texture, Noisy         | CORE/NOISE/syn_noise_res-01-sweep-02-b-07
+235 | VNL LOOP 04  | noise-bed     | Texture, Noisy         | CORE/NOISE/vdrm_noise_fx-loop-04
+241 | FX SIREN UFO | fx-throw      | Sound Fx, Vintage      | CORE/FX/syn_fx_ufo-babies-wet-40
+242 | FX UFO DRY   | fx-throw      | Sound Fx               | CORE/FX/syn_fx_ufo-babies-dry-47
+243 | FX RES SWEEP | fx-throw      | Sound Fx               | CORE/FX/syn_fx_resonance-sweep-wet-01
+244 | FX TAKEOFF   | fx-reverse    | Sound Fx, Epic         | CORE/FX/syn_fx_ufo-takeoff-wet-10
+245 | FX SCRATCH   | fx-throw      | Sound Fx, Vintage      | CORE/FX/vdrm_fx_scratch
+246 | FX RISE      | fx-reverse    | Sound Fx               | CORE/FX/syn_fx_rise-01
+247 | FX VNL BLIP  | fx-throw      | Sound Fx               | CORE/FX/vdrm_fx_blip
+248 | FX VNL CLICK | fx-throw      | Sound Fx               | CORE/FX/vdrm_fx_click-perc
+249 | FX VNL DRAG  | fx-throw      | Sound Fx               | CORE/FX/vdrm_fx_drag-05
+250 | FX FALL FM   | fx-throw      | Sound Fx               | CORE/FX/syn_fx_fall-fm-b-05
+251 | FX LASER 12  | fx-throw      | Sound Fx               | CORE/FX/syn_fx_laser-12
+252 | FX LFO DOWN  | fx-throw      | Sound Fx               | CORE/FX/syn_fx_lfo-down-b-05
+253 | FX RES SWP   | fx-throw      | Sound Fx               | CORE/FX/syn_fx_resonance-sweep-dry-01
+254 | FX RISE 01   | fx-throw      | Sound Fx               | CORE/FX/syn_fx_rise-01

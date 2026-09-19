@@ -1,0 +1,194 @@
+# Preset bank F: DUB tones
+# 001-032 bass · 033-080 stab · 081-112 keys · 113-160 lead · 161-192 pad · 193-224 scape · 225-240 noise · 241-256 fx
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | SUB SMOOTH   | bass-sub      | Bass, Soft             | DUB/BASS/juno_bass_sub-smooth-c1
+002 | SUB ONLY     | bass-sub      | Bass, Dark             | DUB/BASS/juno_bass_sub-only-c1
+003 | UPRIGHT      | bass-upright  | Bass, Acoustic         | DUB/BASS/mirg_bass_upright-c2
+004 | SUB SYNARE   | bass-sub      | Bass, Vintage          | DUB/BASS/syn_bass_sub-long-c1
+005 | RHODES BASS  | bass-upright  | Bass, Vintage          | DUB/BASS/drs_bass_rhodes-08-c1
+006 | WARM BASS    | bass-upright  | Bass, Soft             | DUB/BASS/drs_bass_warm-09-c1
+007 | 101 HOVER    | bass-sub      | Bass, Synth            | DUB/BASS/101_bass_hover-c1
+008 | FISHERMAN    | bass-sub      | Bass, Vintage          | DUB/BASS/101_bass_fisherman-sfriend-c1
+009 | RHODES 08    | bass-sub      | Bass, Vintage          | DUB/BASS/drs_bass_rhodes-08-c1
+010 | SECONDSTORY  | bass-sub      | Bass, Vintage          | DUB/BASS/101_bass_secondstory-c1
+011 | SUB 09       | bass-sub      | Bass, Vintage          | DUB/BASS/drs_bass_sub-09-c1
+012 | 101 TVOD     | bass-sub      | Bass, Vintage          | DUB/BASS/101_bass_tvod-c1
+013 | UPRIGHT 2    | bass-sub      | Bass, Vintage          | DUB/BASS/mirg_bass_upright-c2
+014 | WARM 09      | bass-sub      | Bass, Vintage          | DUB/BASS/drs_bass_warm-09-c1
+015 | JUNO SMASH   | bass-sub      | Bass, Vintage          | DUB/BASS/juno_bass_sub-smash-c1
+016 | DUB SUB 09   | bass-dub      | Bass, Dark             | DUB/BASS/drs_bass_sub-09-c1
+017 | DUB SUB ONLY | bass-dub      | Bass, Dark             | DUB/BASS/juno_bass_sub-only-c1
+018 | DUB SMASH    | bass-dub      | Bass, Dark             | DUB/BASS/juno_bass_sub-smash-c1
+019 | DUB SMOOTH   | bass-dub      | Bass, Dark             | DUB/BASS/juno_bass_sub-smooth-c1
+020 | DUB SUB      | bass-dub      | Bass, Dark             | DUB/BASS/syn_bass_sub-long-c1
+033 | STAB DUB M9  | stab-dub      | Chord, Dark            | DUB/STAB/juno_stab_pillow-verb-dm9
+034 | STAB CMIN11  | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_dx200-echo-cmin11-c3
+035 | CM9 BELL     | stab-dub      | Chord, Bright          | DUB/STAB/vsyn_stab_dx200-bell-hi-cmin9-c3
+036 | STAB EM9B5   | stab-dub      | Chord, Soft            | DUB/STAB/juno_stab_vibe-em9b5
+037 | STAB AM7     | stab-dub      | Chord, Soft            | DUB/STAB/juno_stab_cheeky-am7
+038 | STAB CM7 EP  | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_dx200-e-piano-cmin7-c2
+039 | STAB M1 ORG  | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_m1-organ-slide-ebm-ds2
+040 | STAB POLY 4  | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_polysix-4th-d3
+041 | STAB WARBLE  | stab-dub      | Chord, Vintage         | DUB/STAB/ob_stab_warble-chords-c3
+042 | RHODES EBM11 | stab-rhodes   | Chord, Vintage         | DUB/STAB/drs_stab_rhodes-lofi-16-ebm11
+043 | RHODES BBMJ9 | stab-rhodes   | Chord, Vintage         | DUB/STAB/drs_stab_rhodes-lofi-13-bbmaj9
+044 | RHODES EM7   | stab-rhodes   | Chord, Vintage         | DUB/STAB/drs_stab_rhodes-lofi-07-em7
+045 | MINOR 7 GM   | stab-rhodes   | Chord, Soft            | DUB/STAB/drs_stab_minor-7-06-gm7
+046 | MAJOR 7 EB   | stab-rhodes   | Chord, Soft            | DUB/STAB/drs_stab_major-7-04-ebmaj7
+047 | UNIVRS BBM11 | stab-rhodes   | Chord, Atmosphere      | DUB/STAB/drs_stab_universe-chord-16-bbm11
+048 | TPT STAB     | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_trumpets-in-dub-d4 | hold=15 dec=35
+049 | BP STAB DM9  | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_pillow-verb-dm9
+050 | BP STAB AM7  | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_cheeky-am7
+051 | BP JUNO BEAM | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_beam-down-emaj7
+052 | BP JUNO      | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_frills-fm6
+053 | BP JUNO 2    | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_simply-em7-02
+054 | BP JUNO 3    | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_smooth-csmaj7
+055 | BP JUNO 4    | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_squares-ebmaj7
+056 | BP JUNO 5    | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_sunrise-gmaj7
+057 | BP JUNO VIBE | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_vibe-em9b5
+058 | BP JUNO WAH  | stab-bp       | Chord, Dark            | DUB/STAB/juno_stab_wah-short-bm7
+059 | JUNO BEAM    | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_beam-down-emaj7
+060 | CHORD XPLD   | stab-dub      | Chord, Vintage         | DUB/STAB/mirg_stab_chord-explosion-c3
+061 | DX200 HOUSE  | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_dx200-house-lite-cm-c2
+062 | JUNO FRILLS  | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_frills-fm6
+063 | MAJOR 7 CMAJ | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_major-7-01-cmaj7
+064 | MICROFREAK   | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_microfreak-diving-c-g1
+065 | MINOR 7 CM7  | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_minor-7-01-cm7
+066 | POLARIS RAVE | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_polaris-rave-air-c2
+067 | POLYSIX BLIP | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_polysix-blip-cs2
+068 | RHODES LOFI  | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_rhodes-lofi-01-csus4
+069 | JUNO SIMPLY  | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_simply-em7-02
+070 | JUNO SMOOTH  | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_smooth-csmaj7
+071 | JUNO SQUARES | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_squares-ebmaj7
+072 | SUB PLUCK    | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_sub37-pluck-duo-f2
+073 | JUNO SUNRISE | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_sunrise-gmaj7
+074 | UNIVERSE     | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_universe-chord-01-csus4
+075 | JUNO WAH SHT | stab-dub      | Chord, Vintage         | DUB/STAB/juno_stab_wah-short-bm7
+076 | MAJOR EBMAJ  | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_major-7-04-ebmaj7
+077 | MINOR 7 EM7  | stab-dub      | Chord, Vintage         | DUB/STAB/drs_stab_minor-7-03-em7
+078 | POLARIS RA 2 | stab-dub      | Chord, Vintage         | DUB/STAB/vsyn_stab_polaris-rave-air-g3
+081 | RHODES SUN   | keys-rhodes   | Vintage, Soft          | DUB/KEYS/s612_keys_sunrise-rhodes-c3
+082 | RHODES BELL  | keys-rhodes   | Vintage, Bright        | DUB/KEYS/s612_keys_bell-rhodes-c3
+083 | EPIANO 360   | keys-rhodes   | Vintage, Soft          | DUB/KEYS/360_keys_e-piano-c3
+084 | EPIANO TREM  | keys-rhodes   | Vintage, Atmosphere    | DUB/KEYS/360_keys_e-piano-tremolo-c3
+085 | WURLI MIRAGE | keys-rhodes   | Vintage                | DUB/KEYS/mirg_keys_wurli-c3
+086 | EPIANO MIRG  | keys-rhodes   | Vintage, Dark          | DUB/KEYS/mirg_keys_e-piano-c3
+087 | ORGAN JAZZY  | keys-organ    | Vintage                | DUB/KEYS/dx1_keys_jazzyorgan-c3
+088 | ORGAN JUNO   | keys-organ    | Synth, Vintage         | DUB/KEYS/juno_keys_organ-c3
+089 | CLAV FUNK    | keys-rhodes   | Vintage, Hard          | DUB/KEYS/s612_keys_funk-the-clav-c3
+090 | UPRIGHT PNO  | keys-rhodes   | Acoustic               | DUB/KEYS/drs_keys_upright-piano-25-c3
+091 | DARK PIANO   | keys-rhodes   | Acoustic, Dark         | DUB/KEYS/mirg_keys_dark-piano-c3
+092 | OB AM FUNK   | keys-rhodes   | Vintage, Soft          | DUB/KEYS/ob_keys_am-funk-c3
+093 | JUNO BUZZARD | keys-rhodes   | Vintage, Soft          | DUB/KEYS/juno_keys_buzzard-c3
+094 | CLAV         | keys-rhodes   | Vintage, Soft          | DUB/KEYS/360_keys_clav-c3
+095 | DX DIGI      | keys-rhodes   | Vintage, Soft          | DUB/KEYS/dx1_keys_digipianet-c3
+096 | DX JAZZY ORG | keys-rhodes   | Vintage, Soft          | DUB/KEYS/dx1_keys_jazzyorgan-c3
+097 | JUNO LIL     | keys-rhodes   | Vintage, Soft          | DUB/KEYS/juno_keys_lil-fuzzy-c3
+098 | OB MELLOW    | keys-rhodes   | Vintage, Soft          | DUB/KEYS/ob_keys_mellow-mallet-c3
+099 | JUNO ORGAN   | keys-rhodes   | Vintage, Soft          | DUB/KEYS/juno_keys_organ-c3
+100 | PIANO VIB    | keys-rhodes   | Vintage, Soft          | DUB/KEYS/360_keys_e-piano-vibrato-c3
+101 | OB WARM      | keys-rhodes   | Vintage, Soft          | DUB/KEYS/ob_keys_warm-c3
+102 | JUNO WURLI   | keys-rhodes   | Vintage, Soft          | DUB/KEYS/juno_keys_wurli-c3
+103 | JUNO CLAV    | keys-rhodes   | Vintage, Soft          | DUB/KEYS/juno_keys_clav-c3
+104 | DUB DARK PNO | keys-dub      | Vintage, Dark          | DUB/KEYS/mirg_keys_dark-piano-c3
+105 | DUB PIANO    | keys-dub      | Vintage, Dark          | DUB/KEYS/360_keys_e-piano-c3
+106 | DUB UPRIGHT  | keys-dub      | Vintage, Dark          | DUB/KEYS/drs_keys_upright-piano-25-c3
+107 | DUB PNO TREM | keys-dub      | Vintage, Dark          | DUB/KEYS/360_keys_e-piano-tremolo-c3
+108 | DUB PNO VIB  | keys-dub      | Vintage, Dark          | DUB/KEYS/360_keys_e-piano-vibrato-c3
+109 | DUB PIANO 2  | keys-dub      | Vintage, Dark          | DUB/KEYS/mirg_keys_e-piano-c3
+113 | TPT DUB      | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_trumpets-in-dub-d4
+114 | TPT GHOST    | horn-throw    | Lead, Atmosphere       | DUB/HORN/trpt_horn_ghost-pop-d4
+115 | TPT DUSTY    | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_dusty-trem-g2
+116 | TPT DREAM    | horn-throw    | Lead, Soft             | DUB/HORN/trpt_horn_oneiric-blend-g3
+117 | TPT MUTED    | horn-throw    | Lead, Acoustic         | DUB/HORN/360_horn_muted-trumpet-c3
+118 | SAX 360      | horn-throw    | Lead, Acoustic         | DUB/HORN/360_horn_saxophone-c3
+119 | SOFT HORNS   | horn-throw    | Lead, Soft             | DUB/HORN/dx1_horn_softhorns-c3
+120 | TPT WARM     | horn-throw    | Lead, Vintage          | DUB/HORN/ob_horn_warm-trumpet-r-c3
+121 | TPT PERSIAN  | horn-throw    | Lead                   | DUB/HORN/mirg_horn_persian-trumpet-c3
+122 | STR FILTER   | strings-swell | Pad, Vintage           | DUB/HORN/360_horn_strings-filter-c3
+123 | STR QUARTET  | strings-swell | Pad, Acoustic          | DUB/HORN/mirg_horn_string-quartet-c3
+124 | GTR ELECTRIC | gtr-verb      | Lead, Atmosphere       | DUB/GTR/360_gtr_electric-guitar-c3
+125 | GTR JAZZ     | gtr-verb      | Lead, Vintage          | DUB/GTR/360_gtr_jazz-guitar-c3
+126 | GTR JAZZ VIB | gtr-verb      | Lead, Atmosphere       | DUB/GTR/360_gtr_jazz-guitar-vibrato-c3
+127 | GTR STRAT    | gtr-verb      | Lead, Soft             | DUB/GTR/drs_gtr_muted-strat-18-c3
+128 | STEEL STRATO | steel-swell   | Lead, Atmosphere       | DUB/GTR/s612_gtr_stratos-guitar-c3
+129 | GTR NOIR     | gtr-verb      | Lead, Dark             | DUB/GTR/drs_gtr_guitar-noir-01
+130 | GTR NOIR HI  | gtr-verb      | Lead, Dark             | DUB/GTR/drs_gtr_high-noir-02
+131 | VOX THROW    | vox-throw     | Lead, Vintage          | DUB/VOX/drs_vox_barber-04
+132 | HORN DRONE   | horn-drone    | Lead, Dark             | DUB/HORN/360_horn_muted-trumpet-c3
+133 | GTR NOIR 06  | gtr-verb      | Lead, Atmosphere       | DUB/GTR/drs_gtr_guitar-noir-06
+134 | GTR STEPS    | gtr-verb      | Lead, Atmosphere       | DUB/GTR/drs_gtr_steps-noir-02
+135 | GTR S612     | gtr-verb      | Lead, Atmosphere       | DUB/GTR/s612_gtr_stratos-guitar-c3
+136 | STEEL EL     | steel-swell   | Lead, Atmosphere       | DUB/GTR/360_gtr_electric-guitar-c3
+137 | STEEL NOIR   | steel-swell   | Lead, Atmosphere       | DUB/GTR/drs_gtr_guitar-noir-01
+138 | STEEL HI     | steel-swell   | Lead, Atmosphere       | DUB/GTR/drs_gtr_high-noir-02
+139 | STEEL JAZZ   | steel-swell   | Lead, Atmosphere       | DUB/GTR/360_gtr_jazz-guitar-c3
+140 | STEEL MUTED  | steel-swell   | Lead, Atmosphere       | DUB/GTR/drs_gtr_muted-strat-18-c3
+141 | STEEL STEPS  | steel-swell   | Lead, Atmosphere       | DUB/GTR/drs_gtr_steps-noir-02
+142 | STEEL NOIR 2 | steel-swell   | Lead, Atmosphere       | DUB/GTR/drs_gtr_guitar-noir-06
+143 | STEEL JAZZ 2 | steel-swell   | Lead, Atmosphere       | DUB/GTR/360_gtr_jazz-guitar-vibrato-c3
+144 | VOX GIBSON 2 | vox-throw     | Lead, Vintage          | DUB/VOX/drs_vox_gibson-voice-chord-01
+145 | VOX KEYS     | vox-throw     | Lead, Vintage          | DUB/VOX/drs_vox_keys-barber-01
+146 | VOX PAD      | vox-throw     | Lead, Vintage          | DUB/VOX/drs_vox_pad-barber-03
+147 | VOX GIBSON 3 | vox-throw     | Lead, Vintage          | DUB/VOX/drs_vox_gibson-voice-chord-06
+148 | BREEZY       | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_breezy-f2
+149 | CHRD REEF 01 | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_chordal-reef-01-c3
+150 | OB CLARINET  | horn-throw    | Lead, Vintage          | DUB/HORN/ob_horn_clarinet-c3
+151 | DEATHRAY     | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_deathray-c3
+152 | DONT CRY     | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_dont-cry-a3
+153 | ECLIPTIC     | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_ecliptic-as3
+154 | ICE PICK     | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_ice-pick-ds3
+155 | REGULAR      | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_no-regular-f2
+156 | OB RETRO     | horn-throw    | Lead, Vintage          | DUB/HORN/ob_horn_retro-flute-c3
+157 | RUBBERIZED   | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_rubberized-g3
+158 | SIMPLE KEYZ  | horn-throw    | Lead, Vintage          | DUB/HORN/trpt_horn_simple-keyz-c1
+161 | PAD VP330    | pad-fog       | Pad, Vintage           | DUB/PAD/vp33_pad_2000pads-c3
+162 | PAD DIVE     | pad-fog       | Pad, Atmosphere        | DUB/PAD/vp33_pad_diveplavalaguna-c3
+163 | PAD NEW DAWN | pad-fog       | Pad, Soft              | DUB/PAD/juno_pad_new-dawn-c3
+164 | PAD CINEMA   | pad-fog       | Pad, Dark              | DUB/PAD/juno_pad_cinematic-c3
+165 | PAD WARM STR | pad-fog       | Pad, Vintage           | DUB/PAD/juno_pad_warm-strings-c3
+166 | PAD MELLOVOX | pad-fog       | Pad, Vintage           | DUB/PAD/drs_pad_mellovox-13-c3
+167 | PAD PROPHET  | pad-fog       | Pad, Vintage           | DUB/PAD/drs_pad_prophet-chorus-13-c3
+168 | PAD JUNO     | pad-fog       | Pad, Vintage           | DUB/PAD/juno_pad_boogie-c3
+169 | PAD VP330 2  | pad-fog       | Pad, Vintage           | DUB/PAD/vp33_pad_fancychair-c3
+170 | PAD VP330 3  | pad-fog       | Pad, Vintage           | DUB/PAD/vp33_pad_lovelyhorns-c3
+171 | PAD JUNO 2   | pad-fog       | Pad, Vintage           | DUB/PAD/juno_pad_resolute-c3
+172 | PAD VP330 4  | pad-fog       | Pad, Vintage           | DUB/PAD/vp33_pad_somestudspad-c3
+173 | PAD STR 13   | pad-fog       | Pad, Vintage           | DUB/PAD/drs_pad_strings-13-c3
+174 | PAD JUNO 3   | pad-fog       | Pad, Vintage           | DUB/PAD/juno_pad_twin-pines-c3
+175 | PAD UNIVERSE | pad-fog       | Pad, Vintage           | DUB/PAD/drs_pad_universe-13-c3
+176 | PAD VP330 5  | pad-fog       | Pad, Vintage           | DUB/PAD/vp33_pad_walterbeckercombo-r-c3
+177 | UNIVERSE PAD | pad-dub       | Pad, Atmosphere        | DUB/STAB/drs_stab_universe-chord-01-csus4
+178 | UNIVERSE P 2 | pad-dub       | Pad, Atmosphere        | DUB/STAB/drs_stab_universe-chord-06-dbm7
+179 | UNIVERSE P 3 | pad-dub       | Pad, Atmosphere        | DUB/STAB/drs_stab_universe-chord-11-gm7
+180 | UNIVERSE P 4 | pad-dub       | Pad, Atmosphere        | DUB/STAB/drs_stab_universe-chord-16-bbm11
+193 | SCAPE SWELL  | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/tfrg_scape_cerebral-swell-g2
+194 | ISOLATION    | scape-werp    | Texture, Dark          | DUB/SCAPE/tfrg_scape_isolation-pad-g3
+195 | SCAPE WHALE  | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/tfrg_scape_whale-cry-g3
+196 | SCAPE CINEMA | scape-stretch | Texture, Vintage       | DUB/SCAPE/drs_scape_ambient-cinema-01
+197 | SCAPE BLUE   | scape-stretch | Texture, Vintage       | DUB/SCAPE/drs_scape_drama-blue-01
+198 | SCAPE STR    | scape-stretch | Texture, Vintage       | DUB/SCAPE/drs_scape_strings-cinema-04
+199 | VOX GIBSON   | scape-stretch | Texture, Vintage       | DUB/VOX/drs_vox_gibson-voice-chord-06
+200 | VOX BARBER   | scape-stretch | Texture, Vintage       | DUB/VOX/drs_vox_barber-04
+201 | VOX GHOST    | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_barber-04
+202 | AMBIENT CINE | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_ambient-cinema-01
+203 | AWAITING     | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/tfrg_scape_awaiting-raptor
+204 | DRAMA BLUE   | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_drama-blue-01
+205 | HORNS LOFI   | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_horns-lofi-blue-03
+206 | RAMP LOFI    | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_ramp-lofi-blue
+207 | RIFF RUNNER  | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/tfrg_scape_riff-runner-c3
+208 | SCENE CINE   | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_scene-cinema-04
+209 | SPINNING     | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/tfrg_scape_spinning-plate-d3
+210 | STR CINE 04  | scape-werp    | Texture, Atmosphere    | DUB/SCAPE/drs_scape_strings-cinema-04
+211 | GHOST GIBSON | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_gibson-voice-chord-01
+212 | GHOST KEYS   | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_keys-barber-01
+213 | GHOST PAD    | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_pad-barber-03
+214 | GHOST GIBS 2 | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_gibson-voice-chord-06
+215 | GHOST GIBS 3 | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_gibson-voice-chord-11
+216 | GHOST GIBS 4 | vox-ghost     | Texture, Vintage       | DUB/VOX/drs_vox_gibson-voice-chord-16
+217 | DRONE BREEZY | horn-drone    | Texture, Dark          | DUB/HORN/trpt_horn_breezy-f2
+218 | DRONE CHRD   | horn-drone    | Texture, Dark          | DUB/HORN/trpt_horn_chordal-reef-01-c3
+219 | DRONE OB     | horn-drone    | Texture, Dark          | DUB/HORN/ob_horn_clarinet-c3
+220 | DRONE DTHRY  | horn-drone    | Texture, Dark          | DUB/HORN/trpt_horn_deathray-c3
+221 | DRONE DONT   | horn-drone    | Texture, Dark          | DUB/HORN/trpt_horn_dont-cry-a3
+222 | DRONE DUSTY  | horn-drone    | Texture, Dark          | DUB/HORN/trpt_horn_dusty-trem-g2

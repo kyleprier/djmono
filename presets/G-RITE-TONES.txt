@@ -1,0 +1,60 @@
+# Preset bank G: RITE tones
+# 001-032 bass · 033-080 stab · 081-112 keys · 113-160 lead · 161-192 pad · 193-224 scape · 225-240 noise · 241-256 fx
+# slot | NAME (12 max) | recipe        | tags                   | sample on the +Drive | parameters
+001 | DRONE SUB    | bass-drone    | Bass, Dark             | RITE/BASS/syn_bass_clean-sub-c1
+002 | BASS PLANET  | bass-drone    | Bass, Synth            | RITE/BASS/sh5_bass_deepplanet-c1
+003 | BOX CELLO    | bass-upright  | Bass, Acoustic         | RITE/BASS/dx1_bass_boxcello-c2
+004 | DX BOX CELLO | bass-drone    | Bass, Dark             | RITE/BASS/dx1_bass_boxcello-c2
+033 | MARIMBA      | stab-pluck    | Acoustic, Soft         | RITE/STAB/dx1_stab_marimba-c3
+034 | STEEL DRUM   | stab-pluck    | Metallic, Bright       | RITE/STAB/dx1_stab_steeldrums-c3
+035 | JAZZ HARP    | stab-pluck    | Acoustic, Bright       | RITE/STAB/kawa_stab_jazz-harp-c3
+036 | BANJO        | stab-pluck    | Acoustic               | RITE/STAB/dx1_stab_oldbanjo-c3
+037 | MALLET       | stab-pluck    | Metallic, Soft         | RITE/STAB/360_stab_mallet-multi-filter-c2
+081 | NYLON GUITAR | stab-pluck    | Acoustic, Soft         | RITE/STAB/360_stab_nylon-guitar-c3
+082 | MARIMBA ROOM | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/dx1_stab_marimba-c3
+083 | HARP ROOM    | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/kawa_stab_jazz-harp-c3
+084 | MALLET ROOM  | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/360_stab_mallet-multi-filter-c2
+085 | NYLON ROOM   | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/360_stab_nylon-guitar-c3
+086 | BANJO ROOM   | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/dx1_stab_oldbanjo-c3
+087 | STEEL ROOM   | keys-glass    | Acoustic, Atmosphere   | RITE/STAB/dx1_stab_steeldrums-c3
+113 | FLUTE 360    | flute-breath  | Lead, Acoustic         | RITE/HORN/360_horn_flute-c3
+114 | PAN FLUTE    | flute-breath  | Lead, Soft             | RITE/HORN/dx1_horn_panflute-c3
+115 | FLUTE MIRAGE | flute-breath  | Lead, Vintage          | RITE/HORN/mirg_horn_flute-c3
+116 | FLUTE RESO   | flute-breath  | Lead, Synth            | RITE/HORN/sh5_horn_resonantflute-c3
+117 | ENGLISH HORN | flute-breath  | Lead, Acoustic         | RITE/HORN/360_horn_english-c3
+118 | CELLO LOW    | strings-swell | Lead, Dark             | RITE/HORN/360_horn_cello-c2
+119 | CHANT        | scape-stretch | Lead, Vintage          | RITE/VOX/drs_vox_vintage-chant-02
+120 | BREATH       | flute-breath  | Lead, Soft             | RITE/VOX/mirg_vox_breath-c3
+121 | VOX CHANT    | vox-throw     | Lead, Vintage          | RITE/VOX/drs_vox_vintage-chant-07
+122 | CELLO        | flute-breath  | Lead, Acoustic         | RITE/HORN/360_horn_cello-c2
+123 | BREATH 2     | vox-throw     | Lead, Vintage          | RITE/VOX/mirg_vox_breath-c3
+124 | DIRTY CHANT  | vox-throw     | Lead, Vintage          | RITE/VOX/drs_vox_dirty-chant-01
+125 | VNL REV      | vox-throw     | Lead, Vintage          | RITE/VOX/drs_vox_vinyl-reverse-chant-05
+126 | VINTAGE      | vox-throw     | Lead, Vintage          | RITE/VOX/drs_vox_vintage-chant-02
+161 | DRONE DARK   | pad-drone     | Pad, Dark              | RITE/SCAPE/modc_scape_darkmodulator-drone-2
+162 | DRONE DARK 2 | pad-drone     | Pad, Dark              | RITE/SCAPE/modc_scape_darkmodulator-drone-4
+163 | DRONE MOVING | pad-drone     | Pad, Atmosphere        | RITE/SCAPE/syn_scape_moving-drone-wet-01
+164 | DRONE DRKMD  | pad-drone     | Pad, Dark              | RITE/SCAPE/modc_scape_darkmodulator-drone-3
+165 | DRONE MOVI 2 | pad-drone     | Pad, Dark              | RITE/SCAPE/syn_scape_moving-drone-dry-01
+166 | DRONE DRKM 2 | pad-drone     | Pad, Dark              | RITE/SCAPE/modc_scape_darkmodulator-drones
+167 | DRONE MOVI 3 | pad-drone     | Pad, Dark              | RITE/SCAPE/syn_scape_moving-drone-wet-06
+193 | SCAPE VORTEX | scape-werp    | Texture, Noisy         | RITE/SCAPE/fnd_scape_woodtom1vortex
+194 | SCAPE MOVING | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/syn_scape_moving-drone-dry-01
+195 | SCAPE CHANT  | scape-stretch | Texture, Vintage       | RITE/VOX/drs_vox_vinyl-reverse-chant-05
+196 | SCAPE METAL  | scape-werp    | Texture, Metallic      | RITE/SCAPE/fnd_scape_metalhatclosedvortex
+197 | BOTTLE VRTX  | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/fnd_scape_bottlecrinkleclapvorte
+198 | DARKMOD      | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/modc_scape_darkmodulator-drone-2
+199 | MOVING DRONE | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/syn_scape_moving-drone-wet-01
+200 | DARKMOD 2    | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/modc_scape_darkmodulator-drone-3
+201 | MOVING DRO 2 | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/syn_scape_moving-drone-wet-06
+202 | DARKMOD 3    | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/modc_scape_darkmodulator-drone-4
+203 | DARKMOD 4    | scape-werp    | Texture, Atmosphere    | RITE/SCAPE/modc_scape_darkmodulator-drones
+204 | GHOST DIRTY  | vox-ghost     | Texture, Vintage       | RITE/VOX/drs_vox_dirty-chant-01
+205 | GHOST VNL    | vox-ghost     | Texture, Vintage       | RITE/VOX/drs_vox_vinyl-reverse-chant-05
+206 | GHOST VNTG   | vox-ghost     | Texture, Vintage       | RITE/VOX/drs_vox_vintage-chant-02
+207 | GHOST VNTG 2 | vox-ghost     | Texture, Vintage       | RITE/VOX/drs_vox_vintage-chant-07
+225 | NOISE BOTTLE | noise-bed     | Texture, Noisy         | RITE/SCAPE/fnd_scape_bottlecrinkleclapvorte
+226 | METAL HAT    | noise-bed     | Texture, Noisy         | RITE/SCAPE/fnd_scape_metalhatclosedvortex
+227 | WOOD TOM     | noise-bed     | Texture, Noisy         | RITE/SCAPE/fnd_scape_woodtom1vortex
+241 | FX SWELL     | fx-reverse    | Sound Fx, Atmosphere   | RITE/SCAPE/syn_scape_moving-drone-wet-06
+242 | REV MOVING   | fx-reverse    | Sound Fx, Atmosphere   | RITE/SCAPE/syn_scape_moving-drone-wet-01

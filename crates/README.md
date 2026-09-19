@@ -25,7 +25,7 @@ Everything is rendered to 16-bit / 48 kHz WAV, peak-normalised, named `<code>_<f
 - Paths are matched from the top of the source (`sfm:JUNOS FROM MARS/...`), so the copies inside Essential WAV From Mars stay out.
 - A path with no `*` is an exact pick (what `./djmono audition` writes).
 - Skipped automatically: DAW/sampler format folders (Ableton, Kontakt, MPC, Apple Loops...), Synology `@eaDir`/`#recycle`, and SFM `Kits` folders (copies of the individual hits) unless the rule mentions "kit".
-- Rules read `index/lib.tsv`, not the NAS, so `ls` is instant and works anywhere. Rescan after adding packs.
+- Rules read `index/lib.tsv`, not the NAS, so `ls` is instant and works anywhere. Rescan after adding packs: `./djmono scan --only SKINS` rescans one pack folder in seconds.
 
 | Option | Does |
 |--------|------|
@@ -35,6 +35,8 @@ Everything is rendered to 16-bit / 48 kHz WAV, peak-normalised, named `<code>_<f
 | `exclude=bass,pad` | drop matches containing these |
 | `code=luft` | name prefix when the pack isn't in `config/codes.txt` |
 | `name=my-name` | exact name (single-file lines) |
+| `strip=2` | drop the first 2 words of the file name before naming (pack prefixes like `SKN_HAND`) |
+| `drop=perc,loop` | leave these words out of the name |
 | `keepname` | keep the file's own name (default for `rec:`) |
 | `mono` `stereo` `len=12` `fade=80` `norm=-3` `trim` `notrim` | override the profile |
 | `raw` | copy bytes untouched (files already 16/48 from the DT2) |
@@ -46,3 +48,4 @@ The seeded rules are broad on purpose. The loop that turns them into a library:
 1. `./djmono ls DUB/STAB -v`: see what a rule pulls.
 2. `./djmono audition DUB/STAB`: listen; `k` keeps. Picks are appended as exact lines.
 3. Delete the broad rule once the picks cover it. Exact lines never drift when a pack changes.
+4. After `build` and `sync`, `./djmono presets --seed` gives new samples presets (rules in `presets/seed.txt`).
