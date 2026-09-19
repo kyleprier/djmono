@@ -1,0 +1,9 @@
+# TRIAD: all three worlds in one project, so changing worlds is just changing patterns.
+tempo  = per pattern
+load   = CORE DUB RITE DRIFT
+bank A = DEEP ECHO, CHORD ROOM, STEEL SHADE
+bank B = SLOW BURN, LATE NIGHT, BROKEN BEAT, CTI GROOVE
+bank C = FIRE CIRCLE, EARTH PULSE
+bank D = RAIN DANCE, NIGHT RITUAL
+bank E = MORNING WATER, GLASS GARDEN
+bank F = HIGH DESERT, SLOW LIGHT, CATHEDRAL

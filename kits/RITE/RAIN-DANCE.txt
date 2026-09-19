@@ -1,0 +1,23 @@
+# RAIN DANCE · RITE
+patterns = D
+tempo    = 100
+feel     = 6/8: Ekko groove, harp, bells
+fx       = delay TIME 16 (1/8), FDBK 30, low send · reverb short room, DEC 35 · chorus off · comp medium, punchy
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | C:LOW EKKO
+ 2  | C:DJEMBE HAND
+ 3  | C:SHAKER TAPE
+ 4  | C:TRIANGLE
+ 5  | C:CONGA LO
+ 6  | C:BONGO MUTED
+ 7  | C:BLOCK EKKO       | RITE/WOOD/ekko_*
+ 8  | C:LOOP 6 8 EKKO    | RITE/LOOP/ekko_*
+ 9  | C:BASS PLANET
+10  | C:JAZZ HARP
+11  | C:NYLON GUITAR
+12  | C:FLUTE MIRAGE
+13  | C:DRONE DARK 2
+14  | C:SCAPE CHANT
+15  | A:NOISE HISS
+16  | C:FX DRONE SWELL

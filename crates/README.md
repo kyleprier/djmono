@@ -2,17 +2,17 @@
 
 Each file is one folder on the Digitakt II's +Drive:
 
-    crates/DUB/CHRD.txt   ->   /DUB/CHRD/
+    crates/DUB/STAB.txt   ->   /DUB/STAB/
 
 Worlds: `CORE` `DUB` `RITE` `DRIFT`. Functions (the file name) are fixed so every world reads the same on the device:
 
-| Group  | Functions | Profile |
-|--------|-----------|---------|
+| Group | Functions | Profile |
+|-------|-----------|---------|
 | Rhythm | `KICK` `SNR` `HAT` `HAND` `SHKR` `WOOD` | hit: mono, trimmed, 4 s max |
-| Ring   | `BELL` `FX` | ring: stereo, 15 s max, long fade |
-| Tone   | `BASS` `KEYS` `CHRD` `HORN` `TONE` `VOX` | tone: stereo, 8 s max |
-| Air    | `PAD` `DRONE` `FIELD` `NOISE` | bed: stereo, 40 s max, -3 dB |
-| Time   | `LOOP` `CHAIN` | loop: stereo, untrimmed, 5 min max |
+| Ring | `BELL` `GTR` `FX` | ring: stereo, 15 s max, long fade |
+| Tone | `BASS` `STAB` `KEYS` `HORN` `VOX` | tone: stereo, 8 s max |
+| Air | `PAD` `SCAPE` `NOISE` | bed: stereo, 20 s max, -3 dB |
+| Time | `LOOP` `CHAIN` | loop: stereo, untrimmed, 5 min max |
 
 Everything is rendered to 16-bit / 48 kHz WAV, peak-normalised, named `<code>_<fn>_<desc>` (32 characters max).
 
@@ -43,6 +43,6 @@ Everything is rendered to 16-bit / 48 kHz WAV, peak-normalised, named `<code>_<f
 
 The seeded rules are broad on purpose. The loop that turns them into a library:
 
-1. `./djmono ls DUB/CHRD -v`: see what a rule pulls.
-2. `./djmono audition DUB/CHRD`: listen; `k` keeps. Picks are appended as exact lines.
+1. `./djmono ls DUB/STAB -v`: see what a rule pulls.
+2. `./djmono audition DUB/STAB`: listen; `k` keeps. Picks are appended as exact lines.
 3. Delete the broad rule once the picks cover it. Exact lines never drift when a pack changes.

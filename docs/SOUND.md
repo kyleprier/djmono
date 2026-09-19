@@ -17,7 +17,7 @@ These are starting points. Parameter values are approximate on the 0–127 scale
 
 **Chord preset (track 10).**
 
-- **Source:** Oneshot machine with a CHRD sample (minor 7/9/11).
+- **Source:** Oneshot machine with a STAB sample (minor 7/9/11).
 - **Filter:** Lowpass 4, cutoff about 40, a little resonance, envelope depth +25, short decay.
 - **Amp:** short hold, so the stab is clipped.
 - **Sends:** delay 70+, reverb 30.
@@ -68,6 +68,15 @@ These are starting points. Parameter values are approximate on the 0–127 scale
 - **LFO chains:** LFO2 and LFO3 can modulate LFO1. The fixed-120 speed setting gives drift that ignores tempo.
 - **Tone:** key tracking (1.10+) on the filter keeps high bells bright and low ones soft.
 - **Space:** long reverb, and delay as texture rather than rhythm.
+
+## Guitar and pedal steel
+
+Track 12 in STEEL SHADE, LATE NIGHT, HIGH DESERT and CATHEDRAL. The reverb comes from the DT2, so the samples stay dry.
+
+- **Reverb guitar (`gtr-verb`):** a single C3 note played chromatically. Chorus 45, delay 50, reverb 70. A slow triangle LFO on volume gives amp tremolo. For the full wash, push the kit's reverb decay past 100 and let the delay feed it.
+- **Pedal steel swell (`steel-swell`):** long amp attack (70) and hold, so each note blooms like a volume pedal. A slow sine LFO on tune (depth 4) gives the steel's vibrato, and a second slow LFO on pan makes it drift. Play long notes, overlapping. Micro-timing a step early makes the swell land on the beat.
+- **Bends:** p-lock TUNE on the next step for a glide into the note. Until you add real pedal steel, the Warp and Stratos guitars stand in for the swells.
+- **Print it:** record the guitar track through the 424 with the kit's reverb up, then resample. A washed-out print makes a better SCAPE than any raw sample.
 
 ## Live: DJ plus DT2
 

@@ -1,0 +1,4 @@
+# RITE/BASS · drone bass and bowed low end (track 9)
+sfm:SYNARE FROM MARS/*chromatic/clean sub/* c1*.wav        | limit=1
+sfm:SH5 FROM MARS/*deep planet/* c1*.wav                   | limit=1
+sfm:DX100 FROM MARS/*box cello/* c2*.wav                   | limit=1

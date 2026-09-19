@@ -1,4 +1,4 @@
-# DUB/CHRD · the engine: minor 7/9/11 stabs, dusty and short
+# DUB/STAB · the engine: minor 7/9/11 chord stabs, dusty and short (track 10)
 sfm:VINYL SYNTHS FROM MARS/*04. chords/*                   | limit=12
 sfm:JUNOS FROM MARS/*05. chords/*                          | limit=10
 sfm:DR SAMPLE FROM MARS/*chords/05. rhodes chords/*        | limit=6

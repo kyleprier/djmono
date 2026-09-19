@@ -1,6 +1,4 @@
-# DRIFT/TONE · airy voices, breath, soft woodwinds
+# DRIFT/VOX · airy voices and breath
 sfm:KAWAII DREAMS FROM MARS/*01. voices/voices/* c3*.wav   | limit=1
 sfm:KAWAII DREAMS FROM MARS/*01. voices/hello/* c3*.wav    | limit=1
 sfm:DX100 FROM MARS/*breath v/* c3*.wav                    | limit=1
-sfm:MIRAGE FROM MARS/*orchestral/clarinet/* c3*.wav        | limit=1
-sfm:360 FROM MARS/*flute filter/* c3*.wav                  | limit=1

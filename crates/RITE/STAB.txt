@@ -1,13 +1,10 @@
-# RITE/TONE · melodic acoustic voices: flute, marimba, steel drum, harp, plucked strings
-sfm:360 FROM MARS/*brass & woodwind/flute/* c3*.wav        | limit=1
-sfm:DX100 FROM MARS/*pan flute/* c3*.wav                   | limit=1
-sfm:MIRAGE FROM MARS/*orchestral/flute/* c3*.wav           | limit=1
-sfm:SH5 FROM MARS/*resonant flute/* c3*.wav                | limit=1
+# RITE/STAB · plucked and struck melody: marimba, steel drum, harp, banjo, nylon (track 10)
 sfm:DX100 FROM MARS/*marimba/* c3*.wav                     | limit=1
 sfm:DX100 FROM MARS/*steel drums/* c3*.wav                 | limit=1
 sfm:DX100 FROM MARS/*old banjo/* c3*.wav                   | limit=1
 sfm:KAWAII DREAMS FROM MARS/*keys/jazz harp/* c3*.wav      | limit=1
-sfm:360 FROM MARS/*nylon guitar/* c3*.wav                  | limit=1
+sfm:360 FROM MARS/*guitars/nylon guitar/* c3*.wav          | limit=1
+sfm:360 FROM MARS/*perc/mallet multi filter/* c2*.wav      | limit=1
 
 # gap fill: kalimba/mbira/berimbau are the missing heart of this world
 # lib:Kalimba Experiments/*.wav                            | limit=12 code=kali

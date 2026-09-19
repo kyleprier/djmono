@@ -1,0 +1,23 @@
+# CHORD ROOM · DUB
+patterns = A
+tempo    = 120
+feel     = stabs and fog: machine drums, two chord colours
+fx       = delay TIME 24 (dotted 1/8), FDBK 70, HPF up, LPF down, into reverb 40 · reverb dark, DEC 70 · chorus 20 · comp gentle glue
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | A:KICK 909 SHORT
+ 2  | A:RIM 909          | CORE/SNR/*rim*
+ 3  | A:HAT 909 CL       | CORE/HAT/909_*
+ 4  | B:RIDE VINYL
+ 5  | A:CONGA 808 HI
+ 6  | A:CONGA VINYL
+ 7  | A:MARACA 808
+ 8  | B:BREAK 16 BEAT
+ 9  | B:SUB ONLY
+10  | B:STAB CMIN11      | DUB/STAB/vsyn_*
+11  | B:ORGAN JUNO
+12  | B:STRINGS FILTER
+13  | B:PAD VP330 2000
+14  | B:SCAPE ISOLATE
+15  | A:NOISE CRACKLE
+16  | A:FX RES SWEEP

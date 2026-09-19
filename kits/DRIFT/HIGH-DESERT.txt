@@ -1,0 +1,23 @@
+# HIGH DESERT · DRIFT
+patterns = F
+tempo    = 75
+feel     = open and dry: steel swells, wind, drone
+fx       = delay TIME 48 (dotted 1/4), FDBK 40, used as texture · reverb long and bright, DEC 110 · chorus 35 · comp off
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | D:PULSE SUB
+ 2  | D:TWIG
+ 3  | D:SHAKER AIR
+ 4  | D:BELL AIR
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:GARDEN FORK
+ 8  | D:LOOP FOREST
+ 9  | D:BASS DRONE E
+10  | D:HOLOGRAM
+11  | D:DREAMLIKE
+12  | D:STEEL SWELL      | DRIFT/GTR/*
+13  | D:HAZE 101
+14  | D:WIND WINDOW
+15  | A:NOISE HISS
+16  | D:CHIRP REVERSE

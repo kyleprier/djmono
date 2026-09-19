@@ -8,12 +8,13 @@
 |-------|----------|--------------------------|
 | DUB | Strong | Vinyl Synths, Junos, Dr Sample (Rhodes, maj/min 7 and Universe chords), OB, Mirage (chords) · Mirage, 360, S612, DX100, Junos, OB, Dr Sample (keys) · Trumpet Fragments, 360, DX100, Mirage, OB (horns) · LM1, Vinyl Drums, Private Reserve, Dr Sample (drums) · Mirage upright, Junos subs, 101, Dr Sample, Synare (bass) · VP330, Junos, Dr Sample, Tape Fragments (pads) · Viscount, CR78 (loops) |
 | RITE | Thin | Private Reserve (djembe, udu, conga, clave, woodblock, bells: the only real hand drums) · Viscount, SP1200, 505 (bongo, conga) · Vinyl Drums, LM1 (shaker, tambourine, guiro, cabasa) · Ekko, 808 Loops, Minipops (loops) · 360, DX100, Mirage, SH5, Kawaii (flute, marimba, steel drum, banjo, harp) |
+| Guitar | Partial | 360 electric and jazz guitar, S612 Stratos, Dr Sample muted Strat and Guitar Noir phrases (DUB) · Mirage Warp and chorus acoustic, Dr Sample tremolo acoustic, 360 nylon vibrato (DRIFT). No pedal steel. |
 | DRIFT | Partial | Kawaii Dreams, VP330, 101, DigiSphere II (pads) · DX100 celeste, bells, vibes (keys, bells) · Modular Creations, DigiSphere II (drones) · Found Sounds outdoors, DX100 chirps (field) |
 | CORE | Strong | 909, 808, CR78, Vinyl Drum Machines · Synare (dub siren, noise) · Vinyl Drums static and FX · SH5 hiss |
 
 **Not on the NAS yet** (in the SFM bundle; DUB/LOOP has a commented line ready for Vinyl Breaks): Vinyl Breaks, Cassette Drums, Indie Tapes, Emulator, Mini, Lo-Fi Drum Machines, Grooves.
 
-**The gaps no SFM pack fills:** real hand drums beyond Private Reserve, kalimba, bowls and gongs, field recordings, and vinyl/tape noise beds.
+**The gaps no SFM pack fills:** pedal steel, real hand drums beyond Private Reserve, kalimba, bowls and gongs, field recordings, and vinyl/tape noise beds.
 
 ## Filling the gaps
 
@@ -25,24 +26,26 @@ Prices as of September 2026. Unzip downloads into `audio/sample packs` on the NA
 |------|-----|---------|
 | Elektron **Super Glue** (79 hisses, crackles, statics) | CORE/NOISE | Elektron sound pack |
 | Elektron **EuroKlang** (97 found sounds, made for DT2) · **Aotearoa** (84 NZ nature and traditional sounds) | DRIFT, RITE | Elektron sound pack |
-| **99Sounds Nature Sounds**: 83 forest, water, wind, rain, 24/192 | DRIFT/FIELD | Royalty-free |
-| **Sonniss GDC bundles** (7+ GB a year; archive back to 2015) | DRIFT/FIELD, FX | Commercial use OK, no redistribution |
-| **Pianobook**: Kalimba Experiments, KALI-2297, Tibetan Singing Bowl, healingBOWL | RITE/TONE, DRIFT/BELL | Commercial use OK; the WAVs are inside the instrument folders |
-| **Samplephonics The Wizard of Mbira** | RITE/TONE | Royalty-free |
+| **99Sounds Nature Sounds**: 83 forest, water, wind, rain, 24/192 | DRIFT/SCAPE | Royalty-free |
+| **Sonniss GDC bundles** (7+ GB a year; archive back to 2015) | DRIFT/SCAPE, FX | Commercial use OK, no redistribution |
+| **Pianobook**: Kalimba Experiments, KALI-2297, Tibetan Singing Bowl, healingBOWL, Americana Granular Pad (pedal steel and fiddle) | RITE/STAB, DRIFT/BELL, DRIFT/GTR | Commercial use OK; the WAVs are inside the instrument folders. Check each pack's page. |
+| **Samplephonics The Wizard of Mbira** | RITE/STAB | Royalty-free |
 | **Freesound**, filtered to CC0 | Anything | CC0 needs no credit. Skip CC BY-NC. |
 
 **Paid, highest value per dollar**
 
 | Pack | Price | For |
 |------|-------|-----|
+| Loopmasters, **Pedal Steel Guitar**: 218 one-shots plus a chromatic multi, 24-bit, royalty-free | $33 | DUB/GTR, DRIFT/GTR |
+| We Sound Human, **Ambient Guitars**: swells, E-Bow, one-shots and textures, 626 files, royalty-free | $95 | DRIFT/GTR, SCAPE |
 | Loopmasters, **Bashiri Johnson Presents Skins**: 417 hand-drum one-shots | $21 | RITE/HAND |
 | Elektron **Total Tabla**: 123 tabla hits (WAVs load; the Rytm project won't) | $19 | RITE/HAND |
-| Frontline, **The Sound of Mbira**: 162 one-shots | $47 | RITE/TONE |
-| **Luftrum Dub Techno Chords**: 180 stabs, labelled by key | $19 | DUB/CHRD |
+| Frontline, **The Sound of Mbira**: 162 one-shots | $47 | RITE/STAB |
+| **Luftrum Dub Techno Chords**: 180 stabs, labelled by key | $19 | DUB/STAB |
 | MSXII **70's Soul Aesthetics** (Rhodes, organ through Neve and tape) · **Vintage Soul Horns** | $30 / $25 | DUB/KEYS, DUB/HORN |
 | Glitchedtones **Singing Bowls**: 550 recordings, 24/96 ⚠ check the EULA | £25 | DRIFT/BELL |
 | Elektron **Cassediments**: tape-loop pads and drones, made for DT2 | $19 | DRIFT/PAD |
-| Splice, pay-as-you-go | $13/mo | Didgeridoo, jaw harp, udu, frame drum, darbuka one-shots when you need a specific sound |
+| Splice, pay-as-you-go | $13/mo | Single sounds when you need one: pedal steel one-shots (Splice Originals *Constellations: Cosmic Americana*), Sample Magic *Ambient Guitars* swells, didgeridoo, jaw harp, frame drum |
 
 **Avoid for releases:** BBC Sound Effects. The RemArc licence covers personal and educational use only.
 
@@ -72,4 +75,9 @@ Name them by hand (`<artist>_<fn>_<desc>`) and add `rec:` lines.
 - Luftrum Dub Techno Chords: https://www.adsrsounds.com/product/presets/luftrum-dub-techno-chords-samples-loops/
 - MSXII 70's Soul Aesthetics: https://hiphopdrumsamples.com/products/msxii-sound-design-70s-soul-aesthetics-sample-pack
 - Glitchedtones Singing Bowls: https://glitchedtones.com/products/singing-bowls
+- Loopmasters Pedal Steel Guitar: https://www.loopmasters.com/genres/141-Country/products/9801-Pedal-Steel-Guitar
+- We Sound Human Ambient Guitars: https://www.wesoundhuman.com/products/ambient-guitars
+- Splice pedal steel: https://splice.com/sounds/tags/pedal%20steel/samples
+- Sample Magic Ambient Guitars (Splice): https://splice.com/sounds/packs/sample-magic/ambient-guitars
+- Pianobook Americana Granular Pad: https://www.pianobook.co.uk/packs/americana-granular-pad/
 - DigiSphere II: https://substan.gumroad.com/l/digisphere2

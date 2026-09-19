@@ -1,0 +1,11 @@
+# DUB/GTR · electric guitar and pedal steel for the lead track (track 12). Reverb comes from the DT2.
+sfm:360 FROM MARS/*guitars/electric guitar/* c3*.wav       | limit=1
+sfm:360 FROM MARS/*guitars/jazz guitar/* c3*.wav           | limit=1
+sfm:360 FROM MARS/*guitars/jazz guitar vibrato/* c3*.wav   | limit=1
+sfm:DR SAMPLE FROM MARS/*guitar/02. muted strat/* c3*.wav  | limit=1
+sfm:S612 FROM MARS/*stratos guitar/* c3*.wav               | limit=1
+sfm:DR SAMPLE FROM MARS/*textures/08. noir/*               | limit=4
+
+# gap fill (docs/SOURCES.md): pedal steel and ambient swells
+# lib:Pedal Steel Guitar/*.wav                             | limit=16 exclude=loop code=psg
+# lib:Ambient Guitars/*.wav                                | limit=12 code=amgt

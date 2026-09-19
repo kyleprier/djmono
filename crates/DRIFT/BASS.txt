@@ -1,0 +1,3 @@
+# DRIFT/BASS · low drones and soft sub (track 9)
+lib:DigiSphere II*/*/bassdrone/*                           | limit=4 code=dsph
+sfm:KAWAII DREAMS FROM MARS/*keys/air bass/* c1*.wav       | limit=1

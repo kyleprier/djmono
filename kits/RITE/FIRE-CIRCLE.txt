@@ -1,0 +1,23 @@
+# FIRE CIRCLE · RITE
+patterns = C
+tempo    = 118
+feel     = driving hand drums around a drone
+fx       = delay TIME 16 (1/8), FDBK 30, low send · reverb short room, DEC 35 · chorus off · comp medium, punchy
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | C:LOW FLOOR TOM
+ 2  | C:DJEMBE SLAP      | RITE/HAND/pres_hand_djembe*
+ 3  | C:SHAKER SOFT      | RITE/SHKR/*shaker*
+ 4  | C:AGOGO HI         | RITE/BELL/visc_*
+ 5  | C:UDU TONE         | RITE/HAND/pres_hand_udu*
+ 6  | C:CONGA HI         | RITE/HAND/*conga*
+ 7  | C:CLAVE            | RITE/WOOD/pres_wood_*
+ 8  | C:LOOP WARRIOR
+ 9  | C:BASS DRONE SUB
+10  | C:MARIMBA
+11  | C:NYLON GUITAR
+12  | C:FLUTE 360
+13  | C:DRONE DARK
+14  | C:SCAPE VORTEX
+15  | A:NOISE HISS
+16  | C:FX DRONE SWELL

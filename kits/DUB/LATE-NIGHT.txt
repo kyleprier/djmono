@@ -1,0 +1,23 @@
+# LATE NIGHT · DUB
+patterns = B
+tempo    = 90
+feel     = brushed and sparse, jazz guitar up front
+fx       = delay TIME 12 (dotted 1/16), FDBK 40, into reverb 20 · reverb warm room, DEC 50 · chorus 25 · comp light
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | B:KICK VINYL
+ 2  | B:RIM SMACK
+ 3  | B:HAT VINYL
+ 4  | B:RIDE VERB
+ 5  | A:CONGA VINYL
+ 6  | A:BONGO CR78
+ 7  | A:SHAKER TOM
+ 8  | B:BREAK CHOP
+ 9  | B:UPRIGHT
+10  | B:MINOR 7 GM       | DUB/STAB/drs_stab_m*
+11  | B:DARK PIANO
+12  | B:GTR JAZZ VIB     | DUB/GTR/360_*
+13  | B:PAD PROPHET
+14  | B:SCAPE BLUE
+15  | A:NOISE HISS
+16  | A:FX UFO DRY

@@ -1,7 +1,0 @@
-# DRIFT/FIELD · water, birds, outdoors. SFM is thin here: add 99Sounds Nature, Sonniss GDC, your PCM-D100.
-sfm:FOUND SOUNDS FROM MARS/*outdoors/clean/*               | limit=10
-sfm:DX100 FROM MARS/*chirping birds fx/*                   | limit=4
-lib:DigiSphere II*/*/sfx/*                                 | limit=6 code=dsph
-
-# lib:Nature Sounds/*.wav                                  | limit=12 code=99n
-# rec:field/*

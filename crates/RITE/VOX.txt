@@ -1,4 +1,4 @@
-# RITE/VOX · chants and breath
+# RITE/VOX · chants and breath (track 12 or 14)
 sfm:DR SAMPLE FROM MARS/*textures/05. chant/*              | limit=4
 sfm:MIRAGE FROM MARS/*vox/breath vox/* c3*.wav             | limit=1
 # rec:field/*_vox_*

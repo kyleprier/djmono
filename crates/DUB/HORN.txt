@@ -1,4 +1,4 @@
-# DUB/HORN · trumpet licks and stabs for delay throws
+# DUB/HORN · horns, woodwinds and strings for the lead track (track 12)
 sfm:TRUMPET FRAGMENTS FROM MARS/*                          | limit=16
 sfm:360 FROM MARS/*muted trumpet/* c3*.wav                 | limit=1
 sfm:360 FROM MARS/*saxophone/* c3*.wav                     | limit=1
@@ -6,6 +6,8 @@ sfm:360 FROM MARS/*/trumpet/* c3*.wav                      | limit=1
 sfm:DX100 FROM MARS/*soft horns/* c3*.wav                  | limit=1
 sfm:MIRAGE FROM MARS/*persian trumpet/* c3*.wav            | limit=1
 sfm:OB FROM MARS/*brass & woodwinds/* c3*.wav              | limit=3
+sfm:360 FROM MARS/*strings filter/* c3*.wav                | limit=1
+sfm:MIRAGE FROM MARS/*string quartet/* c3*.wav             | limit=1
 
 # gap fill: MSXII Vintage Soul Horns
 # lib:Vintage Soul Horns/*.wav                             | limit=16 code=vsh

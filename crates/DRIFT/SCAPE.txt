@@ -1,0 +1,9 @@
+# DRIFT/SCAPE · drones, birds, air: slow-moving beds for Werp and Stretch (track 14)
+sfm:MODULAR CREATIONS FROM MARS/*drones/elements/*         | limit=4
+sfm:MODULAR CREATIONS FROM MARS/*drones/teleharmonic/*     | limit=4
+sfm:DX100 FROM MARS/*chirping birds fx/*                   | limit=4
+lib:DigiSphere II*/*/sfx/*                                 | limit=6 code=dsph
+
+# gap fill: 99Sounds Nature, Sonniss GDC, your PCM-D100
+# lib:Nature Sounds/*.wav                                  | limit=12 code=99n
+# rec:field/*

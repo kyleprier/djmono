@@ -1,0 +1,5 @@
+# RITE/SCAPE · the floor to stand the drums on: drones, then your field recordings (tracks 13-14)
+sfm:MODULAR CREATIONS FROM MARS/*drones/dark modulator/*   | limit=4
+sfm:SYNARE FROM MARS/*effected/moving drone/*              | limit=3
+sfm:FOUND SOUNDS FROM MARS/*vortex/*                       | limit=3
+# rec:field/*

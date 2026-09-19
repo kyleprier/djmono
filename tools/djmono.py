@@ -31,12 +31,13 @@ CACHE = BUILD / ".cache.json"
 LOCK = ROOT / "state" / "drive.lock"
 INDEX = ROOT / "index"
 CONFIG = ROOT / "config"
+BACKUPS = ROOT / "backups"
 
 # --- Device facts (Digitakt II, OS 1.16) ------------------------------------------------
 MB = 1_000_000
 PROJECT_RAM, PROJECT_SLOTS = 400 * MB, 1016          # per project
-BUDGET = {"CORE": (100 * MB, 250)}                   # CORE + any one world = one project
-BUDGET_WORLD = (300 * MB, 760)
+# TRIAD holds every world in one project: 380 MB / 1000 slots, 20 MB left for resampling
+BUDGET = {"CORE": (30 * MB, 120), "DUB": (110 * MB, 300), "RITE": (90 * MB, 280), "DRIFT": (150 * MB, 300)}
 TRANSFER_MIB_S = 0.5                                 # measured over USB-MIDI (Transfer and Elektroid)
 MAX_TRANSFER_BYTES = 59 * MB                         # community-tested per-file ceiling
 MAX_NAME = 32
@@ -49,14 +50,14 @@ PROFILES = {
     "hit":  dict(mono=True,  trim=True,  len=4,   fade=15,  norm=-1.0),
     "tone": dict(mono=False, trim=True,  len=8,   fade=40,  norm=-1.0),
     "ring": dict(mono=False, trim=True,  len=15,  fade=150, norm=-1.0),
-    "bed":  dict(mono=False, trim=False, len=40,  fade=200, norm=-3.0),
+    "bed":  dict(mono=False, trim=False, len=20,  fade=200, norm=-3.0),
     "loop": dict(mono=False, trim=False, len=300, fade=0,   norm=-1.0),
 }
 FUNCTIONS = {
     "KICK": "hit", "SNR": "hit", "HAT": "hit", "HAND": "hit", "SHKR": "hit", "WOOD": "hit",
-    "BELL": "ring", "FX": "ring",
-    "BASS": "tone", "KEYS": "tone", "CHRD": "tone", "HORN": "tone", "TONE": "tone", "VOX": "tone",
-    "PAD": "bed", "DRONE": "bed", "FIELD": "bed", "NOISE": "bed",
+    "BELL": "ring", "FX": "ring", "GTR": "ring",
+    "BASS": "tone", "STAB": "tone", "KEYS": "tone", "HORN": "tone", "VOX": "tone",
+    "PAD": "bed", "SCAPE": "bed", "NOISE": "bed",
     "LOOP": "loop", "CHAIN": "loop",
 }
 # Folders inside sample packs that hold DAW/sampler formats (duplicates of the WAVs). Skipped.
@@ -341,6 +342,10 @@ def resolve(rule, lib, ignore_limit=False):
         hits = pref or hits
     hits.sort(key=lambda f: f.rel.lower())
     limit = rule.opts.get("limit")
+    # round-robin copies ("... C3_0001") when the plain take is also there
+    stems = {f.norm.rsplit(".", 1)[0] for f in hits}
+    hits = [f for f in hits if not (re.search(r" 0\d{3}$", f.norm.rsplit(".", 1)[0]) and
+                                    re.sub(r" 0\d{3}$", "", f.norm.rsplit(".", 1)[0]) in stems)]
     if "kit" not in rule.pattern.lower():
         hits = [f for f in hits if not any(KITS_DIR.match(seg) for seg in f.norm.split("/")[:-1])]
     if limit and not ignore_limit and len(hits) > limit:
@@ -377,8 +382,11 @@ def describe(stem, code, fn, pack_seg):
             re.fullmatch(r"0\d{3}", parts[-1]) or
             (re.fullmatch(r"[a-z0-9]{4}", parts[-1]) and re.search(r"\d", parts[-1]) and re.search(r"[a-z]", parts[-1]))):
         parts.pop()  # round-robin counter or random tag after the note
-    if len(parts) > 1 and NOTE_TOK.fullmatch(parts[-1]) and parts[0].isdigit():
-        parts.pop(0)  # MIDI note number in front: "60 E Piano ... C3"
+    if len(parts) > 1 and NOTE_TOK.fullmatch(parts[-1]):
+        if parts[0].isdigit():
+            parts.pop(0)  # MIDI note number in front: "60 E Piano ... C3"
+        else:
+            parts[0] = re.sub(r"^\d{1,3}(?=[a-z])", "", parts[0])  # "60HissMachine"
     pack_words = set(slug(pack_seg).split("-")) if pack_seg else set()
     redundant = {code, fn.lower()} | pack_words
     nums = [w for w in pack_words if w.isdigit() and len(w) >= 3]
@@ -545,19 +553,30 @@ def budget_report(rows):
         w = r["path"].split("/")[0]
         b, n = per.get(w, (0, 0))
         per[w] = (b + r["bytes"], n + 1)
-    print(f"\n  {'world':<7}{'files':>7}{'size':>12}   budget (one project = CORE + one world)")
+    print(f"\n  {'world':<7}{'files':>7}{'size':>12}   TRIAD budget (all worlds in one project)")
     over = False
     for w in WORLDS:
         b, n = per.get(w, (0, 0))
-        cap_b, cap_n = BUDGET.get(w, BUDGET_WORLD)
+        cap_b, cap_n = BUDGET[w]
         flag = ""
         if b > cap_b or n > cap_n:
             flag, over = "  << over budget", True
         print(f"  {w:<7}{n:>7}{fmt_mb(b):>12}   {100 * b / cap_b:5.0f}% of {fmt_mb(cap_b)}, {n}/{cap_n} files{flag}")
-    total = sum(b for b, _ in per.values())
-    print(f"  {'total':<7}{sum(n for _, n in per.values()):>7}{fmt_mb(total):>12}   "
-          f"~{transfer_minutes(total):.0f} min to send everything over USB")
+    total, count = sum(b for b, _ in per.values()), sum(n for _, n in per.values())
+    print(f"  {'total':<7}{count:>7}{fmt_mb(total):>12}   {100 * total / PROJECT_RAM:5.0f}% of the 400 MB project, "
+          f"{count}/{PROJECT_SLOTS} slots, ~{transfer_minutes(total):.0f} min over USB")
     return over
+
+
+def estimate_bytes(job):
+    """Rendered size before rendering: 16-bit / 48 kHz from the source size (assumes 24-bit stereo sources)."""
+    o, f = job["opts"], job["file"]
+    if o.get("raw"):
+        return f.size
+    secs = f.size / (44100 * 3 * 2) if f.size else 2.0
+    if o.get("len"):
+        secs = min(secs, o["len"])
+    return int(secs * 48000 * 2 * (1 if o.get("mono") else 2)) + 44
 
 
 def cmd_build(args):
@@ -803,6 +822,107 @@ def cmd_scan(args):
     print("Commit index/. Rescan after adding packs; ls/build/audition read the index, not the NAS.")
 
 
+def planned_samples():
+    """Every sample the crates produce, with its size: real if built, estimated if not. Works from the index."""
+    lib, lock = Library(load_paths(required=False)), read_lock()
+    jobs, _ = plan_build(lib, load_codes(), lock, quiet=True)
+    out = {}
+    for j in jobs:
+        row = lock.get(j["path"])
+        out[j["path"]] = row["bytes"] if row and row["status"] == "active" else estimate_bytes(j)
+    return out, lib.missing
+
+
+def load_rig():
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import rig
+    return rig
+
+
+def cmd_check(args):
+    rig = load_rig()
+    samples, missing = planned_samples()
+    if missing:
+        print(f"  warn  no index or files for: {', '.join(sorted(missing))}")
+    r = rig.Rig(ROOT).load().check(samples)
+    print(f"  {len(r.recipes)} recipes · {len(r.presets)} presets · {len(r.kits)} kits · {len(r.projects)} projects "
+          f"· {len(samples)} samples")
+    cov = r.coverage()
+    print(f"\n  {'role':<7}" + "".join(f"{b + ' ' + rig.BANKS[b]:>10}" for b in "ABCD"))
+    for role, *_ in rig.ROLES:
+        cells = [n for b, rl, n in cov if rl == role]
+        print(f"  {role:<7}" + "".join(f"{(n or '-'):>10}" for n in cells))
+    print()
+    for name, k in sorted(r.kits.items(), key=lambda kv: (kv[1]["patterns"] or "", kv[0])):
+        print(f"  kit {k['patterns']} {name:<15} {k['world']:<6} {k['tempo'] or '?':>5} BPM  {len(k['tracks'])}/16 tracks")
+    for pname, proj in r.projects.items():
+        print(f"\n  project {pname}: {proj.get('slots', 0)} samples, {fmt_mb(proj.get('ram', 0))} "
+              f"of 400 MB, {proj.get('slots', 0)}/{PROJECT_SLOTS} slots")
+        if proj.get("ram", 0) > PROJECT_RAM or proj.get("slots", 0) > PROJECT_SLOTS:
+            r.err(f"project {pname} doesn't fit one project")
+    for w in r.warnings:
+        print(f"  warn  {w}")
+    for e in r.errors:
+        print(f"  ERROR {e}")
+    print("\ncomplete." if not r.errors else f"\n{len(r.errors)} problem(s).")
+    if r.errors:
+        sys.exit(1)
+
+
+def cmd_sheet(args):
+    rig = load_rig()
+    samples, _ = planned_samples()
+    r = rig.Rig(ROOT).load().check(samples)
+    out = BUILD / "sheets"
+    shutil.rmtree(out, ignore_errors=True)
+    (out / "kits").mkdir(parents=True)
+    written = []
+    for bank in sorted({p["bank"] for p in r.presets.values()}):
+        f = out / f"presets-{bank}-{rig.BANKS[bank]}.md"
+        f.write_text(r.sheet_bank(bank))
+        written.append(f)
+    for name, k in sorted(r.kits.items()):
+        f = out / "kits" / f"{k['patterns']}-{name.replace(' ', '-')}.md"
+        f.write_text(r.sheet_kit(name, samples))
+        written.append(f)
+    for pname in r.projects:
+        f = out / f"project-{pname}.md"
+        f.write_text(r.sheet_project(pname))
+        written.append(f)
+    order = ["# Build order", "", "1. `project-*.md`: create the project and load the sample folders.",
+             "2. `presets-*.md`: build and save presets, bank by bank.",
+             "3. `kits/*.md`: assemble each kit from its presets, set the kit FX, save it.", ""]
+    (out / "README.md").write_text("\n".join(order + [f"- {rel(f)}" for f in written]) + "\n")
+    print(f"{len(written)} sheets in {rel(out)}/  (start with README.md)")
+    if r.errors:
+        print(f"  {len(r.errors)} problem(s) found; run ./djmono check")
+    if sys.platform == "darwin":
+        subprocess.run(["open", str(out)])
+
+
+def cmd_backup(args):
+    day = BACKUPS / dt.date.today().isoformat()
+    day.mkdir(parents=True, exist_ok=True)
+    print(f"backup folder: {rel(day)}\n"
+          "In Transfer: select the TRIAD project and the preset banks, back them up, and save into that folder.")
+    if sys.platform == "darwin":
+        subprocess.run(["open", str(day)])
+    if not args.yes:
+        input("Press Enter once the files are saved... ")
+    files = [f for f in day.rglob("*") if f.is_file()]
+    print(f"  {len(files)} files, {fmt_mb(sum(f.stat().st_size for f in files))}")
+    paths = load_paths(required=False)
+    lib = paths.get("lib")
+    dest = paths.get("backup") or (lib.parent / "djmono-backups" if lib and str(lib).startswith("/Volumes/") else None)
+    if not dest:
+        print("  add 'backup = /path/on/the/NAS' to config/paths.local to copy these off the Mac")
+        return
+    if not dest.parent.is_dir():
+        die(f"{dest.parent} isn't reachable (NAS not mounted?). The backup is safe in {rel(day)}")
+    shutil.copytree(BACKUPS, dest, dirs_exist_ok=True, ignore=shutil.ignore_patterns("README.md"))
+    print(f"  copied to {dest}")
+
+
 def read_key():
     try:
         import termios
@@ -1021,6 +1141,11 @@ def main():
     p.add_argument("-y", "--yes", action="store_true", help="mark staged files as synced without asking")
     p.set_defaults(fn=cmd_sync)
     sub.add_parser("status", help="budgets, pending sync, retired samples").set_defaults(fn=cmd_status)
+    sub.add_parser("check", help="presets, kits and projects: complete, consistent, within RAM").set_defaults(fn=cmd_check)
+    sub.add_parser("sheet", help="write the build sheets for presets, kits and projects").set_defaults(fn=cmd_sheet)
+    p = sub.add_parser("backup", help="save a Transfer backup into backups/ and copy it to the NAS")
+    p.add_argument("-y", "--yes", action="store_true", help="don't wait; copy what's already there")
+    p.set_defaults(fn=cmd_backup)
     args = ap.parse_args()
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)  # quiet when piped into head/less
     args.fn(args)

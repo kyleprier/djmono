@@ -4,7 +4,7 @@ sfm:DX100 FROM MARS/*warble celeste/* c3*.wav              | limit=1
 sfm:DX100 FROM MARS/*star piano/* c3*.wav                  | limit=1
 sfm:DX100 FROM MARS/*good vibes/* c3*.wav                  | limit=1
 sfm:DX100 FROM MARS/*dream like/* c3*.wav                  | limit=1
-sfm:KAWAII DREAMS FROM MARS/*02. keys/* c3*.wav            | limit=3 exclude=jazz
+sfm:KAWAII DREAMS FROM MARS/*02. keys/* c3*.wav            | limit=3 exclude=jazz,air
 sfm:MIRAGE FROM MARS/*keys/celeste/* c3*.wav               | limit=1
 sfm:SH5 FROM MARS/*baby vibraphone/* c3*.wav               | limit=1
 sfm:360 FROM MARS/*perc/vibes/* c3*.wav                    | limit=1

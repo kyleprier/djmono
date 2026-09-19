@@ -1,0 +1,6 @@
+# DRIFT/HORN · clarinet, soft flute and strings for the lead track (track 12)
+sfm:MIRAGE FROM MARS/*orchestral/clarinet/* c3*.wav        | limit=1
+sfm:360 FROM MARS/*flute filter/* c3*.wav                  | limit=1
+sfm:KAWAII DREAMS FROM MARS/*pads/warm strings/* c3*.wav   | limit=1
+sfm:KAWAII DREAMS FROM MARS/*pads/analog strings/* c3*.wav | limit=1
+sfm:360 FROM MARS/*strings/strings chorus/* c3*.wav        | limit=1

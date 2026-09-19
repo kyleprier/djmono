@@ -1,0 +1,23 @@
+# GLASS GARDEN · DRIFT
+patterns = E
+tempo    = 72
+feel     = bells and glass, voices
+fx       = delay TIME 48 (dotted 1/4), FDBK 40, used as texture · reverb long and bright, DEC 110 · chorus 35 · comp off
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | D:PULSE BALL
+ 2  | D:GLASS SNAP
+ 3  | D:SHAKER AIR
+ 4  | D:TUBULAR BELL
+ 5  | D:WINE GLASS
+ 6  | D:CONGA SOFT
+ 7  | D:PLASTIC BIN
+ 8  | D:LOOP FROGS
+ 9  | D:AIR BASS
+10  | D:GLASS DROPS
+11  | D:VIBES            | DRIFT/KEYS/*
+12  | D:VOICES           | DRIFT/VOX/*
+13  | D:GLASS HOWL
+14  | D:TELAHARMONIC
+15  | A:NOISE HISS
+16  | D:BELL REVERSE

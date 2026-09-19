@@ -1,0 +1,23 @@
+# CTI GROOVE · DUB
+patterns = B
+tempo    = 96
+feel     = soul: organ, horns, conga
+fx       = delay TIME 12 (dotted 1/16), FDBK 40, into reverb 20 · reverb warm room, DEC 50 · chorus 25 · comp light
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | B:KICK LM1 A
+ 2  | B:SNARE VINYL
+ 3  | B:HAT LM1
+ 4  | B:RIDE 1880
+ 5  | A:CONGA 808 MID
+ 6  | A:BONGO CR78
+ 7  | A:MARACA 808
+ 8  | B:CR78 BOOGIE
+ 9  | B:RHODES BASS
+10  | B:MAJOR 7 EB
+11  | B:ORGAN JAZZY
+12  | B:TRUMPET GHOST    | DUB/HORN/*
+13  | B:PAD WARM STR
+14  | B:SCAPE STRINGS
+15  | A:NOISE VINYL
+16  | A:FX SIREN UFO

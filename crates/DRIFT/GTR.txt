@@ -1,0 +1,9 @@
+# DRIFT/GTR · washed-out guitar and pedal steel for the lead track (track 12)
+sfm:MIRAGE FROM MARS/*guitar/warp guitar/* c3*.wav         | limit=1
+sfm:MIRAGE FROM MARS/*guitar/acoustic guitar chorus/* c3*.wav | limit=1
+sfm:DR SAMPLE FROM MARS/*guitar/01. acoustic tremolo/* c3*.wav | limit=1
+sfm:360 FROM MARS/*guitars/nylon guitar vibrato/* c3*.wav  | limit=1
+
+# gap fill: pedal steel is what this folder is for
+# lib:Pedal Steel Guitar/*.wav                             | limit=16 exclude=loop code=psg
+# lib:Americana Granular Pad/*.wav                         | limit=6 code=amgp

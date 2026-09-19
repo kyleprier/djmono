@@ -1,0 +1,23 @@
+# STEEL SHADE · DUB
+patterns = A
+tempo    = 112
+feel     = slow dub with reverb guitar and steel swells
+fx       = delay TIME 24, FDBK 55, LPF down · reverb big and dark, DEC 100 · chorus 40 · comp gentle
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | B:KICK SOFT ROCK
+ 2  | B:RIM TUBE
+ 3  | B:HAT DEGRADED
+ 4  | B:RIDE LOFI
+ 5  | A:CONGA 808 MID
+ 6  | A:BONGO CR78
+ 7  | A:TAMB 626
+ 8  | B:BREAK CHOP
+ 9  | B:SUB SYNARE
+10  | B:STAB CMIN9 BELL
+11  | B:RHODES BELL
+12  | B:GTR STRATOS      | DUB/GTR/*
+13  | B:PAD NEW DAWN
+14  | B:SCAPE WHALE
+15  | A:NOISE HISS
+16  | A:FX TAKEOFF

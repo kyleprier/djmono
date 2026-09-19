@@ -1,0 +1,23 @@
+# EARTH PULSE · RITE
+patterns = C
+tempo    = 112
+feel     = surdo-led and melodic: steel drum, pan flute
+fx       = delay TIME 16 (1/8), FDBK 30, low send · reverb short room, DEC 35 · chorus off · comp medium, punchy
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | C:LOW HALL TOM
+ 2  | C:CONGA SLAP
+ 3  | C:SHAKER VINYL
+ 4  | C:BELL KNOCK
+ 5  | C:UDU COLOR
+ 6  | C:BONGO            | RITE/HAND/visc_*
+ 7  | C:WOODBLOCK
+ 8  | C:LOOP CONGA
+ 9  | C:BOX CELLO
+10  | C:STEEL DRUM
+11  | C:MARIMBA ROOM
+12  | C:PAN FLUTE
+13  | C:DRONE MOVING
+14  | C:SCAPE MOVING
+15  | C:NOISE BOTTLE
+16  | A:FX RISE

@@ -8,12 +8,12 @@ Three worlds plus a shared core, mirrored on the +Drive:
 
 | Folder | World |
 |--------|-------|
-| `DUB` | Dub techno on jazz and soul: chord stabs, Rhodes, horns, rides, tape |
-| `RITE` | Tribal / shamanic: hand drums, shakers, bells, kalimba, drones |
-| `DRIFT` | Ambient / new age: field recordings, bowls, soft pads |
+| `DUB` | Dub techno on jazz and soul: chord stabs, Rhodes, horns, reverb guitar, rides, tape |
+| `RITE` | Tribal / shamanic: hand drums, shakers, bells, marimba, flute, drones |
+| `DRIFT` | Ambient / new age: field recordings, bells, glass, pads, guitar and pedal steel swells |
 | `CORE` | What two or more worlds share |
 
-Why it's shaped this way: [docs/FRAMEWORK.md](docs/FRAMEWORK.md).
+All three live in one project, **TRIAD**: 16 kits, 262 presets, about 590 samples in 346 MB of the DT2's 400 MB. Changing worlds is changing patterns. Why it's shaped this way: [docs/FRAMEWORK.md](docs/FRAMEWORK.md).
 
 ## Setup (once)
 
@@ -34,17 +34,28 @@ Optional: build `elektroid-cli` for one-command sync ([docs/DEVICE.md](docs/DEVI
 
 ```sh
 ./djmono ls DUB                # what each crate rule pulls
-./djmono audition DUB/CHRD     # listen: k keep, enter skip, r replay, b back, q quit
+./djmono audition DUB/STAB     # listen: k keep, enter skip, r replay, b back, q quit
 ./djmono build                 # render, check budgets, update state/drive.lock
 ./djmono sync                  # send new files (elektroid), or: ./djmono sync --transfer
 ./djmono status                # budgets, pending, retired
 git add -A && git commit -m "DUB: chords from Vinyl Synths" && git push
 ```
 
+On the device:
+
+```sh
+./djmono check                 # every kit has 16 tracks, every preset a sample, TRIAD fits in RAM
+./djmono sheet                 # build sheets for presets, kits and TRIAD (opens build/sheets/)
+./djmono backup                # file a Transfer backup under backups/ and copy it to the NAS
+```
+
 ## Layout
 
 ```
 crates/<WORLD>/<FN>.txt   one file per +Drive folder: the curation (docs: crates/README.md)
+presets/                  banks A-D (slot, name, recipe, tags, sample) and recipes.txt
+kits/<WORLD>/<KIT>.txt    16 tracks each: preset, sample locks, pattern bank, tempo, kit FX
+projects/TRIAD.txt        folders to load, kits per pattern bank
 config/paths.example      where the library lives: the NAS mount (copied to paths.local, not in git)
 config/codes.txt          source codes used as name prefixes
 state/drive.lock          every sample built, where it came from, when it reached the DT2
@@ -58,5 +69,5 @@ build/  backups/          local only
 
 - Never edit or delete a sample on the device that a preset might use. The DT2 tracks samples by content, so djmono never overwrites.
 - Shared by two worlds → CORE.
-- CORE plus one world must fit one project: 400 MB and 1016 samples. `build` warns you.
-- Commit after every build and sync.
+- Everything must fit TRIAD: 400 MB and 1016 samples. `build` and `check` warn you.
+- Commit after every build, sync and preset session.

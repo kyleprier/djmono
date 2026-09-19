@@ -11,3 +11,6 @@ sfm = /Volumes/archive/audio/sample packs/Samples From Mars
 
 # your own vinyl cuts and field recordings
 rec = ~/music production/recordings
+
+# where ./djmono backup copies Transfer backups (default: djmono-backups next to sample packs)
+# backup = /Volumes/audio/djmono-backups

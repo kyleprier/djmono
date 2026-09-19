@@ -1,0 +1,23 @@
+# SLOW BURN · DUB
+patterns = B
+tempo    = 88
+feel     = ride-led late-night jazz
+fx       = delay TIME 12 (dotted 1/16), FDBK 40, into reverb 20 · reverb warm room, DEC 50 · chorus 25 · comp light
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | B:KICK LM1 B
+ 2  | B:RIM LM1
+ 3  | B:HAT LM1
+ 4  | B:RIDE ROUND       | DUB/HAT/*ride*
+ 5  | A:CONGA 808 MID
+ 6  | A:BONGO CR78
+ 7  | A:CABASA LM1
+ 8  | B:CR78 BOOGIE
+ 9  | B:UPRIGHT
+10  | B:RHODES EBM11     | DUB/STAB/drs_stab_rhodes*
+11  | B:RHODES SUNRISE
+12  | B:MUTED TRUMPET
+13  | B:PAD MELLOVOX
+14  | B:SCAPE CINEMA
+15  | A:NOISE VINYL
+16  | A:FX SCRATCH

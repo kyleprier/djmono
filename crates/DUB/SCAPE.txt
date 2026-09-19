@@ -1,0 +1,4 @@
+# DUB/SCAPE · swells and record textures for Werp (track 14)
+sfm:TAPE FRAGMENTS FROM MARS/*                             | limit=6 exclude=bass,lead,flute
+sfm:DR SAMPLE FROM MARS/*textures/06. cinema/*             | limit=3
+sfm:DR SAMPLE FROM MARS/*textures/07. blue/*               | limit=3

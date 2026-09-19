@@ -1,0 +1,23 @@
+# DEEP ECHO · DUB
+patterns = A
+tempo    = 118
+feel     = classic dub techno: chord stab, rim, sub, vinyl
+fx       = delay TIME 24 (dotted 1/8), FDBK 70, HPF up, LPF down, into reverb 40 · reverb dark, DEC 70 · chorus 20 · comp gentle glue
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | B:KICK LM1 A
+ 2  | B:RIM VINYL        | DUB/SNR/*rim*
+ 3  | B:HAT VINYL        | DUB/HAT/*_ch-*
+ 4  | B:RIDE 1880
+ 5  | A:CONGA 808 MID    | CORE/HAND/*
+ 6  | A:BONGO CR78
+ 7  | A:SHAKER TOM       | CORE/SHKR/*
+ 8  | B:BREAK REGGAE
+ 9  | B:SUB SMOOTH
+10  | B:STAB DUB M9      | DUB/STAB/juno_stab_*
+11  | B:EPIANO TREM
+12  | B:TRUMPET DUB      | DUB/HORN/trpt_*
+13  | B:PAD DIVE
+14  | B:SCAPE SWELL
+15  | A:NOISE VINYL
+16  | A:FX SIREN UFO

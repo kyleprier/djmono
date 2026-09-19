@@ -1,0 +1,23 @@
+# SLOW LIGHT · DRIFT
+patterns = F
+tempo    = 60
+feel     = pads and swells, strings, bowls once added
+fx       = delay TIME 48 (dotted 1/4), FDBK 40, used as texture · reverb long and bright, DEC 110 · chorus 35 · comp off
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | D:PULSE SOFT
+ 2  | D:BOTTLE CLAP
+ 3  | D:SHAKER DUST
+ 4  | D:MALLET
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:PLASTIC BIN
+ 8  | D:LOOP FROGS
+ 9  | D:BASS DRONE C
+10  | D:FM BELL CHORD
+11  | D:STAR PIANO
+12  | D:STRINGS WARM     | DRIFT/HORN/*
+13  | D:ENSEMBLE FEM     | DRIFT/PAD/*
+14  | D:ELEMENTS DRONE
+15  | A:NOISE HISS
+16  | D:BELL REVERSE

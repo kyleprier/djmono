@@ -1,0 +1,23 @@
+# MORNING WATER · DRIFT
+patterns = E
+tempo    = 80
+feel     = gentle pulse: water, celeste, forest
+fx       = delay TIME 48 (dotted 1/4), FDBK 40, used as texture · reverb long and bright, DEC 110 · chorus 35 · comp off
+
+# trk | BANK:PRESET      | sample locks (options this track can step through)
+ 1  | D:PULSE SOFT
+ 2  | D:WATER SLAP
+ 3  | D:SHAKER AIR
+ 4  | D:CHIME FM         | DRIFT/BELL/*
+ 5  | D:WATER SPLASH
+ 6  | D:CONGA SOFT
+ 7  | D:GARDEN FORK      | DRIFT/WOOD/*
+ 8  | D:LOOP FOREST
+ 9  | D:BASS DRONE C
+10  | D:CELESTE CHORD
+11  | D:CELESTE
+12  | D:FLUTE FILTER
+13  | D:CAMPFIRE
+14  | D:FOREST
+15  | A:NOISE HISS
+16  | D:CHIRP REVERSE

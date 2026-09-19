@@ -1,4 +1,0 @@
-# DRIFT/DRONE · slow-moving beds for Werp and Stretch
-sfm:MODULAR CREATIONS FROM MARS/*drones/elements/*         | limit=4
-sfm:MODULAR CREATIONS FROM MARS/*drones/teleharmonic/*     | limit=4
-lib:DigiSphere II*/*/bassdrone/*                           | limit=4 code=dsph
