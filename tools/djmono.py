@@ -502,7 +502,9 @@ def render(job, cache):
 
 # --- commands ----------------------------------------------------------------------------
 def plan_build(lib, codes, lock, selector=None, quiet=False):
-    """Resolve every crate into jobs. Names already in the lock are reused so they never drift."""
+    """Resolve every crate into jobs. Names already on the device are reused so they never drift;
+    names that were only built, never synced, are free to change."""
+    lock = {p: r for p, r in lock.items() if r["synced"] != "-"}
     by_source = {(r["path"].rsplit("/", 1)[0], r["source"]): r["path"] for r in lock.values()}
     jobs, seen, warnings = [], {}, []
     for crate in crate_files(selector):
