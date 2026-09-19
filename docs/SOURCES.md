@@ -15,7 +15,7 @@ All The Samples From Mars is 88 packs, 75 GB, 24-bit / 44.1 kHz. Most packs come
 
 ## Filling the gaps
 
-Prices as of September 2026. Put downloads under your `lib` folder with the pack's own folder name, then uncomment the matching line in the crate.
+Prices as of September 2026. Unzip downloads into `audio/sample packs` on the NAS, each in its own folder, then uncomment the matching line in the crate.
 
 **Free, start here**
 

@@ -197,7 +197,8 @@ class Library:
         else:
             if key not in self.missing:
                 where = f" at {root}" if root else " in config/paths.local"
-                print(f"  warn  source '{key}' not found{where}; its rules are skipped")
+                nas = " (NAS not mounted?)" if root and str(root).startswith("/Volumes/") else ""
+                print(f"  warn  source '{key}' not found{where}{nas}; its rules are skipped")
             self.missing.add(key)
             return []
         self._files[key] = [SrcFile(key, r, s, absroot) for r, s in items]
@@ -490,6 +491,8 @@ def cmd_build(args):
     lib, codes, lock = Library(load_paths()), load_codes(), read_lock()
     print("resolving crates")
     jobs, warnings = plan_build(lib, codes, lock, args.crate)
+    if lib.missing:  # never rewrite the lock from a partial view of the library
+        die(f"source(s) {', '.join(sorted(lib.missing))} unreachable (NAS not mounted?). Nothing was changed")
     missing = sorted({j["file"].key for j in jobs if j["file"].abs is None})
     if missing:
         die(f"source(s) {', '.join(missing)} are only available as an index here; build on the machine with the files")
@@ -796,19 +799,58 @@ def cmd_audition(args):
         print(f"\n{len(keep)} picks added to {rel(crate)}. Once you're happy, delete the broad rule they came from.")
 
 
-def find_sfm_root():
-    bases = [Path.home() / "music production", Path.home() / "Music", Path.home() / "Samples"]
-    bases += [p for p in Path("/Volumes").glob("*")] if Path("/Volumes").exists() else []
-    for base in bases:
-        if not base.is_dir():
-            continue
-        for d in [base, *base.glob("*"), *base.glob("*/*"), *base.glob("*/*/*")]:
-            try:
-                if d.is_dir() and sum(1 for c in d.iterdir() if "from mars" in c.name.lower()) >= 3:
-                    return d
-            except OSError:
-                continue
+NAS_URL = "smb://apollo@archive.meistervision.com"
+MOUNT_HINT = f"mount the NAS: Finder > Go > Connect to Server (cmd-K) > {NAS_URL}, open the share with audio/sample packs"
+
+
+def child_ci(base, name):
+    """Case-insensitive child lookup (SMB shares keep whatever case the folders were made with)."""
+    try:
+        for c in base.iterdir():
+            if c.name.lower() == name and c.is_dir():
+                return c
+    except OSError:
+        pass
     return None
+
+
+def find_library():
+    """Sample packs live on the NAS under audio/sample packs. Finder mounts shares at /Volumes/<share>."""
+    vols = Path("/Volumes")
+    if not vols.is_dir():
+        return None
+    for vol in sorted(vols.iterdir()):
+        if vol.is_symlink():  # "Macintosh HD" points at /
+            continue
+        try:
+            bases = [vol, *(c for c in sorted(vol.iterdir()) if c.is_dir())]
+        except OSError:
+            continue
+        for base in bases:
+            audio = child_ci(base, "audio")
+            hit = child_ci(audio, "sample packs") if audio else child_ci(base, "sample packs")
+            if hit:
+                return hit
+    return None
+
+
+def find_sfm_root(lib):
+    if not lib or not lib.is_dir():
+        return None
+    for d in [lib, *lib.glob("*"), *lib.glob("*/*"), *lib.glob("*/*/*")]:
+        try:
+            if d.is_dir() and sum(1 for c in d.iterdir() if "from mars" in c.name.lower()) >= 3:
+                return d
+        except OSError:
+            continue
+    return None
+
+
+def set_path(text, key, value):
+    line = f"{key} = {value}"
+    if re.search(rf"^{key}\s*=", text, flags=re.M):
+        return re.sub(rf"^{key}\s*=.*$", line, text, flags=re.M)
+    return text.rstrip() + "\n" + line + "\n"
 
 
 def cmd_doctor(args):
@@ -816,7 +858,7 @@ def cmd_doctor(args):
 
     def check(label, good, hint=""):
         nonlocal ok
-        print(f"  {'ok ' if good else '-- '} {label}" + ("" if good or not hint else f"   -> {hint}"))
+        print(f"  {'ok ' if good else '-- '} {label}" + ("" if good or not hint else f"\n       -> {hint}"))
         ok = ok and good
 
     print("tools")
@@ -826,26 +868,48 @@ def cmd_doctor(args):
     has_el = bool(shutil.which("elektroid-cli"))
     print(f"  {'ok ' if has_el else '.. '} elektroid-cli" + ("" if has_el else "   (optional: without it, sync stages a folder for Transfer)"))
 
-    print("config")
+    print("library")
     local = CONFIG / "paths.local"
-    if not local.exists():
-        text = (CONFIG / "paths.example").read_text()
-        found = find_sfm_root()
-        if found:
-            text = re.sub(r"^sfm\s*=.*$", f"sfm = {found}", text, flags=re.M)
-            print(f"  found Samples From Mars at {found}")
+    text = local.read_text() if local.exists() else (CONFIG / "paths.example").read_text()
+    roots = {}
+    for line in text.splitlines():
+        if "=" in line and not line.strip().startswith("#"):
+            k, _, v = line.partition("=")
+            roots[k.strip()] = Path(os.path.expanduser(v.strip()))
+    # fill in lib/sfm when they point nowhere (first run, or the share mounted under a new name)
+    lib = roots.get("lib")
+    if not (lib and lib.is_dir()):
+        lib = find_library()
+        if lib:
+            text = set_path(text, "lib", lib)
+            print(f"  found sample packs at {lib}")
+    sfm = roots.get("sfm")
+    if not (sfm and sfm.is_dir()):
+        sfm = find_sfm_root(lib)
+        if sfm:
+            text = set_path(text, "sfm", sfm)
+            print(f"  found Samples From Mars at {sfm}")
+    if not local.exists() or text != local.read_text():
         local.write_text(text)
-        print("  created config/paths.local (edit it if a path is wrong)")
+        print("  wrote config/paths.local")
+
     files = crate_files()
     rules = [r for f in files for r in parse_crate(f)]
     used = {r.src for r in rules}
-    for k, p in load_paths().items():
+    paths = load_paths()
+    for k, p in paths.items():
         if p.is_dir() or k in used:
-            check(f"{k:<4} {p}", p.is_dir(), "fix the path in config/paths.local")
+            hint = MOUNT_HINT if str(p).startswith("/Volumes/") else "fix the path in config/paths.local"
+            check(f"{k:<4} {p}", p.is_dir(), hint)
         else:
             print(f"  ..  {k:<4} {p}   (not there yet; fine until a crate uses '{k}:')")
-    for k in sorted(used - set(load_paths())):
+    for k in sorted(used - set(paths)):
         check(f"{k:<4} (used by crates)", False, f"add '{k} = /path' to config/paths.local")
+    lib = paths.get("lib")
+    if lib and lib.is_dir():
+        zips = [z for z in [*lib.glob("*.zip"), *lib.glob("*/*.zip"), *lib.glob("*/*/*.zip")]]
+        if zips:
+            print(f"  ..  {len(zips)} zipped packs under lib (djmono only reads unzipped audio), e.g. {zips[0].name}")
 
     print("crates")
     print(f"  ok  {len(files)} crates, {len(rules)} active rules")

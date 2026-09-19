@@ -1,7 +1,13 @@
-# Where the sample library lives on this machine: one source per line, key = path.
-# ./djmono doctor copies this to paths.local (not in git) and fills in sfm if it can find it.
+# Where the sample library lives: one source per line, key = path.
+# ./djmono doctor copies this to paths.local (not in git) and fills in lib and sfm
+# once the NAS share is mounted: Finder > Go > Connect to Server > smb://apollo@archive.meistervision.com
 # Crate lines refer to these keys, e.g.  sfm:JUNOS FROM MARS/* c3.wav
 
-sfm = ~/music production/samples/Samples From Mars
-lib = ~/music production/samples
+# every pack, one folder per collection (NAS: audio/sample packs)
+lib = /Volumes/archive/audio/sample packs
+
+# the Samples From Mars collection inside it
+sfm = /Volumes/archive/audio/sample packs/Samples From Mars
+
+# your own vinyl cuts and field recordings
 rec = ~/music production/recordings

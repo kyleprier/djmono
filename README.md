@@ -2,7 +2,7 @@
 
 Sample library → Digitakt II, managed with git.
 
-The library stays on the Mac. This repo holds the choices: which samples, which folder, what they're called. `djmono` renders those choices to 16-bit / 48 kHz and sends only what's new to the DT2.
+The packs live on the NAS (`archive.meistervision.com`, `audio/sample packs`, one folder per collection). This repo holds the choices: which samples, which folder, what they're called. `djmono` renders those choices to 16-bit / 48 kHz and sends only what's new to the DT2.
 
 Three worlds plus a shared core, mirrored on the +Drive:
 
@@ -17,12 +17,16 @@ Why it's shaped this way: [docs/FRAMEWORK.md](docs/FRAMEWORK.md).
 
 ## Setup (once)
 
+Mount the NAS first: Finder > Go > Connect to Server (⌘K) > `smb://apollo@archive.meistervision.com`, then open the share that holds `audio/sample packs`.
+
 ```sh
 cd ~ && git clone git@github.com:kyleprier/djmono.git && cd djmono
 brew install sox
-./djmono doctor      # finds Samples From Mars and writes config/paths.local
+./djmono doctor      # finds audio/sample packs on the mounted share, writes config/paths.local
 ./djmono scan        # indexes the library into index/ (commit it)
 ```
+
+Packs must be unzipped on the NAS; `doctor` flags any zips. If the share mounts under a new name, rerun `doctor` and it re-finds it. `build` refuses to run while the NAS is unreachable, so an unmounted share can never look like deleted samples.
 
 Optional: build `elektroid-cli` for one-command sync ([docs/DEVICE.md](docs/DEVICE.md#tools)). Without it, sync stages a folder for Transfer.
 
@@ -41,7 +45,7 @@ git add -A && git commit -m "DUB: chords from Vinyl Synths" && git push
 
 ```
 crates/<WORLD>/<FN>.txt   one file per +Drive folder: the curation (docs: crates/README.md)
-config/paths.example      where the library lives (copied to paths.local, not in git)
+config/paths.example      where the library lives: the NAS mount (copied to paths.local, not in git)
 config/codes.txt          source codes used as name prefixes
 state/drive.lock          every sample built, where it came from, when it reached the DT2
 index/                    scans of the library, so crates can be curated from anywhere

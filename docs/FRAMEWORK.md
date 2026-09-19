@@ -11,7 +11,7 @@ How the Digitakt II is organised for three styles, and why.
 
 ## The decisions
 
-1. **The library stays on the Mac. Git holds the choices. The DT2 gets a rendered subset.** All the Samples From Mars is 75 GB; the +Drive is 20 GB and fills at about 30–35 min per GB. The DT2 carries a curated set, not an archive.
+1. **The library stays on the NAS. Git holds the choices. The DT2 gets a rendered subset.** Every pack lives on `archive.meistervision.com` under `audio/sample packs`, one folder per collection; the Mac mounts it and renders from it. All the Samples From Mars is 75 GB; the +Drive is 20 GB and fills at about 30–35 min per GB. The DT2 carries a curated set, not an archive.
 2. **The +Drive is organised by world, then function.** `/DUB/CHRD`, `/RITE/HAND`, `/DRIFT/FIELD`. The same function names appear in every world.
 3. **CORE plus any one world fits in one project.** Budgets: CORE 100 MB / 250 files, each world 300 MB / 760 files. Together that's the DT2's per-project limit of 400 MB and 1016 slots. A world's whole palette can sit in RAM at once, and `./djmono build` warns if a crate outgrows it.
 4. **Shared means CORE.** A sample used by two worlds moves to CORE. It is never duplicated.
@@ -118,7 +118,7 @@ Names are `<code>_<fn>_<desc>`: `juno_chrd_warm-pad-c3`, `trt_kick_roomy`. The f
 - **Vinyl cuts** (PCM-D100) go in `~/music production/recordings/vinyl`, named by hand (`trt_keys_rhodes-vamp`). A `rec:` line in the right crate, then build and sync.
 - **Field recordings** go in `recordings/field`, then into DRIFT/FIELD, or RITE/VOX for breath and chant.
 - **Resamples made on the DT2** land in `/RECORDED`. Move them into a world folder on the device (hash-safe). Pull a copy back with Transfer or `elektroid-cli elektron:sample:dl` for the archive. Don't re-render them.
-- **New packs** go under the `lib` root. Add a commented rule to the crate, audition, then keep.
+- **New packs** go unzipped into `audio/sample packs` on the NAS, in their own folder. Add a rule to the crate, audition, then keep.
 
 ## Maintenance
 
