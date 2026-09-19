@@ -1,5 +1,7 @@
-# RITE/SHKR · shakers, rattles, tambourine, guiro
-sfm:PRIVATE RESERVE FROM MARS/*shak*         | limit=8
-sfm:CASSETTE DRUMS FROM MARS/*tamb*          | limit=3
-sfm:LO-FI DRUM MACHINES FROM MARS/*guiro*    | limit=2
-sfm:WENDEL FROM MARS/*guiro*                 | limit=2
+# RITE/SHKR · shakers, rattles, tambourine, cabasa, guiro
+sfm:VINYL DRUMS FROM MARS/*percussion/shaker/*             | limit=6
+sfm:VINYL DRUMS FROM MARS/*percussion/tambourine/*         | limit=3
+sfm:VINYL DRUMS FROM MARS/*percussion/guiro/*              | limit=3
+sfm:PRIVATE RESERVE FROM MARS/*07. shaker/*                | limit=4
+sfm:PRIVATE RESERVE FROM MARS/*08. tambourine/*            | limit=3
+sfm:LM1 FROM MARS/*08. cabasa/*                            | limit=3

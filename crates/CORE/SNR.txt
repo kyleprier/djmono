@@ -1,6 +1,7 @@
 # CORE/SNR · rims, claps, snares for any world (dub techno lives on the rim)
-sfm:909 FROM MARS/*rim*                      | limit=3
-sfm:909 FROM MARS/*clap*                     | limit=3
-sfm:808 FROM MARS/*rim*                      | limit=3
-sfm:808 FROM MARS/*clap*                     | limit=3
-sfm:CR-78 FROM MARS/*snare*                  | limit=3
+sfm:909 FROM MARS/*rim shot/*                              | limit=3
+sfm:909 FROM MARS/*hand clap/*                             | limit=3
+sfm:909 FROM MARS/*snare drum/*                            | limit=3
+sfm:808 FROM MARS/*rim shot/*                              | limit=3
+sfm:808 FROM MARS/*hand clap/*                             | limit=3
+sfm:VINYL DRUM MACHINES FROM MARS/*04. rim/*               | limit=4

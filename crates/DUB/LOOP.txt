@@ -1,3 +1,7 @@
-# DUB/LOOP · breaks for the Slice machine (slice, then random slice locks)
-sfm:VINYL BREAKS FROM MARS/*                 | limit=16 exclude=perc
-sfm:CASSETTE DRUMS FROM MARS/*loop*          | limit=4
+# DUB/LOOP · breaks and grooves for the Slice machine (slice, then random slice locks)
+sfm:VISCOUNT FROM MARS/*loops/repaired/01. full/*          | limit=6
+sfm:CR78 FROM MARS/*drum loops*/clean/*                    | limit=4
+sfm:DR SAMPLE FROM MARS/*textures/01. break/*              | limit=4
+
+# Vinyl Breaks From Mars isn't on the NAS yet; when it is:
+# sfm:VINYL BREAKS FROM MARS/*                             | limit=16

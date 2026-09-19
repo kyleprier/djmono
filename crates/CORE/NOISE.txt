@@ -1,8 +1,7 @@
-# CORE/NOISE · vinyl crackle, tape hiss, room tone. Loop these under anything for the haze bed.
-# SFM has no dedicated noise pack; start with what's inside the sampler packs, then add Super Glue.
-sfm:DR SAMPLE FROM MARS/*crackle*            | limit=4
-sfm:FOUND SOUNDS FROM MARS/*vinyl*           | limit=3
-sfm:FOUND SOUNDS FROM MARS/*hiss*            | limit=3
+# CORE/NOISE · vinyl crackle, tape hiss, noise beds. Loop these under anything for the haze.
+sfm:VINYL DRUMS FROM MARS/*fx/static/*                     | limit=6
+sfm:SH5 FROM MARS/*hiss machine/* c3*.wav                  | limit=1
+sfm:SYNARE FROM MARS/*one hits/02. noise/*                 | limit=4
 
-# gap fill (docs/SOURCES.md): Elektron Super Glue, free
-# lib:Super Glue/*.wav                       | limit=16 code=sglu
+# gap fill (docs/SOURCES.md): Elektron Super Glue, free: 79 hisses, crackles, statics
+# lib:Super Glue/*.wav                                     | limit=16 code=sglu

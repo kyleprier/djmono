@@ -1,2 +1,4 @@
-# RITE/VOX · chants and breath. Record your own or source CC0.
+# RITE/VOX · chants and breath
+sfm:DR SAMPLE FROM MARS/*textures/05. chant/*              | limit=4
+sfm:MIRAGE FROM MARS/*vox/breath vox/* c3*.wav             | limit=1
 # rec:field/*_vox_*

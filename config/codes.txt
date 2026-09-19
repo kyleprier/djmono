@@ -23,6 +23,7 @@ tjdr    Cal Tjader
 acid    Acid From Mars
 omni    Arp Omni From Mars
 cass    Cassette Drums From Mars
+cr78    CR78 From Mars
 cr78    CR-78 From Mars
 dbt     Databenders Toolkit
 dtrx    Drumtrax From Mars
@@ -35,6 +36,7 @@ dx1     DX100 From Mars
 ekko    Ekko From Mars
 emu     Emulator From Mars
 ess     Essential WAV From Mars
+ess16   Essential WAV From Mars - 16bit
 fnd     Found Sounds From Mars
 grv     Grooves From Mars
 itap    Indie Tapes From Mars
@@ -43,6 +45,7 @@ jupd    Jupiter Drums From Mars
 kawa    Kawaii Dreams From Mars
 lm1     LM1 From Mars
 lind    Lindrum From Mars
+lindl   Lindrum From Mars - Legacy
 ln60    Linn60 From Mars
 linl    Lin Loops From Mars
 lofi    Lo-Fi Drum Machines From Mars
@@ -92,6 +95,7 @@ vsp     Vinyl SP From Mars
 vsyn    Vinyl Synths From Mars
 visc    Viscount From Mars
 voy     Voyetra From Mars
+vp33    VP330 From Mars
 vp33    VP 330 From Mars
 vp33    VP-330 From Mars
 wasp    Wasp From Mars
@@ -108,3 +112,4 @@ tbla    Total Tabla
 bowl    Singing Bowls
 99n     Nature Sounds
 gdc     Sonniss GDC
+dsph    DigiSphere II - Digitakt II Sound Pack by Substan

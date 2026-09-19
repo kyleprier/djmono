@@ -1,4 +1,4 @@
 # CORE/SHKR · maracas and shakers from the machines
-sfm:CR-78 FROM MARS/*maraca*                 | limit=2
-sfm:808 FROM MARS/*maraca*                   | limit=2
-sfm:CASSETTE DRUMS FROM MARS/*shak*          | limit=4
+sfm:808 FROM MARS/*maracas/*                               | limit=3
+sfm:VINYL DRUM MACHINES FROM MARS/*06. shaker/*            | limit=4
+sfm:VINYL DRUM MACHINES FROM MARS/*tambourine/*            | limit=2

@@ -1,7 +1,8 @@
-# DRIFT/BELL · chimes, bowls, bells with long rings (ring profile: stereo, 15 s)
-sfm:FOUND SOUNDS FROM MARS/*chime*           | limit=4
-sfm:FOUND SOUNDS FROM MARS/*bell*            | limit=4
+# DRIFT/BELL · chimes, tubular bells, bell voices with long rings
+sfm:DX100 FROM MARS/*tubular bells/* c3*.wav               | limit=2
+sfm:DX100 FROM MARS/*fm bell fx/*                          | limit=3
+sfm:KAWAII DREAMS FROM MARS/*voices/bell air/* c3*.wav     | limit=1
+sfm:360 FROM MARS/*mallet multi filter/* c3*.wav           | limit=2
 
 # gap fill: singing bowls are the core of this folder
-# lib:Singing Bowls/*.wav                    | limit=16 code=bowl
-# lib:Tibetan Singing Bowl/*.wav             | limit=8 code=tsb
+# lib:Singing Bowls/*.wav                                  | limit=16 code=bowl

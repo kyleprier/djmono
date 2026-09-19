@@ -1,4 +1,4 @@
-# CORE/HAND · a few machine congas/bongos every world can borrow. Deep hand drums live in RITE/HAND.
-sfm:CR-78 FROM MARS/*conga*                  | limit=3
-sfm:CR-78 FROM MARS/*bongo*                  | limit=3
-sfm:808 FROM MARS/*conga*                    | limit=3
+# CORE/HAND · a few machine congas/bongos every world can borrow. Real hand drums live in RITE/HAND.
+sfm:808 FROM MARS/*conga/*                                 | limit=4
+sfm:VINYL DRUM MACHINES FROM MARS/*percussion/conga/*      | limit=4
+sfm:VINYL DRUM MACHINES FROM MARS/*percussion/bongo/*      | limit=3

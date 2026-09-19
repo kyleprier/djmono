@@ -1,13 +1,15 @@
-# DUB/KEYS · Rhodes, Wurli, piano, organ, clav: the jazz and soul side
-sfm:S612 FROM MARS/*rhodes*                  | limit=6
-sfm:S612 FROM MARS/*clav*                    | limit=3
-sfm:DR SAMPLE FROM MARS/*rhodes*             | limit=6
-sfm:DR SAMPLE FROM MARS/*piano*              | limit=4
-sfm:MIRAGE FROM MARS/*wurli*                 | limit=4
-sfm:MIRAGE FROM MARS/*piano*                 | limit=4
-sfm:INDIE TAPES FROM MARS/*wurli*            | limit=4
-sfm:DX100 FROM MARS/*organ*                  | limit=3
-sfm:360 FROM MARS/* c3.wav                   | limit=6
+# DUB/KEYS · Rhodes, Wurli, piano, organ, clav: the jazz and soul side. One C3 per patch; the DT2 plays it chromatically.
+sfm:MIRAGE FROM MARS/*keys/e piano/* c3*.wav               | limit=1
+sfm:MIRAGE FROM MARS/*keys/wurli/* c3*.wav                 | limit=1
+sfm:MIRAGE FROM MARS/*keys/dark piano/* c3*.wav            | limit=1
+sfm:360 FROM MARS/*keys/e piano*/* c3*.wav                 | limit=3
+sfm:360 FROM MARS/*keys/clav*/* c3*.wav                    | limit=1
+sfm:S612 FROM MARS/*rhodes & clav/* c3*.wav                | limit=6 exclude=0001
+sfm:DX100 FROM MARS/*jazzy organ/* c3*.wav                 | limit=1
+sfm:DX100 FROM MARS/*digi pianet/* c3*.wav                 | limit=1
+sfm:JUNOS FROM MARS/*01. keys/* c3*.wav                    | limit=5
+sfm:OB FROM MARS/*/keys/* c3*.wav                          | limit=3 exclude=warble
+sfm:DR SAMPLE FROM MARS/*keys/02. upright piano/* c3*.wav  | limit=1
 
 # your cuts
 # rec:vinyl/*_keys_*

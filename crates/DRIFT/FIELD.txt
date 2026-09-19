@@ -1,11 +1,7 @@
-# DRIFT/FIELD · water, rain, wind, birds, forest. Beds are stereo, capped at 40 s.
-sfm:FOUND SOUNDS FROM MARS/*rain*            | limit=4 prefer=clean
-sfm:FOUND SOUNDS FROM MARS/*ocean*           | limit=3 prefer=clean
-sfm:FOUND SOUNDS FROM MARS/*thunder*         | limit=2 prefer=clean
-sfm:FOUND SOUNDS FROM MARS/*water*           | limit=3 prefer=clean
-sfm:FOUND SOUNDS FROM MARS/*bird*            | limit=3 prefer=clean
-sfm:FOUND SOUNDS FROM MARS/*wind*            | limit=2 prefer=clean
+# DRIFT/FIELD · water, birds, outdoors. SFM is thin here: add 99Sounds Nature, Sonniss GDC, your PCM-D100.
+sfm:FOUND SOUNDS FROM MARS/*outdoors/clean/*               | limit=10
+sfm:DX100 FROM MARS/*chirping birds fx/*                   | limit=4
+lib:DigiSphere II*/*/sfx/*                                 | limit=6 code=dsph
 
-# gap fill: 99Sounds Nature Sounds, Sonniss GDC bundles, your PCM-D100
-# lib:Nature Sounds/*.wav                    | limit=12 code=99n
+# lib:Nature Sounds/*.wav                                  | limit=12 code=99n
 # rec:field/*

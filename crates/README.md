@@ -22,13 +22,16 @@ Everything is rendered to 16-bit / 48 kHz WAV, peak-normalised, named `<code>_<f
 
 - `source` is a key from `config/paths.local` (`sfm`, `lib`, `rec`).
 - Matching ignores case, and treats `_`, `-` and spaces the same. `*` matches across folders.
+- Paths are matched from the top of the source (`sfm:JUNOS FROM MARS/...`), so the copies inside Essential WAV From Mars stay out.
 - A path with no `*` is an exact pick (what `./djmono audition` writes).
-- DAW/sampler format folders inside packs (Ableton, Kontakt, MPC, EXS...) are skipped automatically.
+- Skipped automatically: DAW/sampler format folders (Ableton, Kontakt, MPC, Apple Loops...), Synology `@eaDir`/`#recycle`, and SFM `Kits` folders (copies of the individual hits) unless the rule mentions "kit".
+- Rules read `index/lib.tsv`, not the NAS, so `ls` is instant and works anywhere. Rescan after adding packs.
 
 | Option | Does |
 |--------|------|
 | `limit=8` | keep 8 matches, spread evenly across the list (`pick=first` for the first 8) |
-| `prefer=clean` | if any match contains the word, keep only those. Default is `color` (SFM ships clean + color takes); `prefer=any` keeps both |
+| `* c3*.wav` | the usual way to take one note from a multisampled patch; the DT2 plays it chromatically |
+| `prefer=clean` | if any match sits in a folder with that word, keep only those. Default is `color` (SFM splits clean and color takes by folder); `prefer=any` keeps both |
 | `exclude=bass,pad` | drop matches containing these |
 | `code=luft` | name prefix when the pack isn't in `config/codes.txt` |
 | `name=my-name` | exact name (single-file lines) |

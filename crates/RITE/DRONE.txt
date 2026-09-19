@@ -1,2 +1,3 @@
-# RITE/DRONE · a floor to stand the drums on: didgeridoo-ish drones, Space Echo tails
-sfm:SYNARE FROM MARS/*drone*                 | limit=6
+# RITE/DRONE · a floor to stand the drums on
+sfm:MODULAR CREATIONS FROM MARS/*drones/dark modulator/*   | limit=4
+sfm:SYNARE FROM MARS/*effected/moving drone/*              | limit=3

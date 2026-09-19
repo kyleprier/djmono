@@ -1,7 +1,8 @@
 # DUB/KICK · soft, roomy, vintage kicks under the chords
-sfm:LM1 FROM MARS/*kick*                     | limit=4
-sfm:VINYL DRUMS FROM MARS/*kick*             | limit=6
-sfm:CASSETTE DRUMS FROM MARS/*kick*          | limit=3
+sfm:LM1 FROM MARS/*01. bass/trimmed/*                      | limit=5
+sfm:VINYL DRUMS FROM MARS/*bass drum/*                     | limit=6
+sfm:DR SAMPLE FROM MARS/*bass drum/*                       | limit=3
+sfm:PRIVATE RESERVE FROM MARS/*bass drum/*                 | limit=3
 
 # your cuts
 # rec:vinyl/*_kick_*

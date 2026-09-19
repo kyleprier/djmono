@@ -1,4 +1,5 @@
 # CORE/HAT · machine hats and cymbals
-sfm:909 FROM MARS/*hat*                      | limit=8
-sfm:808 FROM MARS/*hat*                      | limit=6
-sfm:CR-78 FROM MARS/*hat*                    | limit=4
+sfm:909 FROM MARS/*hi hat/*                                | limit=8
+sfm:808 FROM MARS/*closed hh/*                             | limit=4
+sfm:808 FROM MARS/*open hh/*                               | limit=3
+sfm:VINYL DRUM MACHINES FROM MARS/*hi hat/*                | limit=6

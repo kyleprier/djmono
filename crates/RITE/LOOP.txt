@@ -1,4 +1,6 @@
 # RITE/LOOP · percussion grooves to slice (6/8 and 4/4)
-sfm:VINYL BREAKS FROM MARS/*perc*            | limit=12
-sfm:EKKO FROM MARS/*                         | limit=8
-sfm:MINIPOPS SNACKS FROM MARS/*              | limit=6
+sfm:EKKO FROM MARS/*loops/01. full loops/*                 | limit=6
+sfm:EKKO FROM MARS/*loops/04. tops/*                       | limit=4
+sfm:808 LOOPS FROM MARS/*tom & conga combos/*              | limit=4
+sfm:VISCOUNT FROM MARS/*loops/repaired/02. tops/*          | limit=4
+sfm:MINIPOPS SNACKS FROM MARS/*loops/*                     | limit=6

@@ -1,12 +1,13 @@
-# RITE/HAND · real hand drums: djembe, udu, conga, bongo, tabla, frame drum
-sfm:PRIVATE RESERVE FROM MARS/*djembe*       | limit=8 stereo
-sfm:PRIVATE RESERVE FROM MARS/*udu*          | limit=8 stereo
-sfm:PRIVATE RESERVE FROM MARS/*conga*        | limit=8 stereo
-sfm:PRIVATE RESERVE FROM MARS/*bongo*        | limit=6 stereo
-sfm:LO-FI DRUM MACHINES FROM MARS/*cuica*    | limit=2
-sfm:VISCOUNT FROM MARS/*bongo*               | limit=3
-sfm:CASSETTE DRUMS FROM MARS/*tom*           | limit=4
+# RITE/HAND · real hand drums: djembe, udu, conga, bongo
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/djembe*      | limit=7 stereo
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/udu*         | limit=9 stereo
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/conga*       | limit=8 stereo
+sfm:VISCOUNT FROM MARS/*perc/bongo/*                       | limit=4
+sfm:VISCOUNT FROM MARS/*perc/conga/*                       | limit=4
+sfm:SP1200 FROM MARS/*congas/*                             | limit=3
+sfm:505 FROM MARS/*conga lo/*                              | limit=2
+sfm:505 FROM MARS/*conga hi/*                              | limit=2
 
-# gap fill (docs/SOURCES.md): the SFM catalogue is thin here, these do the heavy lifting
-# lib:Skins/*.wav                            | limit=48 stereo code=skin
-# lib:Total Tabla/*.wav                      | limit=24 code=tbla
+# gap fill (docs/SOURCES.md): SFM is thin on real hand drums; these do the heavy lifting
+# lib:Skins/*.wav                                          | limit=48 stereo code=skin
+# lib:Total Tabla/*.wav                                    | limit=24 code=tbla

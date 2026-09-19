@@ -1,5 +1,7 @@
-# RITE/BELL · agogo, cowbell, glass and metal hits, gongs
-sfm:VISCOUNT FROM MARS/*agogo*               | limit=3
-sfm:WENDEL FROM MARS/*cowbell*               | limit=3
-sfm:FOUND SOUNDS FROM MARS/*glass*           | limit=4
-sfm:FOUND SOUNDS FROM MARS/*metal*           | limit=4
+# RITE/BELL · agogo, cowbell, triangle, bells, metal
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/bell*        | limit=5
+sfm:VISCOUNT FROM MARS/*perc/agogo/*                       | limit=3
+sfm:VINYL DRUMS FROM MARS/*percussion/cowbell/*            | limit=3
+sfm:VINYL DRUMS FROM MARS/*percussion/triangle/*           | limit=3
+sfm:EKKO FROM MARS/*individual hits/*triangle/*            | limit=2
+sfm:FOUND SOUNDS FROM MARS/*metal/clean/*                  | limit=5

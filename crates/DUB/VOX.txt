@@ -1,2 +1,4 @@
-# DUB/VOX · soul vocal chops: from your records. Nothing in SFM fits.
+# DUB/VOX · voice textures; soul vocal chops come from your records
+sfm:DR SAMPLE FROM MARS/*textures/09. gibson voice/*       | limit=4
+sfm:DR SAMPLE FROM MARS/*textures/03. barbershop/*         | limit=3
 # rec:vinyl/*_vox_*

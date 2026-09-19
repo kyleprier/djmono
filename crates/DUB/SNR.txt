@@ -1,6 +1,7 @@
-# DUB/SNR · brushed snares, rims, soft backbeats
-sfm:VINYL DRUMS FROM MARS/*snare*            | limit=6
-sfm:VINYL DRUMS FROM MARS/*rim*              | limit=4
-sfm:CASSETTE DRUMS FROM MARS/*snare*         | limit=4
-sfm:LM1 FROM MARS/*snare*                    | limit=3
-sfm:LM1 FROM MARS/*rim*                      | limit=2
+# DUB/SNR · rims, brushed snares, soft backbeats
+sfm:VINYL DRUMS FROM MARS/*04. rim/*                       | limit=5
+sfm:VINYL DRUMS FROM MARS/*snare drum/*                    | limit=5
+sfm:LM1 FROM MARS/*rimshot/*                               | limit=3
+sfm:LM1 FROM MARS/*02. snare/trimmed/*                     | limit=3
+sfm:PRIVATE RESERVE FROM MARS/*04. rim/*                   | limit=3
+sfm:DR SAMPLE FROM MARS/*snare drum/*                      | limit=3

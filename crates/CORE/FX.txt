@@ -1,3 +1,5 @@
-# CORE/FX · sirens, zaps, oddities for throws in any world
-sfm:SYNARE FROM MARS/*                       | limit=8 exclude=drone
-sfm:MODERN ODDITIES FROM MARS/*              | limit=6
+# CORE/FX · sirens, zaps, oddities for throws in any world (Synare is the original dub siren)
+sfm:SYNARE FROM MARS/*03. effected/*ufo*                   | limit=6
+sfm:SYNARE FROM MARS/*03. effected/*resonance sweep/*      | limit=3
+sfm:SYNARE FROM MARS/*04. various fx/*                     | limit=4
+sfm:VINYL DRUMS FROM MARS/*12. fx/hits/*                   | limit=4

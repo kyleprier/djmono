@@ -1,3 +1,5 @@
-# RITE/KICK · the low drum: surdo, floor tom, felt kick
-sfm:VINYL DRUMS FROM MARS/*floor*            | limit=4
-sfm:LO-FI DRUM MACHINES FROM MARS/*surdo*    | limit=2 exclude=cuica
+# RITE/KICK · the low drum: floor tom, low toms, felt kick
+sfm:VINYL DRUMS FROM MARS/*tom/floor/*                     | limit=5
+sfm:PRIVATE RESERVE FROM MARS/*10. tom/*                   | limit=4
+sfm:EKKO FROM MARS/*individual hits/*bass drum/*           | limit=3
+sfm:EKKO FROM MARS/*individual hits/*rolling drum/*        | limit=3

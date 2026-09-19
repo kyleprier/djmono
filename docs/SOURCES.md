@@ -1,17 +1,19 @@
 # Sources
 
-## What Samples From Mars covers
+## What's on the NAS
 
-All The Samples From Mars is 88 packs, 75 GB, 24-bit / 44.1 kHz. Most packs come in **clean** and **color** versions (color is run through tape, tube or vinyl). The seeded crates prefer color for DUB and clean for field recordings.
+`audio/sample packs` holds **samples from mars** (79 packs, about 137k files once format copies are skipped) and **DigiSphere II** (a Digitakt II pack: install its presets through Transfer into preset bank G; its samples feed DRIFT). Most SFM packs split **clean** and **color** takes by folder (color = tape, tube, vinyl); the crates take color unless a rule says otherwise.
 
 | World | Coverage | Packs the crates draw on |
 |-------|----------|--------------------------|
-| DUB | Strong | Vinyl Synths, Junos, Tape Fragments, OB (chords) · S612, DR Sample, Mirage, Indie Tapes, DX100, 360 (keys) · Trumpet Fragments (horns) · LM1, Vinyl Drums, Cassette Drums (drums) · Vinyl Breaks (loops) · Mini, 101 (bass) · VP 330 (pads) |
-| DRIFT | Partial | Found Sounds (rain, ocean, thunder, birds) · Kawaii Dreams, Emulator, VP 330 (pads) · DX100 (FM bells, pan flute) · Modular Creations (drones) |
-| RITE | Thin | Private Reserve (udu, djembe, conga, shakers: the only real hand drums) · Lo-Fi Drum Machines, Viscount, CR-78, Wendel (machine perc) · Ekko, Minipops Snacks (loops) |
-| CORE | Strong | 909, 808, CR-78, Vinyl Drum Machines · Synare (dub siren) · Modern Oddities |
+| DUB | Strong | Vinyl Synths, Junos, Dr Sample (Rhodes, maj/min 7 and Universe chords), OB, Mirage (chords) · Mirage, 360, S612, DX100, Junos, OB, Dr Sample (keys) · Trumpet Fragments, 360, DX100, Mirage, OB (horns) · LM1, Vinyl Drums, Private Reserve, Dr Sample (drums) · Mirage upright, Junos subs, 101, Dr Sample, Synare (bass) · VP330, Junos, Dr Sample, Tape Fragments (pads) · Viscount, CR78 (loops) |
+| RITE | Thin | Private Reserve (djembe, udu, conga, clave, woodblock, bells: the only real hand drums) · Viscount, SP1200, 505 (bongo, conga) · Vinyl Drums, LM1 (shaker, tambourine, guiro, cabasa) · Ekko, 808 Loops, Minipops (loops) · 360, DX100, Mirage, SH5, Kawaii (flute, marimba, steel drum, banjo, harp) |
+| DRIFT | Partial | Kawaii Dreams, VP330, 101, DigiSphere II (pads) · DX100 celeste, bells, vibes (keys, bells) · Modular Creations, DigiSphere II (drones) · Found Sounds outdoors, DX100 chirps (field) |
+| CORE | Strong | 909, 808, CR78, Vinyl Drum Machines · Synare (dub siren, noise) · Vinyl Drums static and FX · SH5 hiss |
 
-**The gaps:** no dedicated hand-drum or world-instrument pack, no kalimba, bowls or gongs, one horn pack, and no vinyl or tape noise pack. **Essential WAV From Mars** (included) is a 16-bit cut of 74 packs, useful for fast auditioning.
+**Not on the NAS yet** (in the SFM bundle; DUB/LOOP has a commented line ready for Vinyl Breaks): Vinyl Breaks, Cassette Drums, Indie Tapes, Emulator, Mini, Lo-Fi Drum Machines, Grooves.
+
+**The gaps no SFM pack fills:** real hand drums beyond Private Reserve, kalimba, bowls and gongs, field recordings, and vinyl/tape noise beds.
 
 ## Filling the gaps
 

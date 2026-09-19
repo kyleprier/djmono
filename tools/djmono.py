@@ -61,7 +61,8 @@ FUNCTIONS = {
 }
 # Folders inside sample packs that hold DAW/sampler formats (duplicates of the WAVs). Skipped.
 FORMAT_WORDS = ("ableton", "kontakt", "exs", "exs24", "logic", "reason", "nn xt", "nnxt", "sfz",
-                "maschine", "battery", "mpc", "fl studio", "flstudio", "__macosx")
+                "maschine", "battery", "mpc", "fl studio", "flstudio", "apple loops", "__macosx")
+KITS_DIR = re.compile(r"^(\d+\.? )?kits$")  # SFM "Kits" folders repeat the individual hits
 DEFAULT_PREFER = "color"  # SFM ships clean + color (tape/tube) takes; keep color unless a rule says prefer=clean or prefer=any
 OPTION_KEYS = {"limit", "pick", "prefer", "exclude", "code", "name", "keepname", "raw",
                "mono", "stereo", "len", "fade", "norm", "trim", "notrim"}
@@ -152,18 +153,30 @@ class SrcFile:
 
 
 def _skip_dir(name):
-    if name.startswith("."):
+    if name[:1] in ".@#":  # hidden, Synology @eaDir / #recycle / #snapshot
         return True
     if "mars" in name.lower():  # a pack folder, e.g. "MPC60 From Mars", is never a format folder
         return False
-    padded = f" {norm(name)} "
+    n = norm(name)
+    if n.startswith("mpc"):  # "MPC1000 & MPC2500", "MPC Live"
+        return True
+    padded = f" {n} "
     return any(f" {w} " in padded for w in FORMAT_WORDS)
 
 
-def walk_source(root):
-    out = []
-    for dirpath, dirnames, filenames in os.walk(root, followlinks=True):
+def keep_file(relpath):
+    parts = relpath.split("/")
+    name = parts[-1]
+    if name.startswith(".") or Path(name).suffix.lower() not in AUDIO_EXT:
+        return False
+    return not any(_skip_dir(d) for d in parts[:-1])
+
+
+def walk_source(root, label=""):
+    out, dirs, tty = [], 0, sys.stderr.isatty()
+    for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = sorted(d for d in dirnames if not _skip_dir(d))
+        dirs += 1
         for f in sorted(filenames):
             if f.startswith(".") or Path(f).suffix.lower() not in AUDIO_EXT:
                 continue
@@ -173,34 +186,71 @@ def walk_source(root):
             except OSError:
                 continue
             out.append((str(full.relative_to(root)), size))
+        if tty and dirs % 25 == 0:
+            print(f"\r  scanning {label}: {len(out):,} files in {dirs:,} folders", end="", file=sys.stderr, flush=True)
+    if tty:
+        print("\r" + " " * 70 + "\r", end="", file=sys.stderr, flush=True)
     return out
 
 
+def read_index(path):
+    items = []
+    with open(path, encoding="utf-8", errors="surrogateescape") as fh:
+        for line in fh:
+            line = line.rstrip("\n")
+            if not line or line.startswith("#"):
+                continue
+            r, tab, sz = line.rpartition("\t")
+            if not tab:
+                r, sz = line, "0"
+            if keep_file(r):
+                items.append((r, int(sz or 0)))
+    return items
+
+
+def nested_in(child, parent):
+    try:
+        return child != parent and child.resolve().is_relative_to(parent.resolve())
+    except (AttributeError, OSError):  # Python 3.8 has no is_relative_to
+        return str(child).startswith(str(parent).rstrip("/") + "/")
+
+
 class Library:
-    """Lazily indexes each source root (or falls back to index/<key>.tsv when the root is absent)."""
+    """Reads index/<key>.tsv (fast; the NAS is slow to walk). A source nested inside another
+    (sfm inside lib) reads the parent's index. Walks the disk only when there is no index."""
 
     def __init__(self, roots):
         self.roots, self._files, self.missing = roots, {}, set()
+
+    def _from_index(self, key):
+        idx = INDEX / f"{key}.tsv"
+        if idx.exists():
+            return read_index(idx)
+        root = self.roots.get(key)
+        for pkey, proot in self.roots.items():
+            if root and pkey != key and nested_in(root, proot) and (INDEX / f"{pkey}.tsv").exists():
+                prefix = str(root.relative_to(proot)) + "/"
+                return [(r[len(prefix):], s) for r, s in read_index(INDEX / f"{pkey}.tsv") if r.startswith(prefix)]
+        return None
 
     def files(self, key):
         if key in self._files:
             return self._files[key]
         root = self.roots.get(key)
-        if root and root.is_dir():
-            items, absroot = walk_source(root), root
-        elif (INDEX / f"{key}.tsv").exists():
-            items, absroot = [], None
-            for line in (INDEX / f"{key}.tsv").read_text().splitlines():
-                if line and not line.startswith("#"):
-                    r, _, s = line.rpartition("\t")
-                    items.append((r, int(s or 0)))
-        else:
+        online = bool(root and root.is_dir())
+        items = self._from_index(key)
+        if items is None and online:
+            items = walk_source(root, key)
+        absroot = root if online else None
+        if items is None:
             if key not in self.missing:
                 where = f" at {root}" if root else " in config/paths.local"
                 nas = " (NAS not mounted?)" if root and str(root).startswith("/Volumes/") else ""
                 print(f"  warn  source '{key}' not found{where}{nas}; its rules are skipped")
             self.missing.add(key)
             return []
+        if not items and not online:
+            self.missing.add(key)
         self._files[key] = [SrcFile(key, r, s, absroot) for r, s in items]
         return self._files[key]
 
@@ -273,7 +323,10 @@ def resolve(rule, lib, ignore_limit=False):
     files = lib.files(rule.src)
     if is_glob(rule.pattern):
         g = norm_path(rule.pattern)
-        hits = [f for f in files if fnmatch.fnmatchcase(f.norm, g) or fnmatch.fnmatchcase(f.norm, "*/" + g)]
+        # anchored at the source root first; anywhere below only if that finds nothing
+        # (keeps "Essential WAV From Mars/.../Junos From Mars" copies out of a JUNOS rule)
+        hits = [f for f in files if fnmatch.fnmatchcase(f.norm, g)] or \
+               [f for f in files if fnmatch.fnmatchcase(f.norm, "*/" + g)]
     else:
         hits = [f for f in files if f.rel == rule.pattern] or \
                [f for f in files if f.norm == norm_path(rule.pattern)]
@@ -283,10 +336,13 @@ def resolve(rule, lib, ignore_limit=False):
     prefer = str(rule.opts.get("prefer", DEFAULT_PREFER))
     if prefer != "any":
         words = [norm(w) for w in prefer.split(",") if w]
-        pref = [f for f in hits if any(re.search(rf"\b{re.escape(w)}\b", f.norm) for w in words)]
+        # folders only: SFM splits clean/color by folder; a filename that says "color" doesn't count
+        pref = [f for f in hits if any(re.search(rf"\b{re.escape(w)}\b", f.norm.rsplit("/", 1)[0]) for w in words)]
         hits = pref or hits
     hits.sort(key=lambda f: f.rel.lower())
     limit = rule.opts.get("limit")
+    if "kit" not in rule.pattern.lower():
+        hits = [f for f in hits if not any(KITS_DIR.match(seg) for seg in f.norm.split("/")[:-1])]
     if limit and not ignore_limit and len(hits) > limit:
         if rule.opts.get("pick") == "first":
             hits = hits[:limit]
@@ -310,6 +366,27 @@ def source_code(f, codes):
     return (re.sub(r"[^a-z0-9]", "", first.lower())[:4] or "src"), first
 
 
+NOTE_TOK = re.compile(r"[a-g]s?\d")
+
+
+def describe(stem, code, fn, pack_seg):
+    """The useful words of a pack filename: '60 E Piano Mirage C3' -> e-piano-c3,
+    'Djembe Hi Flam Reserve' -> djembe-hi-flam, '36_Hover_SH101_C1-8UFY' -> hover-c1."""
+    parts = [p for p in slug(stem).split("-") if p]
+    if len(parts) >= 2 and NOTE_TOK.fullmatch(parts[-2]) and (
+            re.fullmatch(r"0\d{3}", parts[-1]) or
+            (re.fullmatch(r"[a-z0-9]{4}", parts[-1]) and re.search(r"\d", parts[-1]) and re.search(r"[a-z]", parts[-1]))):
+        parts.pop()  # round-robin counter or random tag after the note
+    if len(parts) > 1 and NOTE_TOK.fullmatch(parts[-1]) and parts[0].isdigit():
+        parts.pop(0)  # MIDI note number in front: "60 E Piano ... C3"
+    pack_words = set(slug(pack_seg).split("-")) if pack_seg else set()
+    redundant = {code, fn.lower()} | pack_words
+    nums = [w for w in pack_words if w.isdigit() and len(w) >= 3]
+    def said(tok):  # the prefix already says it (pack name, code, function, SH101 for 101)
+        return tok in redundant or any(tok.endswith(n) and len(tok) - len(n) <= 3 for n in nums)
+    return [p for p in parts if not said(p)] or parts[-1:]
+
+
 def fit(base, maxlen=MAX_NAME):
     if len(base) <= maxlen:
         return base
@@ -328,12 +405,7 @@ def make_name(rule, f, fn, codes):
     code, pack_seg = rule.opts.get("code"), None
     if not code:
         code, pack_seg = source_code(f, codes)
-    # drop leading words the prefix already says: pack name, code, function (909 Kick 01 -> 909_kick_01)
-    redundant = {code, fn.lower()} | (set(slug(pack_seg).split("-")) if pack_seg else set())
-    parts = slug(stem).split("-")
-    while len(parts) > 1 and parts[0] in redundant:
-        parts.pop(0)
-    desc = "-".join(parts)
+    desc = "-".join(describe(stem, code, fn, pack_seg))
     return fit(f"{code}_{fn.lower()}_{desc or 'x'}")
 
 
@@ -400,7 +472,10 @@ def sha256(path):
 
 def render(job, cache):
     out, f, o = job["out"], job["file"], job["opts"]
-    st = f.abs.stat()
+    try:
+        st = f.abs.stat()
+    except OSError:
+        return job["path"], None, f"{f.rel} is in the index but not on disk. Rerun ./djmono scan"
     sig = hashlib.sha1(json.dumps([str(f.abs), st.st_size, int(st.st_mtime), o], sort_keys=True).encode()).hexdigest()
     if out.exists() and cache.get(job["path"]) == sig:
         return job["path"], sig, None
@@ -495,7 +570,7 @@ def cmd_build(args):
         die(f"source(s) {', '.join(sorted(lib.missing))} unreachable (NAS not mounted?). Nothing was changed")
     missing = sorted({j["file"].key for j in jobs if j["file"].abs is None})
     if missing:
-        die(f"source(s) {', '.join(missing)} are only available as an index here; build on the machine with the files")
+        die(f"source(s) {', '.join(missing)} are offline (NAS not mounted?). ls works from the index; build needs the files")
 
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     errors, done = [], 0
@@ -714,13 +789,18 @@ def cmd_scan(args):
         if not root or not root.is_dir():
             print(f"  skip {k}: {root} not found")
             continue
-        items = walk_source(root)
-        with open(INDEX / f"{k}.tsv", "w") as fh:
+        parent = next((pk for pk, pr in roots.items() if pk != k and pr.is_dir() and nested_in(root, pr)), None)
+        if parent and not args.source:
+            (INDEX / f"{k}.tsv").unlink(missing_ok=True)
+            print(f"  {k}: inside {parent}, covered by index/{parent}.tsv")
+            continue
+        items = walk_source(root, k)
+        with open(INDEX / f"{k}.tsv", "w", encoding="utf-8", errors="surrogateescape") as fh:
             fh.write(f"# {k}: {len(items)} audio files, scanned {dt.date.today().isoformat()} (relative path, bytes)\n")
             for r, s in items:
                 fh.write(f"{r}\t{s}\n")
-        print(f"  {k}: {len(items)} files -> index/{k}.tsv")
-    print("Commit index/ so crates can be curated from any machine.")
+        print(f"  {k}: {len(items):,} files -> index/{k}.tsv")
+    print("Commit index/. Rescan after adding packs; ls/build/audition read the index, not the NAS.")
 
 
 def read_key():

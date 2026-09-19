@@ -1,4 +1,5 @@
 # DUB/PAD · the fog behind the chords
-sfm:VP 330 FROM MARS/* c3.wav                | limit=4
-sfm:JUNOS FROM MARS/*pad* c3.wav             | limit=4
-sfm:TAPE FRAGMENTS FROM MARS/*pad*           | limit=4
+sfm:VP330 FROM MARS/WAV/* c3*.wav                          | limit=6
+sfm:JUNOS FROM MARS/*04. pads/* c3*.wav                    | limit=6
+sfm:DR SAMPLE FROM MARS/*pads/* c3*.wav                    | limit=4
+sfm:TAPE FRAGMENTS FROM MARS/*                             | limit=6 exclude=bass,lead,flute

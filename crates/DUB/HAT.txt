@@ -1,8 +1,9 @@
 # DUB/HAT · ride-centric, top-down: rides first, then hats
-sfm:VINYL DRUMS FROM MARS/*ride*             | limit=6
-sfm:CASSETTE DRUMS FROM MARS/*ride*          | limit=4
-sfm:VINYL DRUMS FROM MARS/*hat*              | limit=6
-sfm:LM1 FROM MARS/*hat*                      | limit=4
+sfm:VINYL DRUMS FROM MARS/*cymbal/ride/*                   | limit=6
+sfm:PRIVATE RESERVE FROM MARS/*11. ride/*                  | limit=4
+sfm:VINYL DRUMS FROM MARS/*closed hat/*                    | limit=5
+sfm:VINYL DRUMS FROM MARS/*open hat/*                      | limit=3
+sfm:LM1 FROM MARS/*hi hat/*/ch/*                           | limit=3
 
 # your cuts
 # rec:vinyl/*_ride_*

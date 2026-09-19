@@ -23,10 +23,10 @@ Mount the NAS first: Finder > Go > Connect to Server (⌘K) > `smb://apollo@arch
 cd ~ && git clone git@github.com:kyleprier/djmono.git && cd djmono
 brew install sox
 ./djmono doctor      # finds audio/sample packs on the mounted share, writes config/paths.local
-./djmono scan        # indexes the library into index/ (commit it)
+./djmono scan        # lists the library into index/lib.tsv (commit it). Slow over SMB, so run it after adding packs, not daily
 ```
 
-Packs must be unzipped on the NAS; `doctor` flags any zips. If the share mounts under a new name, rerun `doctor` and it re-finds it. `build` refuses to run while the NAS is unreachable, so an unmounted share can never look like deleted samples.
+`ls`, `audition` and `build` read the index rather than walking the NAS, so they're instant. Packs must be unzipped on the NAS; `doctor` flags any zips. If the share mounts under a new name, rerun `doctor` and it re-finds it. `build` refuses to run while the NAS is unreachable, so an unmounted share can never look like deleted samples.
 
 Optional: build `elektroid-cli` for one-command sync ([docs/DEVICE.md](docs/DEVICE.md#tools)). Without it, sync stages a folder for Transfer.
 

@@ -1,10 +1,11 @@
-# DUB/CHRD · the engine: minor 7/9/11 stabs, dusty and short. One note (C3) per patch; the DT2 plays it chromatically.
-sfm:VINYL SYNTHS FROM MARS/*chord*           | limit=12
-sfm:VINYL SYNTHS FROM MARS/* c3.wav          | limit=10
-sfm:JUNOS FROM MARS/*stab*                   | limit=6
-sfm:JUNOS FROM MARS/* c3.wav                 | limit=8 exclude=bass,pad
-sfm:TAPE FRAGMENTS FROM MARS/* c3.wav        | limit=6
-sfm:OB FROM MARS/* c3.wav                    | limit=4
+# DUB/CHRD · the engine: minor 7/9/11 stabs, dusty and short
+sfm:VINYL SYNTHS FROM MARS/*04. chords/*                   | limit=12
+sfm:JUNOS FROM MARS/*05. chords/*                          | limit=10
+sfm:DR SAMPLE FROM MARS/*chords/05. rhodes chords/*        | limit=6
+sfm:DR SAMPLE FROM MARS/*chords/02. major & minor 7/*      | limit=6
+sfm:DR SAMPLE FROM MARS/*chords/06. universe chords/*      | limit=4
+sfm:OB FROM MARS/*keys/warble chords/* c3*.wav             | limit=1
+sfm:MIRAGE FROM MARS/*synth/chord explosion/* c3*.wav      | limit=1
 
-# gap fill: Luftrum Dub Techno Chords (labelled by key), abitdeeper Dub Techno Elements
-# lib:Luftrum Dub Techno Chords/*.wav        | limit=24 code=luft
+# gap fill: Luftrum Dub Techno Chords (labelled by key)
+# lib:Luftrum Dub Techno Chords/*.wav                      | limit=24 code=luft

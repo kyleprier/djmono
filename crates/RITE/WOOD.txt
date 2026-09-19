@@ -1,5 +1,8 @@
 # RITE/WOOD · claves, blocks, sticks, body percussion
-sfm:VISCOUNT FROM MARS/*clave*               | limit=2
-sfm:WENDEL FROM MARS/*block*                 | limit=4
-sfm:FOUND SOUNDS FROM MARS/*wood*            | limit=8
-sfm:CASSETTE DRUMS FROM MARS/*clave*         | limit=2
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/clave*       | limit=5
+sfm:PRIVATE RESERVE FROM MARS/*09. percussion/woodblock*   | limit=4
+sfm:VINYL DRUMS FROM MARS/*percussion/clave/*              | limit=3
+sfm:VINYL DRUMS FROM MARS/*percussion/sticks/*             | limit=3
+sfm:EKKO FROM MARS/*individual hits/*block*                | limit=4
+sfm:FOUND SOUNDS FROM MARS/*wood/clean/*                   | limit=6
+sfm:FOUND SOUNDS FROM MARS/*body misc/clean/*              | limit=4
