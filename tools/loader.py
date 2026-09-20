@@ -17,6 +17,8 @@ RAM_BANKS = {"CORE": "A", "DUB": "BC", "RITE": "DEF", "DRIFT": "G"}  # H stays f
 BANK_SLOTS = 127
 SLOTS_HEADER = ("# RAM slot -> sample in the TRIAD project. ./djmono slots keeps this in step with the crates;\n"
                 "# load samples in the order the project sheet gives and they land in these slots.\n")
+DEST_HEADER = ("# LFO destination -> the CC value that picks it, read off the device by ./djmono learn.\n"
+               "# With these, ./djmono load sets LFO destinations too.\n")
 MIDI_DEFAULTS = {"port": "Digitakt", "slot_base": "0", "bank_base": "0", "sort": "ascii", "gap_ms": "3",
                  "sample_ms": "100", "fx_channel": "16"}
 
@@ -152,6 +154,33 @@ class Port:
             self.out.close()
 
 
+def read_dest_map(path):
+    """{destination name: CC value} learned from the device."""
+    out = {}
+    if Path(path).exists():
+        for line in Path(path).read_text().splitlines():
+            line = line.split("#", 1)[0].strip()
+            if "=" in line:
+                k, _, v = (x.strip() for x in line.partition("="))
+                if v.isdigit() and k in dt2.LFO_DEST:
+                    out[k] = int(v)
+    return out
+
+
+def write_dest_map(path, dests):
+    Path(path).write_text(DEST_HEADER + "".join(f"{k:<8}= {v}\n" for k, v in sorted(dests.items())))
+
+
+def listen(cfg):
+    """Open the DT2's MIDI input, for learning what its knobs send."""
+    import mido
+    names = mido.get_input_names()
+    hits = [n for n in names if cfg["port"].lower() in n.lower()]
+    if not hits:
+        raise SystemExit(f"no MIDI input matching '{cfg['port']}' (found: {', '.join(names) or 'none'})")
+    return mido.open_input(hits[0])
+
+
 def wav_seconds(path):
     try:
         with wave.open(str(path)) as w:
@@ -160,7 +189,7 @@ def wav_seconds(path):
         return None
 
 
-def dial(port, track, slot, machine, params, cfg, seconds=None, sample=""):
+def dial(port, track, slot, machine, params, cfg, seconds=None, sample="", dests=None):
     """Send one sound to one track: sample first, then every parameter. Returns what was sent, for display."""
     bank, n = "ABCDEFGH".index(slot[0]), int(slot[1:])
     port.cc(track, dt2.CC_SAMPLE_BANK, bank + int(cfg["bank_base"]))
@@ -176,6 +205,11 @@ def dial(port, track, slot, machine, params, cfg, seconds=None, sample=""):
                 port.cc(track, num, val)
             else:
                 port.nrpn(track, *num, val)
+    for n in (1, 2, 3):  # destinations only once ./djmono learn has read them off the device
+        dest = params.get(f"lfo{n}.dest")
+        if dest and (dests or {}).get(dest) is not None:
+            port.cc(track, dt2.LFO_DEST_CC[n], dests[dest])
+            values[f"lfo{n}.dest"] = dest
     return values
 
 

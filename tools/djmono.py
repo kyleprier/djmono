@@ -902,6 +902,11 @@ def slot_map():
     return loader, cfg, loader.SlotMap(SLOTS, cfg["sort"])
 
 
+def dest_map():
+    import loader
+    return loader.read_dest_map(CONFIG / "lfo-dest.txt")
+
+
 def cmd_check(args):
     rig, r, samples, missing = checked_rig()
     if missing:
@@ -1071,16 +1076,17 @@ def cmd_load(args):
         print(f"  track {t:>2}: {m.upper()}")
     if not args.yes and not args.dry_run:
         input("\nPress Enter to send... ")
+    dests = dest_map()
     port = loader.Port(cfg, dry=args.dry_run)
     for trk, p, machine, params in jobs:
         slot = slots[p["sample"]]
         secs = loader.wav_seconds(DRIVE / f"{p['sample']}.wav")
-        vals = loader.dial(port, trk, slot, machine, params, cfg, secs, p["sample"])
+        vals = loader.dial(port, trk, slot, machine, params, cfg, secs, p["sample"], dests)
         grid = f" · grid {vals['grid']}" if "grid" in vals else ""
         print(f"  {trk:>2}  {p['bank']}{p['slot']:03d} {p['name']:<12}  {slot}  {p['sample'].split('/', 1)[1]}{grid}")
     port.close()
     print(f"\n{len(port.sent)} messages" + (" (dry run, nothing sent)" if args.dry_run else " sent."))
-    hand = [(t, rig.Rig.manual(m, pr)) for t, _, m, pr in jobs]
+    hand = [(t, rig.Rig.manual(m, pr, dests)) for t, _, m, pr in jobs]
     hand = [(t, [x for x in h if not x.startswith("machine")]) for t, h in hand]
     if any(h for _, h in hand):
         print("\nBy hand:")
@@ -1176,6 +1182,45 @@ def sort_probes(sm):
     return list(dict.fromkeys(out))[:3]
 
 
+def cmd_learn(args):
+    """Read which CC value picks which LFO destination, by watching the DT2's own DEST knob."""
+    import dt2
+    rig, r, _, _ = checked_rig()
+    loader, cfg, _ = slot_map()
+    known = dest_map()
+    wanted = sorted({v for p in r.presets.values() for k, v in r.sound(p)[1].items() if k.endswith(".dest")})
+    todo = [d for d in wanted if args.all or d not in known]
+    if not todo:
+        print(f"all {len(wanted)} destinations the presets use are learned ({rel(CONFIG / 'lfo-dest.txt')}). "
+              "./djmono learn --all redoes them.")
+        return
+    print("On the DT2: SETTINGS > MIDI CONFIG > PORT CONFIG: OUTPUT TO = USB, ENCODER DEST = INT + EXT, "
+          "OUTPUT CH = TRK CH.\nSelect track 1 and open the LFO page (LFO1's DEST parameter).\n"
+          "For each line below: turn DEST to that destination, then press Enter here. 's' skips, 'q' stops.\n")
+    inp = loader.listen(cfg)
+    try:
+        for name in todo:
+            for _ in inp.iter_pending():
+                pass
+            answer = input(f"  LFO1 DEST = {dt2.LFO_DEST[name]:<18} [Enter when set] ").strip().lower()
+            if answer == "q":
+                break
+            if answer == "s":
+                continue
+            seen = [m.value for m in inp.iter_pending()
+                    if m.type == "control_change" and m.control == dt2.LFO_DEST_CC[1]]
+            if not seen:
+                print("      nothing came in: turn the knob rather than pressing it, and check ENCODER DEST.")
+                continue
+            known[name] = seen[-1]
+            print(f"      {dt2.LFO_DEST[name]} = {seen[-1]}")
+    finally:
+        inp.close()
+    loader.write_dest_map(CONFIG / "lfo-dest.txt", known)
+    print(f"\n{len(known)} destinations saved in {rel(CONFIG / 'lfo-dest.txt')}; ./djmono load sets them from now on. "
+          "Commit the file.")
+
+
 def match_presets(r, words):
     """Every word must match: a bank letter (C), a world (rite), a role (hand, sl, lp), or part of the
     name, sample, recipe or tags."""
@@ -1251,7 +1296,7 @@ def cmd_browse(args):
             p = found[i]
             m, params = r.sound(p)
             loader.dial(port, args.track, slots[p["sample"]], m, params, cfg,
-                        loader.wav_seconds(DRIVE / f"{p['sample']}.wav"), p["sample"])
+                        loader.wav_seconds(DRIVE / f"{p['sample']}.wav"), p["sample"], dest_map())
             warn = f"  << set machine {m.upper()}" if m != machine else ""
             machine = m
             print(f"[{i + 1}/{len(found)}] {p['bank']}:{p['name']:<12} {p['recipe']:<13} "
@@ -1571,6 +1616,9 @@ def main():
     p.add_argument("--dry-run", action="store_true", help="show what would be sent")
     p.add_argument("-y", "--yes", action="store_true", help="don't stop to ask")
     p.set_defaults(fn=cmd_load)
+    p = sub.add_parser("learn", help="read the LFO destination values off the DT2, so load can set them")
+    p.add_argument("--all", action="store_true", help="redo the ones already learned")
+    p.set_defaults(fn=cmd_learn)
     p = sub.add_parser("browse", help="step through presets on one track while the pattern plays")
     p.add_argument("query", nargs="*", help="words to match: name, bank letter, role, recipe, tag, sample")
     p.add_argument("--track", type=int, default=1)

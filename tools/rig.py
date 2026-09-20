@@ -232,14 +232,14 @@ class Rig:
         return r["machine"], {**r["params"], **preset["own"], **(tweaks or {})}
 
     @staticmethod
-    def manual(machine, params):
-        """What the loader can't set: machine, LFO destinations, loop bars."""
+    def manual(machine, params, dests=None):
+        """What the loader can't set: machine, loop bars, and any LFO destination not yet learned."""
         out = []
         if machine != dt2.DEFAULT_MACHINE:
             out.append(f"machine {machine.upper()}")
         for n in (1, 2, 3):
             d = params.get(f"lfo{n}.dest")
-            if d:
+            if d and (dests or {}).get(d) is None:
                 out.append(f"LFO{n} > {dt2.LFO_DEST[d]}")
         if machine in ("Stretch", "Werp"):
             out.append("BARS = loop length")

@@ -24,7 +24,10 @@ MULTS = tuple(f"x{m}" for m in ("1", "2", "4", "8", "16", "32", "64", "128", "25
 GRIDS = (4, 8, 16, 32, 64)                       # Grid machine slice counts, CC 22 index
 FTYPES = {"lp": 0, "bp": 64, "hp": 127}          # Multi-Mode morphs LP > BP > HP
 
-# LFO destinations are set by hand; these are the names recipes use and what to pick on the device.
+# LFO destination CCs. Which value picks which destination isn't documented, so ./djmono learn reads the
+# values off the device (turn the DEST knob, the DT2 sends the CC) into config/lfo-dest.txt.
+LFO_DEST_CC = {1: 105, 2: 115, 3: 28}
+# The names recipes use, and what to pick on the device.
 LFO_DEST = {
     "freq": "FLTR FREQ", "reso": "FLTR RESO", "type": "FLTR TYPE", "env": "FLTR ENV DEPTH",
     "tune": "SRC TUNE", "start": "SRC STRT", "slice": "SRC SLIC", "level": "SRC LEV", "sample": "SRC SMP",

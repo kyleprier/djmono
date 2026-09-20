@@ -43,6 +43,7 @@ On the DT2: SETTINGS > MIDI CONFIG > PORT CONFIG: INPUT FROM USB, RECEIVE CC/NRP
 ./djmono slots                 # which RAM slot each synced sample takes; prints the load order
 ./djmono sheet                 # build/sheets/: project load order, one sheet per kit, the preset banks
 ./djmono load --test           # checks MIDI and the slot plan with a test sound on track 1
+./djmono learn                 # read the LFO destination values off the DT2 (once), so load can set them
 ./djmono load "DEEP ECHO"      # dials all 16 tracks of a kit; then save the kit on the DT2
 ./djmono load "DEEP ECHO" --fx # sends the kit's delay/reverb/chorus/comp (asks you to free a channel)
 ./djmono load --preset "C:TAMA DEEP" --track 6   # one preset onto one track
@@ -67,6 +68,7 @@ presets/seed.txt          which folders grow which ranges
 kits/<WORLD>/<KIT>.txt    tempo, reference, how to play it, FX, 16 tracks
 projects/TRIAD.txt        worlds to load, kits per pattern bank
 config/midi.txt           how the loader talks to the DT2
+config/lfo-dest.txt       LFO destination values, read off the device by ./djmono learn
 config/paths.example      where the library lives (copied to paths.local, not in git)
 state/drive.lock          every sample built, where it came from, when it reached the DT2
 state/slots.txt           which RAM slot holds which sample in TRIAD

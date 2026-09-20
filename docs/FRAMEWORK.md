@@ -100,7 +100,9 @@ presets + kits ───────────────────── .
 3. `load "KIT"` sets every track's sample and parameters over USB MIDI (tracks on channels 1–16). You set the machines first, LFO destinations after, then save the kit.
 4. `browse` steps presets through one track while a pattern plays. Press `k` to write the one you like into a kit file. That's how new kits get made.
 
-What MIDI can't reach: machines, filter machines, LFO destinations and loop BARS. The loader and the sheets list these per track.
+What MIDI can't reach: machines, filter machines and loop BARS; the loader and the sheets list those per track. LFO destinations are reachable once `./djmono learn` has read the values off your unit (turn the DEST knob, the DT2 sends the CC), which it writes to `config/lfo-dest.txt`.
+
+Saving is yours: the DT2 has no MIDI command for "save this kit", so each kit ends with PRESET/KIT > SAVE (KIT) and a name.
 
 ## Growth
 
