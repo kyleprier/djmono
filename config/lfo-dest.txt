@@ -1,0 +1,7 @@
+# LFO destination -> the CC value that picks it, read off the device by ./djmono learn.
+# With these, ./djmono load sets LFO destinations too.
+freq    = 36
+pan     = 58
+start   = 31
+tune    = 25
+vol     = 59
