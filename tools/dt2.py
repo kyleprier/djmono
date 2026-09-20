@@ -27,6 +27,7 @@ FTYPES = {"lp": 0, "bp": 64, "hp": 127}          # Multi-Mode morphs LP > BP > H
 # LFO destination CCs. Which value picks which destination isn't documented, so ./djmono learn reads the
 # values off the device (turn the DEST knob, the DT2 sends the CC) into config/lfo-dest.txt.
 LFO_DEST_CC = {1: 105, 2: 115, 3: 28}
+LFO_DEST_NRPN = {1: (1, 45), 2: (1, 53), 3: (1, 61)}
 # The names recipes use, and what to pick on the device.
 # names as the DT2's own destination list prints them (the filter entries follow the filter machine,
 # so Multi-Mode shows MM FREQUENCY and MM RESONANCE)

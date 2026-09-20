@@ -181,6 +181,31 @@ def listen(cfg):
     return mido.open_input(hits[0])
 
 
+def collect(inp):
+    """Everything waiting on the input, as ('cc', number, value) and ('nrpn', (msb, lsb), value)."""
+    out, sel, msb = [], {}, {}
+    for m in inp.iter_pending():
+        if m.type != "control_change":
+            continue
+        if m.control in (98, 99):
+            sel[m.control] = m.value
+        elif m.control == 6 and 99 in sel and 98 in sel:
+            msb["v"] = m.value
+            out.append(("nrpn", (sel[99], sel[98]), m.value))
+        elif m.control == 38 and 99 in sel and 98 in sel:
+            out.append(("nrpn", (sel[99], sel[98]), (msb.get("v", 0) << 7) | m.value))
+        else:
+            out.append(("cc", m.control, m.value))
+    return out
+
+
+def dest_from(msgs, n):
+    """The LFO destination value in what the device sent, whether it speaks CC or NRPN."""
+    cc, nrpn = dt2.LFO_DEST_CC[n], dt2.LFO_DEST_NRPN[n]
+    hits = [v for kind, num, v in msgs if (kind, num) in (("cc", cc), ("nrpn", nrpn))]
+    return hits[-1] if hits else None
+
+
 def wav_seconds(path):
     try:
         with wave.open(str(path)) as w:

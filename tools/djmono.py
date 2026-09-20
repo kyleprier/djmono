@@ -1207,18 +1207,44 @@ def cmd_learn(args):
                 break
             if answer == "s":
                 continue
-            seen = [m.value for m in inp.iter_pending()
-                    if m.type == "control_change" and m.control == dt2.LFO_DEST_CC[1]]
-            if not seen:
-                print("      nothing came in: turn the knob rather than pressing it, and check ENCODER DEST.")
+            msgs = loader.collect(inp)
+            value = loader.dest_from(msgs, 1)
+            if value is None:
+                if msgs:
+                    print(f"      the DT2 sent {', '.join(f'{k} {n} = {v}' for k, n, v in msgs[-4:])}, but nothing "
+                          f"on the LFO1 destination (CC {dt2.LFO_DEST_CC[1]} / NRPN {dt2.LFO_DEST_NRPN[1]}). "
+                          "Send me that line.")
+                else:
+                    print("      nothing came in. Turn the DEST knob itself, and check PORT CONFIG: OUTPUT TO = USB,"
+                          " ENCODER DEST = INT + EXT.")
                 continue
-            known[name] = seen[-1]
-            print(f"      {dt2.LFO_DEST[name]} = {seen[-1]}")
+            known[name] = value
+            print(f"      {dt2.LFO_DEST[name]} = {value}")
     finally:
         inp.close()
     loader.write_dest_map(CONFIG / "lfo-dest.txt", known)
     print(f"\n{len(known)} destinations saved in {rel(CONFIG / 'lfo-dest.txt')}; ./djmono load sets them from now on. "
           "Commit the file.")
+
+
+def cmd_monitor(args):
+    """Print what the DT2 sends, for ten seconds: the quickest way to see if its output is on."""
+    import time
+    loader, cfg, _ = slot_map()
+    inp = loader.listen(cfg)
+    print(f"listening for {args.seconds}s. Turn a knob on the Digitakt...")
+    end, seen = time.time() + args.seconds, 0
+    try:
+        while time.time() < end:
+            for kind, num, value in loader.collect(inp):
+                seen += 1
+                print(f"  {kind} {num} = {value}")
+            time.sleep(0.05)
+    finally:
+        inp.close()
+    if not seen:
+        print("nothing at all. On the DT2: SETTINGS > MIDI CONFIG > PORT CONFIG: OUTPUT TO = USB, "
+              "ENCODER DEST = INT + EXT, OUTPUT CH = TRK CH. Quit Transfer and Overbridge too.")
 
 
 def match_presets(r, words):
@@ -1619,6 +1645,9 @@ def main():
     p = sub.add_parser("learn", help="read the LFO destination values off the DT2, so load can set them")
     p.add_argument("--all", action="store_true", help="redo the ones already learned")
     p.set_defaults(fn=cmd_learn)
+    p = sub.add_parser("monitor", help="print the MIDI the DT2 sends (to check its output config)")
+    p.add_argument("--seconds", type=int, default=10)
+    p.set_defaults(fn=cmd_monitor)
     p = sub.add_parser("browse", help="step through presets on one track while the pattern plays")
     p.add_argument("query", nargs="*", help="words to match: name, bank letter, role, recipe, tag, sample")
     p.add_argument("--track", type=int, default=1)
