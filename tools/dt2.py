@@ -28,10 +28,12 @@ FTYPES = {"lp": 0, "bp": 64, "hp": 127}          # Multi-Mode morphs LP > BP > H
 # values off the device (turn the DEST knob, the DT2 sends the CC) into config/lfo-dest.txt.
 LFO_DEST_CC = {1: 105, 2: 115, 3: 28}
 # The names recipes use, and what to pick on the device.
+# names as the DT2's own destination list prints them (the filter entries follow the filter machine,
+# so Multi-Mode shows MM FREQUENCY and MM RESONANCE)
 LFO_DEST = {
-    "freq": "FLTR FREQ", "reso": "FLTR RESO", "type": "FLTR TYPE", "env": "FLTR ENV DEPTH",
-    "tune": "SRC TUNE", "start": "SRC STRT", "slice": "SRC SLIC", "level": "SRC LEV", "sample": "SRC SMP",
-    "pan": "AMP PAN", "vol": "AMP VOL", "dec": "AMP DEC",
+    "freq": "MM FREQUENCY", "reso": "MM RESONANCE", "type": "MM FILTER TYPE", "env": "ENV DEPTH",
+    "tune": "SRC TUNE", "start": "SRC START (STRT)", "slice": "SRC SLICE", "level": "SRC LEVEL",
+    "sample": "SRC SAMPLE SLOT", "pan": "AMP PAN", "vol": "AMP VOLUME", "dec": "AMP DECAY TIME",
     "delay": "FX DELAY SEND", "reverb": "FX REVERB SEND", "chorus": "FX CHORUS SEND",
     "od": "FX OVERDRIVE", "srr": "FX SRR", "bits": "FX BIT REDUCTION",
 }
